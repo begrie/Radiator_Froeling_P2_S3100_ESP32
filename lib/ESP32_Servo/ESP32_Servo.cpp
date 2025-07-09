@@ -1,6 +1,5 @@
-#include "ESP32_Servo.h"
 
-bool ESP32_Servo::usedLedcChannels[16]{false};
+#include "ESP32_Servo.h"
 
 /*********************************************************************
  * @brief 	Constructor
@@ -16,20 +15,18 @@ bool ESP32_Servo::usedLedcChannels[16]{false};
  *          -> for moveToAngleWithSpeedControl() is only a value != 0 needed to deactivate after the last movement increment
  * @return 	void
  *********************************************************************/
-ESP32_Servo::ESP32_Servo(uint8_t _servoPin, uint8_t _ledcChannel, uint8_t _minAngle, uint8_t _maxAngle, uint32_t _targetTimeMs, uint16_t _autoDeactivationDelayMs)
+
+ESP32_Servo::ESP32_Servo(uint8_t _servoPin, uint8_t _minAngle, uint8_t _maxAngle, uint32_t _targetTimeMs, uint16_t _autoDeactivationDelayMs)
     : servoPin(_servoPin),
-      ledcChannel(_ledcChannel),
       minAngle(_minAngle),
       maxAngle(_maxAngle),
       targetTimeMs(_targetTimeMs),
       autoDeactivationDelayMs(_autoDeactivationDelayMs)
 {
-  setMinMaxAngles(minAngle, maxAngle);
-
-  if (targetTimeMs)
-    setTargetTime(targetTimeMs);
-
-  initLEDCforPWM();
+    setMinMaxAngles(minAngle, maxAngle);
+    if (targetTimeMs)
+        setTargetTime(targetTimeMs);
+    initLEDCforPWM();
 }
 
 /*********************************************************************
@@ -37,12 +34,11 @@ ESP32_Servo::ESP32_Servo(uint8_t _servoPin, uint8_t _ledcChannel, uint8_t _minAn
  * @param 	void
  * @return 	void
  *********************************************************************/
+
 ESP32_Servo::~ESP32_Servo()
 {
-  ledcWrite(ledcChannel, 0);
-  ledcDetachPin(servoPin); // detach sometimes leads to uncontrolled servo wobble
-
-  usedLedcChannels[ledcChannel] = false; // free ledc channel
+    ledcWrite(servoPin, 0);
+    ledcDetach(servoPin);
 }
 
 /*********************************************************************
@@ -51,14 +47,13 @@ ESP32_Servo::~ESP32_Servo()
  * @param 	servo pin / GPIO
  * @return 	void
  *********************************************************************/
+
 void ESP32_Servo::setServoPin(uint8_t _servoPin)
 {
-  ledcWrite(ledcChannel, 0); // 0-duty-signal leads to a deactivated servo
-  ledcDetachPin(servoPin);
-
-  servoPin = _servoPin;
-
-  ledcAttachPin(servoPin, ledcChannel); // Assignment of servo pin to PWM timer channel
+    ledcWrite(servoPin, 0);
+    ledcDetach(servoPin);
+    servoPin = _servoPin;
+    initLEDCforPWM();
 }
 
 /*********************************************************************
@@ -70,63 +65,20 @@ void ESP32_Servo::setServoPin(uint8_t _servoPin)
  * @return  true : successfull configured
  *          false: error
  *********************************************************************/
+
 bool ESP32_Servo::initLEDCforPWM(uint32_t _pwmFrequency, uint8_t _dutyCycleResolutionBits)
 {
-  if (ledcChannel == AUTOSELECT_LEDC_CHANNEL)
-    autoselectLedcChannel();
-
-  assert(ledcChannel > MAX_LEDC_CHANNELS || _dutyCycleResolutionBits > 8);
-
-  auto frequency = ledcSetup(ledcChannel, _pwmFrequency, _dutyCycleResolutionBits);
-  if (frequency == 0)
-  {
-    Serial.printf("%lu ms: ESP32_Servo::initLEDCforPWM: Error at ledcSetup \n", millis());
-    return false;
-  }
-
-  ledcWrite(ledcChannel, 0);            // 0-duty-signal leads to a deactivated servo
-  ledcAttachPin(servoPin, ledcChannel); // Assignment of servo pin to PWM timer channel
-
-  return true;
-}
-
-/*********************************************************************
- * @brief 	returns next free LEDC channel
- *          - !! ONLY MANAGED INSIDE this library - not in general !!
- *          - the free channel is assigned to class member ledcChannel
- *            and is marked as used
- * @param 	false: starts occupying ledc channel from 0 to MAX_LEDC_CHANNELS
- *          true:  from MAX_LEDC_CHANNELS to 0
- * @return 	free LEDC channel
- *          255 on error
- *********************************************************************/
-uint8_t ESP32_Servo::autoselectLedcChannel(bool _fromMaxToMin)
-{
-  int i = 0;
-  int end = MAX_LEDC_CHANNELS;
-  int increment = 1;
-
-  if (_fromMaxToMin)
-  {
-    i = MAX_LEDC_CHANNELS;
-    end = 0;
-    increment = -1;
-  }
-
-  while (i != end)
-  {
-    if (usedLedcChannels[i] == false)
+    // Attach and configure PWM in one step (Arduino-ESP32 v3+)
+    if (!ledcAttach(servoPin, _pwmFrequency, _dutyCycleResolutionBits))
     {
-      usedLedcChannels[i] = true;
-      ledcChannel = i;
-      return i;
+        Serial.printf("%lu ms: ESP32_Servo::initLEDCforPWM: Error at ledcAttach \n", millis());
+        return false;
     }
-
-    i += increment;
-  }
-
-  return 255; // signals error
+    ledcWrite(servoPin, 0); // 0-duty-signal leads to a deactivated servo
+    return true;
 }
+
+// autoselectLedcChannel entfernt, da die Kanalverwaltung ab Arduino-ESP32 v3 von der LEDC-Library übernommen wird.
 
 /*********************************************************************
  * @brief 	sets min and max angles as and stops for servo movements
@@ -138,29 +90,29 @@ uint8_t ESP32_Servo::autoselectLedcChannel(bool _fromMaxToMin)
  *********************************************************************/
 void ESP32_Servo::setMinMaxAngles(uint8_t _minAngle, uint8_t _maxAngle)
 {
-  minAngle = _minAngle;
-  maxAngle = _maxAngle;
+    minAngle = _minAngle;
+    maxAngle = _maxAngle;
 
-  if (minAngle > maxAngle)
-    std::swap(minAngle, maxAngle);
+    if (minAngle > maxAngle)
+        std::swap(minAngle, maxAngle);
 
-  if (minAngle < SERVOANGLE_AT_MIN_PULSEWIDTH)
-    minAngle = SERVOANGLE_AT_MIN_PULSEWIDTH;
+    if (minAngle < SERVOANGLE_AT_MIN_PULSEWIDTH)
+        minAngle = SERVOANGLE_AT_MIN_PULSEWIDTH;
 
-  if (maxAngle > SERVOANGLE_AT_MAX_PULSEWIDTH)
-    maxAngle = SERVOANGLE_AT_MAX_PULSEWIDTH;
+    if (maxAngle > SERVOANGLE_AT_MAX_PULSEWIDTH)
+        maxAngle = SERVOANGLE_AT_MAX_PULSEWIDTH;
 
-  if (minAngle == maxAngle)
-  {
-    if (minAngle != 0)
-      minAngle -= 1;
+    if (minAngle == maxAngle)
+    {
+        if (minAngle != 0)
+            minAngle -= 1;
 
-    if (maxAngle != 180)
-      maxAngle += 1;
-  }
+        if (maxAngle != 180)
+            maxAngle += 1;
+    }
 
 #if DEBUG_ESP32_SERVO
-  Serial.printf("%lu ms: ESP32_Servo::setMinMaxAngles: minAngle= %d, maxAngle= %d \n", millis(), minAngle, maxAngle);
+    Serial.printf("%lu ms: ESP32_Servo::setMinMaxAngles: minAngle= %d, maxAngle= %d \n", millis(), minAngle, maxAngle);
 #endif
 }
 
@@ -173,27 +125,27 @@ void ESP32_Servo::setMinMaxAngles(uint8_t _minAngle, uint8_t _maxAngle)
  *********************************************************************/
 uint16_t ESP32_Servo::setTargetTime(uint32_t _targetTimeMs)
 {
-  delayMsPerDegreeFromTargetTime = std::round(_targetTimeMs / (maxAngle - minAngle));
+    delayMsPerDegreeFromTargetTime = std::round(_targetTimeMs / (maxAngle - minAngle));
 
-  anglespeedDegreePerSecond = ((double)(maxAngle - minAngle) / (double)(_targetTimeMs)) * 1000;
+    anglespeedDegreePerSecond = ((double)(maxAngle - minAngle) / (double)(_targetTimeMs)) * 1000;
 
-  if (!delayMsPerDegreeFromTargetTime)
-    delayMsPerDegreeFromTargetTime = 1; // minimum value
+    if (!delayMsPerDegreeFromTargetTime)
+        delayMsPerDegreeFromTargetTime = 1; // minimum value
 
-  // store and return targetTime calculated from delay -> can be different due to rounding for ticker resolution (only ms)
-  targetTimeMs = delayMsPerDegreeFromTargetTime * (maxAngle - minAngle);
+    // store and return targetTime calculated from delay -> can be different due to rounding for ticker resolution (only ms)
+    targetTimeMs = delayMsPerDegreeFromTargetTime * (maxAngle - minAngle);
 
 #if DEBUG_ESP32_SERVO
-  Serial.printf(
-      "%lu ms: ESP32_Servo::setTargetTime: _targetTimeMs= %d, anglespeedDegreePerSecond= %d, delayMsPerDegreeFromTargetTime= %d, targetTimeMs after rounding= %d \n",
-      millis(),
-      _targetTimeMs,
-      anglespeedDegreePerSecond,
-      delayMsPerDegreeFromTargetTime,
-      targetTimeMs);
+    Serial.printf(
+        "%lu ms: ESP32_Servo::setTargetTime: _targetTimeMs= %d, anglespeedDegreePerSecond= %d, delayMsPerDegreeFromTargetTime= %d, targetTimeMs after rounding= %d \n",
+        millis(),
+        _targetTimeMs,
+        anglespeedDegreePerSecond,
+        delayMsPerDegreeFromTargetTime,
+        targetTimeMs);
 #endif
 
-  return targetTimeMs;
+    return targetTimeMs;
 }
 
 /*********************************************************************
@@ -204,18 +156,18 @@ uint16_t ESP32_Servo::setTargetTime(uint32_t _targetTimeMs)
  *********************************************************************/
 uint16_t ESP32_Servo::setAnglespeedDegreePerSecond(uint16_t _anglespeedDegreePerSecond)
 {
-  auto _targetTimeMs = ((double)(maxAngle - minAngle) / (double)_anglespeedDegreePerSecond) * 1000.0;
-  setTargetTime(_targetTimeMs);
+    auto _targetTimeMs = ((double)(maxAngle - minAngle) / (double)_anglespeedDegreePerSecond) * 1000.0;
+    setTargetTime(_targetTimeMs);
 
 #if DEBUG_ESP32_SERVO
-  Serial.printf(
-      "%lu ms: ESP32_Servo::setAnglespeedDegreePerSecond: _anglespeedDegreePerSecond= %d, anglespeedDegreePerSecond after recalc= %d \n",
-      millis(),
-      _anglespeedDegreePerSecond,
-      anglespeedDegreePerSecond);
+    Serial.printf(
+        "%lu ms: ESP32_Servo::setAnglespeedDegreePerSecond: _anglespeedDegreePerSecond= %d, anglespeedDegreePerSecond after recalc= %d \n",
+        millis(),
+        _anglespeedDegreePerSecond,
+        anglespeedDegreePerSecond);
 #endif
 
-  return anglespeedDegreePerSecond; // is recalculated in setTargetTime()
+    return anglespeedDegreePerSecond; // is recalculated in setTargetTime()
 }
 
 /*********************************************************************
@@ -224,14 +176,13 @@ uint16_t ESP32_Servo::setAnglespeedDegreePerSecond(uint16_t _anglespeedDegreePer
  * @param 	void
  * @return 	void
  *********************************************************************/
+
 void ESP32_Servo::activate()
 {
-  ledcWrite(ledcChannel, calcDutyForServoAngle(actualAngle)); // activate by setting duty to actualAngle which should be the last value before deactivation
-  // ledcAttachPin(servoPin, ledcChannel);                       // Assignment of servo pin to PWM timer channel
-  isActivated = true;
-
+    ledcWrite(servoPin, calcDutyForServoAngle(actualAngle));
+    isActivated = true;
 #if DEBUG_ESP32_SERVO
-  Serial.printf("%lu ms: ESP32_Servo::activate \n", millis());
+    Serial.printf("%lu ms: ESP32_Servo::activate \n", millis());
 #endif
 }
 
@@ -242,14 +193,14 @@ void ESP32_Servo::activate()
  * @param 	void
  * @return 	void
  *********************************************************************/
+
 void ESP32_Servo::deactivate()
 {
-  ledcWrite(ledcChannel, 0);
-  // ledcDetachPin(servoPin);  //detach sometimes leads to uncontrolled servo wobble
-  isActivated = false;
-
+    ledcWrite(servoPin, 0);
+    // ledcDetach(servoPin); // detach sometimes leads to uncontrolled servo wobble
+    isActivated = false;
 #if DEBUG_ESP32_SERVO
-  Serial.printf("%lu ms: ESP32_Servo::deactivate \n", millis());
+    Serial.printf("%lu ms: ESP32_Servo::deactivate \n", millis());
 #endif
 }
 
@@ -261,27 +212,27 @@ void ESP32_Servo::deactivate()
  *********************************************************************/
 uint16_t ESP32_Servo::calcDutyForServoAngle(uint8_t _servoAngle)
 {
-  // Interpolation of the pulse width in µs belonging to the given angle
-  //(double) to avoid rounding errors and because float cannot be used in ISR
-  double servoPulseWidthMicrosec = SERVO_MIN_PULSEWIDTH +
-                                   (double)(SERVO_MAX_PULSEWIDTH - SERVO_MIN_PULSEWIDTH) /
-                                       (double)(SERVOANGLE_AT_MAX_PULSEWIDTH - SERVOANGLE_AT_MIN_PULSEWIDTH) *
-                                       (double)(_servoAngle - SERVOANGLE_AT_MIN_PULSEWIDTH);
+    // Interpolation of the pulse width in µs belonging to the given angle
+    //(double) to avoid rounding errors and because float cannot be used in ISR
+    double servoPulseWidthMicrosec = SERVO_MIN_PULSEWIDTH +
+                                     (double)(SERVO_MAX_PULSEWIDTH - SERVO_MIN_PULSEWIDTH) /
+                                         (double)(SERVOANGLE_AT_MAX_PULSEWIDTH - SERVOANGLE_AT_MIN_PULSEWIDTH) *
+                                         (double)(_servoAngle - SERVOANGLE_AT_MIN_PULSEWIDTH);
 
-  // Calculation of the number of "timer increments" (="ticks")
-  uint16_t _duty = servoPulseWidthMicrosec *
-                       ((double)LEDC_TIMER_RESOLUTION_STEPS / (double)SERVO_PWM_INTERVAL_MICROSEC) +
-                   0.5; //+0.5 -> round up for double to int
+    // Calculation of the number of "timer increments" (="ticks")
+    uint16_t _duty = servoPulseWidthMicrosec *
+                         ((double)LEDC_TIMER_RESOLUTION_STEPS / (double)SERVO_PWM_INTERVAL_MICROSEC) +
+                     0.5; //+0.5 -> round up for double to int
 
 #if DEBUG_ESP32_SERVO
-  Serial.printf(
-      "%lu ms: servoPulseWidthMicrosec= %f: _duty= %d \n",
-      millis(),
-      servoPulseWidthMicrosec,
-      _duty);
+    Serial.printf(
+        "%lu ms: servoPulseWidthMicrosec= %f: _duty= %d \n",
+        millis(),
+        servoPulseWidthMicrosec,
+        _duty);
 #endif
 
-  return _duty;
+    return _duty;
 }
 
 /*********************************************************************
@@ -291,12 +242,12 @@ uint16_t ESP32_Servo::calcDutyForServoAngle(uint8_t _servoAngle)
  *********************************************************************/
 uint8_t ESP32_Servo::checkforMinMaxAngle(uint8_t _angleToCheck)
 {
-  if (_angleToCheck > maxAngle)
-    return maxAngle;
-  else if (_angleToCheck < minAngle)
-    return minAngle;
+    if (_angleToCheck > maxAngle)
+        return maxAngle;
+    else if (_angleToCheck < minAngle)
+        return minAngle;
 
-  return _angleToCheck;
+    return _angleToCheck;
 }
 
 /*********************************************************************
@@ -311,37 +262,37 @@ uint8_t ESP32_Servo::checkforMinMaxAngle(uint8_t _angleToCheck)
  *********************************************************************/
 void ESP32_Servo::moveToAngle(uint8_t _targetAngle)
 {
-  targetAngle = checkforMinMaxAngle(_targetAngle);
+    targetAngle = checkforMinMaxAngle(_targetAngle);
 
-  if (isActivated)
-  {
+    if (isActivated)
+    {
 #if DEBUG_ESP32_SERVO
-    Serial.printf("%lu ms: moveToAngle: isActivated \n", millis());
+        Serial.printf("%lu ms: moveToAngle: isActivated \n", millis());
 #endif
-    tickerForAutoDeactivation.detach();
-    tickerForSpeedControl.detach();
-  }
-  else
-    activate();
+        tickerForAutoDeactivation.detach();
+        tickerForSpeedControl.detach();
+    }
+    else
+        activate();
 
-  // write duty to LEDC-PWM-Generator
-  ledcWrite(ledcChannel, calcDutyForServoAngle(targetAngle));
+    // write duty to LEDC-PWM-Generator
 
-  actualAngle = targetAngle;
+    ledcWrite(servoPin, calcDutyForServoAngle(targetAngle));
+    actualAngle = targetAngle;
 
-  if (autoDeactivationDelayMs)
-  {
+    if (autoDeactivationDelayMs)
+    {
 #if DEBUG_ESP32_SERVO
-    Serial.printf("%lu ms: moveToAngle: autoDeactivationDelayMs= %d, tickerForAutoDeactivation ends at %d ms \n",
-                  millis(), autoDeactivationDelayMs, millis() + autoDeactivationDelayMs);
+        Serial.printf("%lu ms: moveToAngle: autoDeactivationDelayMs= %d, tickerForAutoDeactivation ends at %d ms \n",
+                      millis(), autoDeactivationDelayMs, millis() + autoDeactivationDelayMs);
 #endif
 
-    // tickerForAutoDeactivation.detach();
-    tickerForAutoDeactivation.once_ms(
-        autoDeactivationDelayMs,
-        callbackTickerForAutoDeactivation,
-        this);
-  }
+        // tickerForAutoDeactivation.detach();
+        tickerForAutoDeactivation.once_ms(
+            autoDeactivationDelayMs,
+            callbackTickerForAutoDeactivation,
+            this);
+    }
 }
 
 /*********************************************************************
@@ -352,7 +303,7 @@ void ESP32_Servo::moveToAngle(uint8_t _targetAngle)
  *********************************************************************/
 void ESP32_Servo::callbackTickerForAutoDeactivation(ESP32_Servo *ptrServo)
 {
-  ptrServo->deactivate();
+    ptrServo->deactivate();
 }
 
 /*********************************************************************
@@ -367,28 +318,28 @@ void ESP32_Servo::callbackTickerForAutoDeactivation(ESP32_Servo *ptrServo)
  *********************************************************************/
 void ESP32_Servo::moveToAngleWithSpeedControl(uint8_t _targetAngle, uint16_t _delayMsPerDegree)
 {
-  targetAngle = checkforMinMaxAngle(_targetAngle);
+    targetAngle = checkforMinMaxAngle(_targetAngle);
 
-  if (_delayMsPerDegree == DELAY_FROM_TARGET_TIME)
-    _delayMsPerDegree = delayMsPerDegreeFromTargetTime;
+    if (_delayMsPerDegree == DELAY_FROM_TARGET_TIME)
+        _delayMsPerDegree = delayMsPerDegreeFromTargetTime;
 
-  if (isActivated)
-  {
+    if (isActivated)
+    {
 #if DEBUG_ESP32_SERVO
-    Serial.printf("%lu ms: moveToAngleWithSpeedControl: isActivated \n", millis());
+        Serial.printf("%lu ms: moveToAngleWithSpeedControl: isActivated \n", millis());
 #endif
-    tickerForAutoDeactivation.detach();
-    tickerForSpeedControl.detach();
-  }
-  else
-    activate();
+        tickerForAutoDeactivation.detach();
+        tickerForSpeedControl.detach();
+    }
+    else
+        activate();
 
-  // tickerForSpeedControl.detach();
+    // tickerForSpeedControl.detach();
 
-  tickerForSpeedControl.attach_ms(
-      _delayMsPerDegree,
-      callbackTickerForSpeedControl,
-      this);
+    tickerForSpeedControl.attach_ms(
+        _delayMsPerDegree,
+        callbackTickerForSpeedControl,
+        this);
 }
 
 /*********************************************************************
@@ -399,24 +350,24 @@ void ESP32_Servo::moveToAngleWithSpeedControl(uint8_t _targetAngle, uint16_t _de
  *********************************************************************/
 void ESP32_Servo::callbackTickerForSpeedControl(ESP32_Servo *ptrServo)
 {
-  // end position reached:
-  if (ptrServo->actualAngle == ptrServo->targetAngle)
-  {
+    // end position reached:
+    if (ptrServo->actualAngle == ptrServo->targetAngle)
+    {
 #if DEBUG_ESP32_SERVO
-    Serial.printf("%lu ms: ESP32_Servo::callbackTickerForSpeedControl:  end position reached \n", millis());
+        Serial.printf("%lu ms: ESP32_Servo::callbackTickerForSpeedControl:  end position reached \n", millis());
 #endif
 
-    ptrServo->tickerForSpeedControl.detach();
-    if (ptrServo->autoDeactivationDelayMs)
-      ptrServo->deactivate();
-    return;
-  }
+        ptrServo->tickerForSpeedControl.detach();
+        if (ptrServo->autoDeactivationDelayMs)
+            ptrServo->deactivate();
+        return;
+    }
 
-  // we have still to move:
-  if (ptrServo->actualAngle <= ptrServo->targetAngle)
-    ptrServo->actualAngle += 1;
-  else
-    ptrServo->actualAngle -= 1;
+    // we have still to move:
+    if (ptrServo->actualAngle <= ptrServo->targetAngle)
+        ptrServo->actualAngle += 1;
+    else
+        ptrServo->actualAngle -= 1;
 
-  ledcWrite(ptrServo->ledcChannel, ptrServo->calcDutyForServoAngle(ptrServo->actualAngle));
+    ledcWrite(ptrServo->servoPin, ptrServo->calcDutyForServoAngle(ptrServo->actualAngle));
 }
