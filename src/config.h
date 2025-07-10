@@ -112,7 +112,7 @@ namespace radiator
 #define MQTT_KEEP_ALIVE (MQTT_OUTPUTINTERVALL_SEC * 2.5)   // must be valid together with MQTT_OUTPUTINTERVALL_SEC
 #define MQTT_RECONNECTION_TIMEOUT_SEC 15                   // timeout after disconnection from MQTT broker
                                                            // until a reconnection is tried from ESP
-#define MIN_FREE_HEAPSIZE_FOR_MQTT_BUFFERQUEUE_BYTES 25000 // MQTT messages are buffered for resending after conditional
+#define MIN_FREE_HEAPSIZE_FOR_MQTT_BUFFERQUEUE_BYTES 30000 // MQTT messages are buffered for resending after conditional
                                                            // broker disconnection ->  if this free heap size value is undercut
                                                            // -> the oldest buffered values are dropped
 
@@ -142,7 +142,7 @@ namespace radiator
 #define GPIO_FOR_AC_CURRENT_SENSOR 33                                // GPIO 33    or 0 to deactivate
 #define AC_CURRENT_SENSOR_SCALE_AMPERE_PER_MILLIVOLT (30.0 / 1000.0) // e.g. for 30 Ampere per 1000 Millivolt
 
-#define ACTIVATE_ANALYSIS true
+#define ACTIVATE_ANALYSIS false // activate or deactivate analysis of received data
 
 /*********************
  *      MACROS

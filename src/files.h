@@ -4,7 +4,6 @@
 #include <fstream>
 
 #include <LittleFS.h>
-#include <SPIFFS.h>
 #include <SD.h>
 
 #include "config.h"
