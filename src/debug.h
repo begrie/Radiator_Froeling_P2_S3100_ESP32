@@ -11,6 +11,7 @@
 // nur temporär für debugging -> kann dann wieder wech ...
 #define DEBUG_STACK_HIGH_WATERMARK RADIATOR_LOG_WARN(millis() << " ms: " << uxTaskGetStackHighWaterMark(NULL) << " -> uxTaskGetStackHighWaterMark (" << pcTaskGetTaskName(NULL) << ")" << std::endl;);
 
+// Statischer Stringstream für alle LOG_ Makros zur Heap-Fragmentierungsvermeidung
 static std::ostream &null_stream()
 {
     static std::ostringstream m_null;
@@ -19,12 +20,21 @@ static std::ostream &null_stream()
     return m_null;
 }
 
-#define LOG_trace (debug_level >= 5 ? std::cerr : null_stream())
-#define LOG_debug (debug_level >= 4 ? std::cerr : null_stream())
-#define LOG_info (debug_level >= 3 ? std::cerr : null_stream())
-#define LOG_warn (debug_level >= 2 ? std::cerr : null_stream())
-#define LOG_error (debug_level >= 1 ? std::cerr : null_stream())
-#define LOG_fatal (std::cerr)
+// Statische Stringstreams für Logging
+static std::ostringstream &log_stream()
+{
+    static std::ostringstream s_log_stream;
+    s_log_stream.str("");
+    s_log_stream.clear();
+    return s_log_stream;
+}
+
+#define LOG_trace (debug_level >= 5 ? log_stream() : null_stream())
+#define LOG_debug (debug_level >= 4 ? log_stream() : null_stream())
+#define LOG_info (debug_level >= 3 ? log_stream() : null_stream())
+#define LOG_warn (debug_level >= 2 ? log_stream() : null_stream())
+#define LOG_error (debug_level >= 1 ? log_stream() : null_stream())
+#define LOG_fatal (log_stream())
 
 extern uint8_t debug_level;
 

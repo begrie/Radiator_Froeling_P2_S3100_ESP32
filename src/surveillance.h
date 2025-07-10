@@ -6,149 +6,172 @@
 #include <map>
 #include <list>
 #include <deque>
+#include <sstream>
 
-namespace radiator {
-
-typedef enum
+namespace radiator
 {
-   ST_ERROR = -1,
-   ST_STARTING = 0,
-   ST_RA_SENT,
-   ST_RB_SENT
-} STATE;
+    class Surveillance;
 
-typedef struct
-{
-   std::string unit;
-   uint8_t comma;
-   uint16_t factor;
-   uint16_t min;
-   uint16_t max;
-   uint16_t std;
-   uint16_t value;
-} PARAMETER_FORMAT;
+    typedef enum
+    {
+        ST_ERROR = -1,
+        ST_STARTING = 0,
+        ST_RA_SENT,
+        ST_RB_SENT
+    } STATE;
 
-typedef enum
-{
-   PNT_STRING,
-   PNT_VALUE,
-   PNT_OTHER
-} PARAMETER_NAME_TYPE;
+    typedef struct
+    {
+        std::string unit;
+        uint8_t comma;
+        uint16_t factor;
+        uint16_t min;
+        uint16_t max;
+        uint16_t std;
+        uint16_t value;
+    } PARAMETER_FORMAT;
 
-typedef struct
-{
-   PARAMETER_NAME_TYPE  type;
-   uint16_t             index;
-   uint16_t             unknown;
-   std::string          name;
-} PARAMETER_NAME;
+    typedef enum
+    {
+        PNT_STRING,
+        PNT_VALUE,
+        PNT_OTHER
+    } PARAMETER_NAME_TYPE;
 
-typedef struct
-{
-   std::string unit;
-   uint8_t decimals;
-   uint16_t divisor;
-   uint16_t unknown;
-} DATAFORMATS;
+    typedef struct
+    {
+        PARAMETER_NAME_TYPE type;
+        uint16_t index;
+        uint16_t unknown;
+        std::string name;
+    } PARAMETER_NAME;
 
-typedef struct
-{
-   uint8_t errorID;
-   uint8_t unknown1;
-   uint8_t unknown2;
-   uint8_t second;
-   uint8_t minute;
-   uint8_t hour;
-   uint8_t day;
-   uint8_t month;
-   uint8_t year;
-   uint8_t unknown3;
-} ERROR_EVENT;
+    typedef struct
+    {
+        std::string unit;
+        uint8_t decimals;
+        uint16_t divisor;
+        uint16_t unknown;
+    } DATAFORMATS;
 
-typedef struct
-{
-   uint16_t index;
-   std::string name;
-   std::string value;
-   uint16_t rawValue;
-} VALUE_DATA;
+    typedef struct
+    {
+        uint8_t errorID;
+        uint8_t unknown1;
+        uint8_t unknown2;
+        uint8_t second;
+        uint8_t minute;
+        uint8_t hour;
+        uint8_t day;
+        uint8_t month;
+        uint8_t year;
+        uint8_t unknown3;
+    } ERROR_EVENT;
 
-class Surveillance;
+    typedef struct
+    {
+        uint16_t index;
+        std::string name;
+        std::string value;
+        uint16_t rawValue;
+    } VALUE_DATA;
 
-class SurveillanceHandler {
-public:
-   SurveillanceHandler() {}
-   virtual ~SurveillanceHandler() {}
+    // Forward declaration
 
-   virtual void handleTime(Surveillance &surveillance,
-                           uint8_t dow,
-                           uint16_t year, uint8_t month, uint8_t day,
-                           uint8_t hour, uint8_t minute, uint8_t second) {}
+    class Surveillance;
 
-   virtual void handleMeasurement(Surveillance &surveillance,
-                                  std::list<VALUE_DATA> values) {}
+    class SurveillanceHandler
+    {
+    public:
+        SurveillanceHandler() {}
+        virtual ~SurveillanceHandler() {}
 
-   virtual void handleError(Surveillance &surveillance,
-                            uint16_t year, uint8_t month, uint8_t day,
-                            uint8_t hour, uint8_t minute, uint8_t second,
-                            std::string description) {}
-};
+        virtual void handleTime(Surveillance &surveillance,
+                                uint8_t dow,
+                                uint16_t year, uint8_t month, uint8_t day,
+                                uint8_t hour, uint8_t minute, uint8_t second) {}
 
-class Surveillance
-{
-public:
-   Surveillance(std::string devicename, int timeout, SurveillanceHandler &handler);
-   virtual ~Surveillance();
+        virtual void handleMeasurement(Surveillance &surveillance,
+                                       std::list<VALUE_DATA> values) {}
 
-   void main_loop(void);
+        virtual void handleError(Surveillance &surveillance,
+                                 uint16_t year, uint8_t month, uint8_t day,
+                                 uint8_t hour, uint8_t minute, uint8_t second,
+                                 std::string description) {}
+    };
 
-   STATE                                     getState() { return this->state; }
+    class Surveillance
+    {
+    public:
+        Surveillance(std::string devicename, int timeout, SurveillanceHandler &handler);
+        virtual ~Surveillance();
 
-   std::deque<PARAMETER_NAME>                getParameterNames() { return this->parameterNames; }
+        void main_loop(void);
 
-   std::map<int, std::map<int, std::string>> getDisplayTexts() { return this->displayTexts; }
-   std::map<int, DATAFORMATS>                getDataformats() { return this->dataformats; }
-   std::map<int, std::string>                getOperationModes() { return this->operationModes; }
-   std::map<int, PARAMETER_FORMAT>           getParameterFormats() { return this->parameterFormats; }
+        STATE getState() { return this->state; }
 
-   std::list<ERROR_EVENT>                    getErrorsEvents() { return this->errorEvents; }
-   std::map<int, std::string>                getErrorMessages() { return this->errorMessages; }
+        std::deque<PARAMETER_NAME> getParameterNames() { return this->parameterNames; }
 
-protected:
-   STATE                                     state;
+        std::map<int, std::map<int, std::string>> getDisplayTexts() { return this->displayTexts; }
+        std::map<int, DATAFORMATS> getDataformats() { return this->dataformats; }
+        std::map<int, std::string> getOperationModes() { return this->operationModes; }
+        std::map<int, PARAMETER_FORMAT> getParameterFormats() { return this->parameterFormats; }
 
-   std::deque<PARAMETER_NAME>                parameterNames;
-   std::map<int, std::map<int, std::string>> displayTexts;
-   std::map<int, DATAFORMATS>                dataformats;
-   std::map<int, std::string>                operationModes;
-   std::map<int, PARAMETER_FORMAT>           parameterFormats;
-   std::map<int, std::string>                errorMessages;
-   std::list<ERROR_EVENT>                    errorEvents;
+        std::list<ERROR_EVENT> getErrorsEvents() { return this->errorEvents; }
+        std::map<int, std::string> getErrorMessages() { return this->errorMessages; }
 
-private:
-   SurveillanceHandler                       &handler;
-   Device                                    fd;
-   int                                       timeout;
+    protected:
+        // Stringstream zur Heap-Fragmentierungsvermeidung
+        mutable std::ostringstream m_stringValueStream;
+        mutable std::stringstream m_allLastErrorsStream;
 
-private:
-   void handle_command(const uint8_t *command);
+        // String-Pool für VALUE_DATA.value
+        std::vector<std::string> valueStringPool;
+        size_t poolIndex = 0;
 
-   void parseMeasurement(const uint8_t *command);
-   void parseDateTime(const uint8_t *command);
-   void parseFailure(const uint8_t *command);
-   void parseParameterNames(const uint8_t *command);
-   void parseDisplayTexts(const uint8_t *command);
-   void parseDataformats(const uint8_t *command);
-   void parseSettingsText(const uint8_t *command);
-   void parseFormats(const uint8_t *command);
-   void parseOperationMode(const uint8_t *command);
-   void parseWeeklyProgram(const uint8_t *command);
-   void parseErrorText(const uint8_t *command);
-   void parseLastError(const uint8_t *command);
-   void parseEndOfBlock(const uint8_t *command);
+        std::string &getPooledString()
+        {
+            if (poolIndex >= valueStringPool.size())
+            {
+                valueStringPool.emplace_back();
+            }
+            return valueStringPool[poolIndex++];
+        }
+        void resetStringPool() { poolIndex = 0; }
 
-   int bcd(uint8_t bcdValue);
-};
+        STATE state;
+
+        std::deque<PARAMETER_NAME> parameterNames;
+        std::map<int, std::map<int, std::string>> displayTexts;
+        std::map<int, DATAFORMATS> dataformats;
+        std::map<int, std::string> operationModes;
+        std::map<int, PARAMETER_FORMAT> parameterFormats;
+        std::map<int, std::string> errorMessages;
+        std::list<ERROR_EVENT> errorEvents;
+
+    private:
+        SurveillanceHandler &handler;
+        Device fd;
+        int timeout;
+
+        void handle_command(const uint8_t *command);
+
+        void parseMeasurement(const uint8_t *command);
+        void parseDateTime(const uint8_t *command);
+        void parseFailure(const uint8_t *command);
+        void parseParameterNames(const uint8_t *command);
+        void parseDisplayTexts(const uint8_t *command);
+        void parseDataformats(const uint8_t *command);
+        void parseSettingsText(const uint8_t *command);
+        void parseFormats(const uint8_t *command);
+        void parseOperationMode(const uint8_t *command);
+        void parseWeeklyProgram(const uint8_t *command);
+        void parseErrorText(const uint8_t *command);
+        void parseLastError(const uint8_t *command);
+        void parseEndOfBlock(const uint8_t *command);
+
+        int bcd(uint8_t bcdValue);
+    };
 
 }
 

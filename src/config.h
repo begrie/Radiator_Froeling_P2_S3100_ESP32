@@ -29,7 +29,7 @@ namespace radiator
 /*********************
  *      DEFINES
  *********************/
-#define D_DEBUG_LEVEL 2 // 0 - No logging
+#define D_DEBUG_LEVEL 4 // 0 - No logging
                         // 1 - Errors
                         // 2 - Warnings
                         // 3 - Infos
@@ -48,8 +48,9 @@ namespace radiator
 #define MAX_OLD_SYSLOG_FILES 15
 
 #define S_SERIAL_TO_RADIATOR "Serial2" // Serial device for connection to radiator device P2/S3100
-// #define SERIAL_TO_RADIATOR_RX 16 // ESP32-standard: 16
-// #define SERIAL_TO_RADIATOR_TX 17 // ESP32-standard: 17
+#define SERIAL_TO_RADIATOR_RX 16 // ESP32-standard: 16
+#define SERIAL_TO_RADIATOR_TX 17 // ESP32-standard: 17
+#define SERIAL_TO_RADIATOR_BAUD 9600 // Baudrate for connection to radiator device P2/S3100
 #define T_TIMEOUT_BETWEEN_TRANSFERS_MS 5000 // Maximum time allowed between transfers from P2/S3100 radiator device
                                             // until connection is considered stale.
 
@@ -59,7 +60,7 @@ namespace radiator
 // #define NUMBER_OF_LOGFILES_TO_COMBINE 92 // download option for webserver: 3 month -> approx 92 day files
 
 // Where to write the values received from the radiator to:
-#define OUTPUT_TO_CONSOLE false
+#define OUTPUT_TO_CONSOLE true
 #define OUTPUT_TO_MQTT true // needs activated WiFi
 #define OUTPUT_TO_FILE true
 
