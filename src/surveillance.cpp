@@ -45,7 +45,6 @@ namespace radiator
         this->state = ST_RA_SENT;
         RADIATOR_LOG_INFO(millis() << " ms: Send login command 'Ra' to radiator device" << std::endl;)
         int loginResult = this->fd.send_cmd((uint8_t *)"Ra", (uint8_t *)"\0\xff\xf9", 3);
-        std::cout << millis() << " ms: send_cmd('Ra') returned: " << loginResult << std::endl;
         if (loginResult < 0)
         {
             perror("Failed to send login command - ");
@@ -61,14 +60,6 @@ namespace radiator
 
             uint8_t buffer[2 + 1 + 255 + 2];
             int len = this->fd.read_cmd(buffer, timeout);
-            std::cout << millis() << " ms: read_cmd returned: " << len << std::endl;
-            if (len > 0)
-            {
-                std::cout << "Buffer: ";
-                for (int i = 0; i < len; ++i)
-                    std::cout << std::hex << (int)buffer[i] << " ";
-                std::cout << std::dec << std::endl;
-            }
 
             switch (len)
             {
@@ -111,8 +102,6 @@ namespace radiator
                     {
                         // DATA, send ACK:
                         int ackResult = this->fd.send_cmd(buffer, (uint8_t *)"\1", 1);
-                        std::cout << millis() << " ms: send_cmd(ACK) returned: " << ackResult << std::endl;
-
                         this->handle_command(buffer);
                     }
                 }

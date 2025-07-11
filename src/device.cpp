@@ -19,14 +19,6 @@ namespace radiator
     Device::Device(std::string devicename)
         : serialPort(devicename)
     {
-#ifdef RADIATOR_SERIAL_PORT
-        // ESP32/Arduino 3.x: explizite Pin-Zuweisung ist Pflicht!
-        RADIATOR_SERIAL_PORT.begin(
-            RADIATOR_SERIAL_BAUD,
-            SERIAL_8N1,
-            RADIATOR_SERIAL_RX_PIN,
-            RADIATOR_SERIAL_TX_PIN);
-#endif
     }
 
     /**
