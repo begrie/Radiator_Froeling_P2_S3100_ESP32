@@ -1,0 +1,1131 @@
+43706780 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+43715668 ms: handleValuesTimeSeries: Heap= 110144 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+43715669 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+43719678 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+43734683 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+43743114 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+43748862 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+43749690 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+43764695 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+43766873 ms: writeSyslogfile(): Deleted oldest syslog file= /syslog/syslog.log.bak_15
+43767851 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 1744
+43767849 ms: heap_caps_malloc was called but failed to allocate 596 bytes with 0x1400 capabilities. 
+
+43767942 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+43775693 ms: handleValuesTimeSeries: Heap= 110156 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+43775693 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+43779700 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+43794708 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+43803137 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+43808866 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+43809708 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+43824717 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+43828080 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+43835715 ms: handleValuesTimeSeries: Heap= 110152 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+43835715 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+43839718 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+43854723 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+43863158 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+43868867 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+43869730 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+43884729 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+43888116 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+43895726 ms: handleValuesTimeSeries: Heap= 110164 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+43895726 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+43899730 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+43914734 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+43923164 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+43928870 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+43929740 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+43944737 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+43948147 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+43955739 ms: handleValuesTimeSeries: Heap= 110152 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+43955739 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+43959738 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+43974743 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+43983168 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+43988872 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+43989745 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44004744 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44008288 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+44015741 ms: handleValuesTimeSeries: Heap= 110152 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+44015741 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+44019745 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44034749 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44043180 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+44048874 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+44049751 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44064752 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44068323 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+44075749 ms: handleValuesTimeSeries: Heap= 110164 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+44075749 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+44079757 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44094756 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44103187 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+44108878 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+44109765 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44124765 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44128463 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+44135758 ms: handleValuesTimeSeries: Heap= 110552 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+44135758 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+44139764 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44154762 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44163188 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+44168882 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+44169759 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44184752 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44188498 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+44196741 ms: handleValuesTimeSeries: Heap= 110156 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+44196742 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+44199745 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44214739 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44223735 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+44228887 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+44229734 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44244729 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44248527 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+44257720 ms: handleValuesTimeSeries: Heap= 110164 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+44257720 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+44259726 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44274720 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44284145 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+44288889 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+44289723 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44304717 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44308686 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+44318710 ms: handleValuesTimeSeries: Heap= 111116 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+44318711 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+44319716 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44334706 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44344705 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+44348892 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+44349706 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44364704 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44368739 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+44379694 ms: handleValuesTimeSeries: Heap= 111108 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+44379695 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+44379700 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44394695 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44405119 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+44408895 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+44409692 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44424688 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44428768 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+44439686 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44440679 ms: handleValuesTimeSeries: Heap= 110536 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+44440679 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+44454681 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44465674 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+44468900 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+44469677 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44484675 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44488809 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+44499675 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44501670 ms: handleValuesTimeSeries: Heap= 110156 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+44501671 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+44514670 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44526096 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+44528904 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+44529666 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44544660 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44548844 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+44559664 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44562656 ms: handleValuesTimeSeries: Heap= 110144 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+44562657 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+44574662 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44586661 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+44588906 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+44589665 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44604672 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44608990 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+44619672 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44622664 ms: handleValuesTimeSeries: Heap= 110152 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+44622665 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+44634674 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44646673 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+44648910 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+44649678 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44664676 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44669031 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+44679676 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44682669 ms: handleValuesTimeSeries: Heap= 110144 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+44682669 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+44694672 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44707099 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+44708913 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+44709674 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44724670 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44729190 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+44739673 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44743672 ms: handleValuesTimeSeries: Heap= 110148 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+44743672 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+44754670 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44767812 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+44768915 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+44769664 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44784666 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44789332 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+44799661 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44804655 ms: handleValuesTimeSeries: Heap= 110148 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+44804655 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+44814657 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44828080 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+44828917 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+44829649 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44844645 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44849474 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+44859637 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44865638 ms: handleValuesTimeSeries: Heap= 110156 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+44865638 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+44874641 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44888635 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+44888920 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+44889637 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44904642 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44909735 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+44919643 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44925644 ms: handleValuesTimeSeries: Heap= 110160 / 95764 / 57332; esp_get_minimum_free_heap_size()= 51608
+44925644 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+44934647 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44948643 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+44948923 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+44949645 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44964646 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44969774 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+44979642 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+44986638 ms: handleValuesTimeSeries: Heap= 110148 / 95764 / 57332; esp_get_minimum_free_heap_size()= 51608
+44986639 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+44994643 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45008925 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+45009068 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+45009638 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45024639 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45029808 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+45039634 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45047625 ms: handleValuesTimeSeries: Heap= 110148 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+45047625 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+45054627 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45068927 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+45069626 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45069636 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+45084619 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45089950 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+45099614 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45108606 ms: handleValuesTimeSeries: Heap= 110540 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+45108607 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+45114609 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45128929 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+45129603 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45130032 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+45144595 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45149988 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+45159592 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45169580 ms: handleValuesTimeSeries: Heap= 110152 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+45169580 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+45174583 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45188931 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+45189573 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45190572 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+45204565 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45210024 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+45219554 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45230545 ms: handleValuesTimeSeries: Heap= 110152 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+45230545 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+45234542 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45248934 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+45249531 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45250962 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+45264520 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45270166 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+45279512 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45291494 ms: handleValuesTimeSeries: Heap= 110152 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+45291494 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+45294500 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45308941 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+45309487 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45311485 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+45324477 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45330203 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+45339463 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45352440 ms: handleValuesTimeSeries: Heap= 110164 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+45352441 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+45354446 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45368942 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+45369427 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45371853 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+45384414 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45390235 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+45399397 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45413379 ms: handleValuesTimeSeries: Heap= 110164 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+45413380 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+45414383 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45428943 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+45429376 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45432369 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+45444362 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45450270 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+45459354 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45474337 ms: handleValuesTimeSeries: Heap= 110160 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+45474338 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+45474343 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45488944 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+45489339 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45492764 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+45504336 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45510529 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+45519330 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45534324 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45535317 ms: handleValuesTimeSeries: Heap= 110152 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+45535317 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+45548946 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+45549316 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45553311 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+45564313 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45570567 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+45579311 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45594307 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45596303 ms: handleValuesTimeSeries: Heap= 110156 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+45596304 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+45608947 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+45609307 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45613733 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+45624301 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45630604 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+45639304 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45654297 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45657294 ms: handleValuesTimeSeries: Heap= 110156 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+45657295 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+45668948 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+45669294 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45674286 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+45684288 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45690749 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+45699281 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45714274 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45718268 ms: handleValuesTimeSeries: Heap= 110156 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+45718268 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+45728950 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+45729271 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45734701 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+45744271 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45750787 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+45759266 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45774272 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45778271 ms: handleValuesTimeSeries: Heap= 110552 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+45778271 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+45788952 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+45789277 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45794702 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+45804273 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45810826 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+45819272 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45834279 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45838272 ms: handleValuesTimeSeries: Heap= 110164 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+45838273 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+45848954 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+45849274 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45855268 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+45864269 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45870967 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+45879267 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45894262 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45899257 ms: handleValuesTimeSeries: Heap= 110156 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+45899257 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+45908956 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+45909256 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45915686 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+45924252 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45931111 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+45939252 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45954251 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45960241 ms: handleValuesTimeSeries: Heap= 110164 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+45960242 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+45968958 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+45969250 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45976244 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+45984247 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+45991254 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+45999250 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46014248 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46020244 ms: handleValuesTimeSeries: Heap= 110164 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+46020244 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+46028960 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+46029247 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46036244 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+46044245 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46051392 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+46059242 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46074245 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46081240 ms: handleValuesTimeSeries: Heap= 110156 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+46081241 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+46088962 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+46089248 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46096674 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+46104246 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46111655 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+46119243 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46134243 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46142240 ms: handleValuesTimeSeries: Heap= 110164 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+46142240 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+46148964 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+46149240 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46157238 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+46164239 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46171694 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+46179239 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46194234 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46203226 ms: handleValuesTimeSeries: Heap= 110164 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+46203227 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+46208966 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+46209226 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46217652 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+46224223 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46231835 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+46239211 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46254204 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46264199 ms: handleValuesTimeSeries: Heap= 110164 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+46264200 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+46268968 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+46269198 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46278196 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+46284193 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46291978 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+46299187 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46314181 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46325173 ms: handleValuesTimeSeries: Heap= 110156 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+46325173 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+46328972 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+46329178 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46338603 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+46344172 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46352018 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+46359170 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46374167 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46386164 ms: handleValuesTimeSeries: Heap= 110156 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+46386164 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+46388973 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+46389169 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46399173 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+46404173 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46412063 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+46419180 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46434178 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46446179 ms: handleValuesTimeSeries: Heap= 110544 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+46446179 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+46448975 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+46449181 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46459180 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+46464180 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46472099 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+46479177 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46494175 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46507166 ms: handleValuesTimeSeries: Heap= 110156 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+46507167 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+46508976 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+46509171 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46519594 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+46524168 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46532133 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+46539161 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46554157 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46568148 ms: handleValuesTimeSeries: Heap= 111096 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+46568149 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+46568977 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+46569153 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46580145 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+46584144 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46592287 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+46599143 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46614138 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46628980 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+46629132 ms: handleValuesTimeSeries: Heap= 111096 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+46629133 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+46629138 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46640556 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+46644129 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46652324 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+46659123 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46674116 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46688982 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+46689109 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46690103 ms: handleValuesTimeSeries: Heap= 110152 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+46690104 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+46701100 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+46704101 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46712478 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+46719092 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46734090 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46748983 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+46749079 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46751075 ms: handleValuesTimeSeries: Heap= 110532 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+46751076 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+46761498 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+46764071 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46772519 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+46779063 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46794054 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46802705 ms: handleValuesTimeSeries: Uptime: 780 min; MQTT status: connected; Heap : 111640 / 95764 / 58356
+46808984 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+46809040 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46812034 ms: handleValuesTimeSeries: Heap= 110144 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+46812034 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+46822032 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+46824035 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46832669 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+46839024 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46854018 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46869011 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+46869013 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46873004 ms: handleValuesTimeSeries: Heap= 110124 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+46873005 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+46882433 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+46884007 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46892809 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+46899997 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46914985 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46929017 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+46929977 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46933972 ms: handleValuesTimeSeries: Heap= 107812 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+46933973 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+46942966 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+46944964 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46952951 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+46959953 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46974943 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46989021 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+46989935 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+46994924 ms: handleValuesTimeSeries: Heap= 110140 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+46994925 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+47003350 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+47004920 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47013089 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+47019911 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47034900 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47049026 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+47049892 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47055882 ms: handleValuesTimeSeries: Heap= 110508 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+47055883 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+47063877 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+47064879 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47073127 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+47079869 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47094865 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47109029 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+47109851 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47116845 ms: handleValuesTimeSeries: Heap= 110124 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+47116846 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+47124273 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+47124843 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47133266 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+47139838 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47154831 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47169031 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+47169825 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47177815 ms: handleValuesTimeSeries: Heap= 110124 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+47177815 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+47184813 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47184822 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+47193406 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+47199806 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47214792 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47229032 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+47229779 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47238768 ms: handleValuesTimeSeries: Heap= 110124 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+47238769 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+47244771 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47245198 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+47253540 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+47259765 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47274766 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47289034 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+47289766 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47299763 ms: handleValuesTimeSeries: Heap= 110144 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+47299763 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+47304765 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47305758 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+47313703 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+47319758 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47334751 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47349036 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+47349750 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47360741 ms: handleValuesTimeSeries: Heap= 110124 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+47360741 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+47364740 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47366171 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+47373762 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+47379737 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47394725 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47409039 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+47409718 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47421710 ms: handleValuesTimeSeries: Heap= 110136 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+47421710 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+47424713 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47426705 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+47433901 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+47439703 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47454704 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47469042 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+47469694 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47482686 ms: handleValuesTimeSeries: Heap= 110144 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+47482687 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+47484691 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47487114 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+47493939 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+47499685 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47514679 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47529043 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+47529676 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47543662 ms: handleValuesTimeSeries: Heap= 110136 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+47543662 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+47544665 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47547664 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+47553970 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+47559663 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47574650 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47589048 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+47589641 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47604633 ms: handleValuesTimeSeries: Heap= 110124 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+47604634 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+47604639 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47608062 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+47614113 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+47619634 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47634632 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47649055 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+47649620 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47664616 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47665610 ms: handleValuesTimeSeries: Heap= 110136 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+47665611 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+47668610 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+47674149 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+47679610 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47694606 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47709056 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+47709601 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47724593 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47726591 ms: handleValuesTimeSeries: Heap= 110516 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+47726591 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+47729017 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+47734289 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+47739589 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47754577 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47769058 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+47769574 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47784568 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47787560 ms: handleValuesTimeSeries: Heap= 110136 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+47787560 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+47789564 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+47794326 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+47799559 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47814556 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47829060 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+47829545 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47844537 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47848530 ms: handleValuesTimeSeries: Heap= 110148 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+47848531 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+47849961 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+47854359 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+47859530 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47874524 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47889061 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+47889518 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47904515 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47909509 ms: handleValuesTimeSeries: Heap= 110120 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+47909509 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+47910510 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+47914556 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+47919508 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47934498 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47949063 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+47949490 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47964482 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47970475 ms: handleValuesTimeSeries: Heap= 110136 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+47970476 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+47970910 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+47974592 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+47979478 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+47994469 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48009065 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+48009455 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48024445 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48031439 ms: handleValuesTimeSeries: Heap= 110128 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+48031440 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+48031442 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+48034733 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+48039437 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48054425 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48069067 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+48069417 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48084406 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48091831 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+48092399 ms: handleValuesTimeSeries: Heap= 110144 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+48092399 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+48094774 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+48099402 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48114397 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48129068 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+48129393 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48144388 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48152388 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+48153385 ms: handleValuesTimeSeries: Heap= 110128 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+48153386 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+48154915 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+48159388 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48174394 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48189069 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+48189394 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48204400 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48212394 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+48213392 ms: handleValuesTimeSeries: Heap= 110128 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+48213392 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+48214955 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+48219394 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48234394 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48249070 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+48249395 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48264397 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48272817 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+48274386 ms: handleValuesTimeSeries: Heap= 110128 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+48274387 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+48274992 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+48279390 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48294387 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48309071 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+48309381 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48324375 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48333368 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+48335130 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+48335368 ms: handleValuesTimeSeries: Heap= 110116 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+48335369 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+48339370 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48354358 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48369075 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+48369352 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48384345 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48393766 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+48395167 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+48396332 ms: handleValuesTimeSeries: Heap= 110504 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+48396332 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+48399335 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48414328 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48429076 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+48429316 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48444308 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48454296 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+48455201 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+48457293 ms: handleValuesTimeSeries: Heap= 110124 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+48457294 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+48459297 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48474282 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48489078 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+48489275 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48504262 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48514686 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+48515343 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+48518250 ms: handleValuesTimeSeries: Heap= 111076 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+48518251 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+48519254 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48534249 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48549079 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+48549244 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48564246 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48575242 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+48575398 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+48579240 ms: handleValuesTimeSeries: Heap= 111092 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+48579240 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+48579245 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48594244 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48609080 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+48609240 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48624238 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48635430 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+48635663 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+48639236 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48640235 ms: handleValuesTimeSeries: Heap= 110132 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+48640236 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+48654233 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48669082 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+48669232 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48684226 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48695571 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+48696221 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+48699225 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48701216 ms: handleValuesTimeSeries: Heap= 110520 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+48701217 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+48714220 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48729085 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+48729217 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48744210 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48755607 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+48756637 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+48759207 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48762201 ms: handleValuesTimeSeries: Heap= 110124 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+48762202 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+48774205 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48789086 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+48789202 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48804201 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48815752 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+48817336 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+48819204 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48823197 ms: handleValuesTimeSeries: Heap= 110132 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+48823198 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+48834201 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48849089 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+48849199 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48864196 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48875793 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+48877616 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+48879190 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48884186 ms: handleValuesTimeSeries: Heap= 110144 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+48884186 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+48894186 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48909091 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+48909181 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48924173 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48935944 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+48938164 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+48939166 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48945158 ms: handleValuesTimeSeries: Heap= 110144 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+48945159 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+48954160 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48969092 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+48969160 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48984152 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+48996085 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+48998577 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+48999154 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49006145 ms: handleValuesTimeSeries: Heap= 110156 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+49006146 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+49014143 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49029100 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+49029142 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49044138 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49056134 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+49059141 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49059150 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+49067145 ms: handleValuesTimeSeries: Heap= 110144 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+49067146 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+49074148 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49089119 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+49089157 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49104166 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49116317 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+49119180 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49119189 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+49127176 ms: handleValuesTimeSeries: Heap= 110156 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+49127177 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+49134185 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49149132 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+49149192 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49164203 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49176482 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+49179212 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49179220 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+49187214 ms: handleValuesTimeSeries: Heap= 110156 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+49187215 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+49194224 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49209134 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+49209234 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49224247 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49236518 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+49239256 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49239265 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+49247262 ms: handleValuesTimeSeries: Heap= 110148 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+49247262 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+49254271 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49269137 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+49269284 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49284297 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49296554 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+49299313 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49299320 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+49307315 ms: handleValuesTimeSeries: Heap= 110148 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+49307315 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+49314324 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49329139 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+49329344 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49344360 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49356592 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+49359375 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49359384 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+49367381 ms: handleValuesTimeSeries: Heap= 110156 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+49367381 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+49374389 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49389140 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+49389402 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49404416 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49416625 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+49419431 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49419441 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+49427432 ms: handleValuesTimeSeries: Heap= 110156 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+49427432 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+49434447 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49449141 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+49449456 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49464472 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49476766 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+49479486 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49479496 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+49487488 ms: handleValuesTimeSeries: Heap= 110160 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+49487489 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+49494496 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49509142 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+49509509 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49524512 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49536803 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+49539519 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49539530 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+49547521 ms: handleValuesTimeSeries: Heap= 110144 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+49547522 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+49554527 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49569143 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+49569530 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49584538 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49596840 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+49599545 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49599554 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+49607545 ms: handleValuesTimeSeries: Heap= 110136 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+49607546 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+49614548 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49629144 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+49629556 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49644563 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49656877 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+49659572 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49659581 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+49667567 ms: handleValuesTimeSeries: Heap= 110156 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+49667568 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+49674576 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49689146 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+49689582 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49704584 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49716909 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+49719593 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49719602 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+49727588 ms: handleValuesTimeSeries: Heap= 110156 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+49727589 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+49734593 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49749147 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+49749597 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49764605 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49777065 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+49779607 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49779617 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+49787604 ms: handleValuesTimeSeries: Heap= 110028 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+49787605 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+49794609 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49809148 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+49809618 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49824620 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49837103 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+49839624 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49839634 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+49847621 ms: handleValuesTimeSeries: Heap= 110028 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+49847621 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+49854625 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49869150 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+49869625 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49884627 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49897140 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+49899628 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49899637 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+49907628 ms: handleValuesTimeSeries: Heap= 110028 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+49907629 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+49914638 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49929152 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+49929644 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49944650 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49957285 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+49959650 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49959659 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+49967650 ms: handleValuesTimeSeries: Heap= 110416 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+49967651 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+49974656 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+49989154 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+49989654 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50004662 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50017323 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+50019662 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50019671 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+50027657 ms: handleValuesTimeSeries: Heap= 110148 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+50027658 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+50034663 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50049156 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+50049657 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50064664 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50077484 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+50079662 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50079671 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+50088657 ms: handleValuesTimeSeries: Heap= 110156 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+50088658 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+50094658 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50109158 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+50109658 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50124666 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50137624 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+50139670 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50139679 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+50148665 ms: handleValuesTimeSeries: Heap= 110156 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+50148665 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+50154670 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50169160 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+50169670 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50184665 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50197781 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+50199660 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50200087 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+50209654 ms: handleValuesTimeSeries: Heap= 110156 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+50209654 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+50214656 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50229161 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+50229652 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50244647 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50257918 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+50259649 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50260643 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+50270638 ms: handleValuesTimeSeries: Heap= 110156 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+50270639 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+50274641 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50289162 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+50289645 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50304637 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50317951 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+50319637 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50321060 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+50331631 ms: handleValuesTimeSeries: Heap= 110156 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+50331631 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+50334634 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50349163 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+50349631 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50364624 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50378214 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+50379622 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50381620 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+50392613 ms: handleValuesTimeSeries: Heap= 110164 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+50392613 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+50394618 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50402711 ms: handleValuesTimeSeries: Uptime: 840 min; MQTT status: connected; Heap : 109460 / 95764 / 56308
+50409167 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+50409608 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50424603 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50438253 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+50439599 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50442023 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+50453592 ms: handleValuesTimeSeries: Heap= 110156 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+50453592 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+50454590 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50469168 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+50469589 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50484578 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50498286 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+50499577 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50502570 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+50514564 ms: handleValuesTimeSeries: Heap= 110156 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+50514565 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+50514569 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50529169 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+50529557 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50544550 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50558444 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+50559537 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50562961 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+50574532 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50575525 ms: handleValuesTimeSeries: Heap= 110156 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+50575526 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+50589170 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+50589521 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50604517 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50618483 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+50619507 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50623502 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+50634500 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50636494 ms: handleValuesTimeSeries: Heap= 110552 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+50636495 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+50649172 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+50649495 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50664487 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50678519 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+50679478 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50683906 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+50694473 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50697469 ms: handleValuesTimeSeries: Heap= 110156 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+50697470 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+50709174 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+50709471 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50724466 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50738662 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+50739461 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50744459 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+50754463 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50758457 ms: handleValuesTimeSeries: Heap= 110152 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+50758457 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+50769176 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+50769457 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50784454 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50798698 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+50799498 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50804491 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+50814487 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50818483 ms: handleValuesTimeSeries: Heap= 110152 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+50818484 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+50829178 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+50829484 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50844480 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50858734 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+50859471 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50864894 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+50874465 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50879460 ms: handleValuesTimeSeries: Heap= 110156 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+50879461 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+50889179 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+50889464 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50904462 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50918875 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+50919464 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50925464 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+50934467 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50939463 ms: handleValuesTimeSeries: Heap= 110156 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+50939464 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+50949182 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+50949467 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50964473 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50979031 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+50979477 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50985471 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+50994471 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+50999465 ms: handleValuesTimeSeries: Heap= 110156 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+50999466 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+51009184 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+51009469 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+51024460 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+51024476 ms: Disconnected from MQTT: reason = TCP_DISCONNECTED
+51039089 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+51039455 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+51039695 ms: Connected to MQTT: Broker= broker.hivemq.comSession present= 1, mqttClient.getClientId()=esp32-2043d2d108f0
+51045875 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+51054446 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+51060443 ms: handleValuesTimeSeries: Heap= 110092 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+51060443 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+51069186 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+51069443 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+51084433 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+51099231 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+51099424 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+51106422 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+51114415 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+51121405 ms: handleValuesTimeSeries: Heap= 110084 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+51121406 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+51129189 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+51129410 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+51144401 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+51159373 ms: FilesystemHandler::xTaskFilesWatchdog: uxTaskGetStackHighWaterMark(NULL)= 1744
+51159397 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+51166819 ms: Surveillance::main_loop: uxTaskGetStackHighWaterMark(NULL)= 3972
+51174388 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+51182376 ms: handleValuesTimeSeries: Heap= 110092 / 95764 / 58356; esp_get_minimum_free_heap_size()= 51608
+51182377 ms: OutputHandler::handleValuesTimeSeries: Taskname= loopTask, uxTaskGetStackHighWaterMark(NULL)= 3972
+51189190 ms: ExternalSensors::xTaskExternalSensors: uxTaskGetStackHighWaterMark(NULL)= 2272
+51189381 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+51204371 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972
+51219368 ms: NetworkHandler::publishToMQTT: uxTaskGetStackHighWaterMark(NULL)= 3972

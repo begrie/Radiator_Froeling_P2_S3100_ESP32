@@ -714,11 +714,27 @@ std::string radiator::NetworkHandler::get_System_Info(bool longVersion)
 
         << "\n"
 
-        << "Filesystem               : " << XSTRINGIFY(FILESYSTEM_TO_USE) << "; \n"
-        << "Basepath(Mountpoint)     : " << FILESYSTEM_BASE_PATH << "; \n"
-        << "Filesystem total         : " << (FILESYSTEM_TO_USE.totalBytes() / 1024) << " kBytes; \n"
-        << "Used Filesystem          : " << (FILESYSTEM_TO_USE.usedBytes() / 1024) << " kBytes; \n"
-        << "Free Filesystem          : " << ((FILESYSTEM_TO_USE.totalBytes() - FILESYSTEM_TO_USE.usedBytes()) / 1024) << " kBytes; \n";
+        << "Filesystem               : " << XSTRINGIFY(FILESYSTEM_TO_USE) << "; \n";
+
+    // check for init of SD filesystem
+    if (FILESYSTEM_TO_USE.cardType() != CARD_NONE) // TODO: did not compile for littlefs
+    {
+        bufStrStream
+            << "Filesystem total         : " << (FILESYSTEM_TO_USE.totalBytes() / 1024) << " kBytes; \n"
+            << "Used Filesystem          : " << (FILESYSTEM_TO_USE.usedBytes() / 1024) << " kBytes; \n"
+            << "Free Filesystem          : " << ((FILESYSTEM_TO_USE.totalBytes() - FILESYSTEM_TO_USE.usedBytes()) / 1024) << " kBytes; \n";
+    }
+    else
+    {
+        bufStrStream
+            << "Filesystem total         : not available\n"
+            << "Used Filesystem          : not available\n"
+            << "Free Filesystem          : not available\n";
+    }
+    // << "Basepath(Mountpoint)     : " << FILESYSTEM_BASE_PATH << "; \n"
+    // << "Filesystem total         : " << (FILESYSTEM_TO_USE.totalBytes() / 1024) << " kBytes; \n"
+    // << "Used Filesystem          : " << (FILESYSTEM_TO_USE.usedBytes() / 1024) << " kBytes; \n"
+    // << "Free Filesystem          : " << ((FILESYSTEM_TO_USE.totalBytes() - FILESYSTEM_TO_USE.usedBytes()) / 1024) << " kBytes; \n";
 
     if (longVersion)
     {

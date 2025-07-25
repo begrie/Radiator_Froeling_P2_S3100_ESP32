@@ -1,0 +1,1167 @@
+3467947 ms: readTemp: Failed to read temperature from DHT sensor (50)
+3511520 ms: writeSyslogfile(): Deleted oldest syslog file= /syslog/syslog.log.bak_15
+3603158 ms: handleValuesTimeSeries: Uptime: 60 min; MQTT status: connected; Heap : 119972 / 108772 / 69620
+7203164 ms: handleValuesTimeSeries: Uptime: 120 min; MQTT status: connected; Heap : 117764 / 107644 / 65524
+10803161 ms: handleValuesTimeSeries: Uptime: 180 min; MQTT status: connected; Heap : 117764 / 107644 / 64500
+14403162 ms: handleValuesTimeSeries: Uptime: 240 min; MQTT status: connected; Heap : 117756 / 107176 / 65524
+15375063 ms: readTemp: Failed to read temperature from DHT sensor (50)
+16557063 ms: readTemp: Failed to read temperature from DHT sensor (50)
+18003161 ms: handleValuesTimeSeries: Uptime: 300 min; MQTT status: connected; Heap : 117768 / 107176 / 65524
+2678 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+2681 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+8180 ms: ##### CONNECTED to Froeling P2/S3100 #####
+2766 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+2770 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+7772 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+17788 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+17794 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+23292 ms: ##### CONNECTED to Froeling P2/S3100 #####
+2661 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+2664 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+7666 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+17682 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+17688 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+23186 ms: ##### CONNECTED to Froeling P2/S3100 #####
+2698 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+2701 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+7703 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+17719 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+17725 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+23223 ms: ##### CONNECTED to Froeling P2/S3100 #####
+2636 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+2639 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+7641 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+17657 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+17663 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+23161 ms: ##### CONNECTED to Froeling P2/S3100 #####
+2669 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+2673 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+7676 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+17693 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+17699 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+23197 ms: ##### CONNECTED to Froeling P2/S3100 #####
+2663 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+2667 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+7669 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+17685 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+17691 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+23189 ms: ##### CONNECTED to Froeling P2/S3100 #####
+2652 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+2655 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+7657 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+17675 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+17681 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+23180 ms: ##### CONNECTED to Froeling P2/S3100 #####
+2672 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+2676 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+7678 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+17694 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+17701 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+23199 ms: ##### CONNECTED to Froeling P2/S3100 #####
+3602997 ms: handleValuesTimeSeries: Uptime: 60 min; MQTT status: connected; Heap : 124076 / 112944 / 71668
+7202990 ms: handleValuesTimeSeries: Uptime: 120 min; MQTT status: connected; Heap : 121920 / 112944 / 67572
+10802992 ms: handleValuesTimeSeries: Uptime: 180 min; MQTT status: connected; Heap : 125472 / 112944 / 71668
+14402998 ms: handleValuesTimeSeries: Uptime: 240 min; MQTT status: connected; Heap : 123256 / 112944 / 69620
+17937043 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+17947062 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+17947068 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+17952070 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+17962085 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+17962092 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+17967094 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+17977112 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+17977118 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+17982120 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+17992135 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+17992142 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+17997143 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18002990 ms: handleValuesTimeSeries: Uptime: 300 min; MQTT status: connected; Heap : 157328 / 112944 / 77812
+18007160 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18007167 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18012169 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18022184 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18022191 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18027192 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18037208 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18037214 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18042216 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18052231 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18052238 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18057239 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18067254 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18067261 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18072262 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18082279 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18082286 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18087287 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18097303 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18097309 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18102311 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18112327 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18112334 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18117335 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18127350 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18127358 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18132360 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18142375 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18142382 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18147383 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18157400 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18157407 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18162408 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18172423 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18172430 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18177431 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18187447 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18187454 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18192455 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18202471 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18202478 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18207480 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18217499 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18217506 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18222508 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18232523 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18232531 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18237532 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18247547 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18247554 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18252556 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18262571 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18262578 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18267579 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18277596 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18277603 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18282604 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18292620 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18292627 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18297629 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18307645 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18307652 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18312653 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18322668 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18322675 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18327676 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18337693 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18337701 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18342702 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18352717 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18352724 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18357725 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18367740 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18367747 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18372748 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18382763 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18382770 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18387771 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18397787 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18397794 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18402795 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18412810 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18412817 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18417818 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18427834 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18427841 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18432842 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18442857 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18442864 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18447866 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18457882 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18457888 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18462890 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18472905 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18472912 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18477913 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18487930 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18487937 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18492938 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18502954 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18502961 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18507962 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18517978 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18517984 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18522986 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18533002 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18533009 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18538010 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18548026 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18548033 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18553035 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18563051 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18563058 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18568059 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18578075 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18578082 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18583083 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18593098 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18593105 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18598106 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18608122 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18608129 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18613130 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18623145 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18623151 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18628153 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18638169 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18638175 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18643177 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18653192 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18653199 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18658201 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18668216 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18668223 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18673224 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18683239 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18683246 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18688247 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18698263 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18698270 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18703271 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18713288 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18713295 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18718296 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18728312 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18728319 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18733321 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18743336 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18743343 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18748344 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18758360 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18758368 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18763370 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18773385 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18773392 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18778393 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18788408 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18788414 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18793416 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18803431 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18803438 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18808439 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18818455 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18818461 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18823463 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18833478 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18833485 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18838486 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18848501 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18848508 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18853509 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18863524 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18863531 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18868532 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18878548 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18878554 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18883556 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18893571 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18893578 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18898579 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18908596 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18908602 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18913603 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18923618 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18923625 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18928626 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18938642 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18938649 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18943650 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18953665 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18953672 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18958673 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18968688 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18968695 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18973696 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18983711 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18983718 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+18988719 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+18998735 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+18998742 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19003743 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19013760 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19013767 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19018770 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19028788 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19028795 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19033796 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19043811 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19043818 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19048819 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19058835 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19058842 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19063843 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19073858 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19073865 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19078866 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19088881 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19088888 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19093889 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19103904 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19103911 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19108912 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19118928 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19118936 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19123938 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19133953 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19133959 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19138960 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19148975 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19148982 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19153983 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19163998 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19164005 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19169006 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19179021 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19179027 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19184029 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19194044 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19194051 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19199052 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19209067 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19209074 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19214076 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19224091 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19224098 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19229099 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19239115 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19239121 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19244123 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19254138 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19254145 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19259146 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19269162 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19269169 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19274170 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19284185 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19284192 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19289194 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19299213 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19299219 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19304221 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19314236 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19314243 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19319244 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19329260 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19329268 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19334269 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19344284 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19344291 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19349292 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19359308 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19359315 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19364316 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19374331 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19374338 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19379339 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19389354 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19389361 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19394362 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19404377 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19404384 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19409385 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19419401 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19419407 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19424409 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19434425 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19434431 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19439433 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19449448 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19449455 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19454456 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19464471 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19464478 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19469480 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19479496 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19479503 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19484505 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19494521 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19494528 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19499529 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19509545 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19509552 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19514553 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19524569 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19524576 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19529578 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19539594 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19539600 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19544602 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19554617 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19554624 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19559625 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19569644 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19569651 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19574653 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19584668 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19584675 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19589676 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19599691 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19599699 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19604700 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19614715 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19614722 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19619723 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19629738 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19629745 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19634747 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19644762 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19644769 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19649771 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19659787 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19659794 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19664796 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19674812 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19674819 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19679821 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19689836 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19689843 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19694844 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19704860 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19704866 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19709869 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19719885 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19719892 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19724893 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19734908 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19734915 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19739916 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19749931 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19749937 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19754939 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19764954 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19764961 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19769962 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19779979 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19779986 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19784987 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19795002 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19795009 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19800010 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19810026 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19810033 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19815034 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19825049 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19825056 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19830058 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19840076 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19840083 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19845085 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19855100 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19855107 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19860108 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19870123 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19870130 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19875131 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19885146 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19885153 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19890154 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19900171 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19900178 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19905179 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19915195 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19915202 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19920203 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19930218 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19930225 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19935226 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19945241 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19945248 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19950249 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19960265 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19960271 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19965273 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19975289 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19975296 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19980297 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+19990312 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+19990319 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+19995320 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20005335 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20005341 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20010343 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20020359 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20020366 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20025368 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20035383 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20035390 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20040392 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20050408 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20050415 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20055417 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20065432 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20065439 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20070440 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20080456 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20080462 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20085464 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20095479 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20095486 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20100487 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20110505 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20110510 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20115513 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20125528 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20125535 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20130536 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20140553 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20140560 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20145561 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20155577 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20155584 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20160585 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20170600 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20170607 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20175608 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20185623 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20185630 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20190631 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20200647 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20200654 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20205655 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20215670 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20215677 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20220678 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20230693 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20230700 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20235701 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20245716 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20245723 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20250724 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20260740 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20260747 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20265748 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20275764 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20275771 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20280772 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20290788 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20290795 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20295796 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20305811 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20305818 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20310819 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20320835 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20320842 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20325843 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20335858 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20335864 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20340866 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20350881 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20350888 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20355889 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20365904 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20365911 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20370912 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20380934 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20380940 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20385942 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20395957 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20395964 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20400965 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20410981 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20410988 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20415989 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20426004 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20426012 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20431013 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20441028 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20441036 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20446037 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20456052 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20456059 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20461060 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20471076 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20471083 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20476084 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20486101 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20486108 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20491109 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20501125 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20501131 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20506133 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20516148 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20516155 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20521156 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20531171 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20531178 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20536179 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20546194 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20546200 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20551201 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20561217 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20561223 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20566225 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20576240 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20576246 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20581247 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20591261 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20591268 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20596269 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20606284 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20606291 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20611292 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20621308 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20621314 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20626317 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20636332 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20636339 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20641340 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20651357 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20651364 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20656365 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20666380 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20666387 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20671388 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20681404 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20681412 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20686413 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20696428 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20696435 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20701436 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20711451 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20711458 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20716459 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20726474 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20726480 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20731483 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20741500 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20741507 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20746508 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20756523 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20756530 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20761531 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20771546 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20771553 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20776554 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+20786569 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+20786576 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+20791577 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+2277 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+2280 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+
+WiFi:	Got IP address:	192.168.179.3
+	Gateway IP: 	192.168.179.1
+	Network IP: 	192.168.179.0
+
+2626 ms: Connected to MQTT: Broker= broker.hivemq.com, Session present= 0, mqttClient.getClientId()=esp32-2043d2d108f0
+7284 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+17301 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+17308 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+22805 ms: ##### CONNECTED to Froeling P2/S3100 #####
+51064 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+61083 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+61087 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+66088 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+76103 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+76109 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+81608 ms: ##### CONNECTED to Froeling P2/S3100 #####
+3603725 ms: handleValuesTimeSeries: Uptime: 60 min; MQTT status: connected; Heap : 123476 / 113608 / 69620
+7203725 ms: handleValuesTimeSeries: Uptime: 120 min; MQTT status: connected; Heap : 123640 / 113248 / 71668
+10803722 ms: handleValuesTimeSeries: Uptime: 180 min; MQTT status: connected; Heap : 123216 / 113248 / 69620
+14090201 ms: Disconnected from MQTT: reason = TCP_DISCONNECTED
+14105302 ms: Connected to MQTT: Broker= broker.hivemq.com, Session present= 1, mqttClient.getClientId()=esp32-2043d2d108f0
+14403722 ms: handleValuesTimeSeries: Uptime: 240 min; MQTT status: connected; Heap : 122800 / 113112 / 67572
+18003723 ms: handleValuesTimeSeries: Uptime: 300 min; MQTT status: connected; Heap : 122800 / 112984 / 67572
+21603723 ms: handleValuesTimeSeries: Uptime: 360 min; MQTT status: connected; Heap : 122800 / 112984 / 67572
+25203728 ms: handleValuesTimeSeries: Uptime: 420 min; MQTT status: connected; Heap : 120596 / 112956 / 67572
+28803723 ms: handleValuesTimeSeries: Uptime: 480 min; MQTT status: connected; Heap : 122800 / 112516 / 69620
+32403723 ms: handleValuesTimeSeries: Uptime: 540 min; MQTT status: connected; Heap : 122932 / 112516 / 69620
+36003722 ms: handleValuesTimeSeries: Uptime: 600 min; MQTT status: connected; Heap : 122936 / 112516 / 67572
+39603728 ms: handleValuesTimeSeries: Uptime: 660 min; MQTT status: connected; Heap : 120588 / 112516 / 65524
+43203722 ms: handleValuesTimeSeries: Uptime: 720 min; MQTT status: connected; Heap : 122800 / 112516 / 67572
+46803723 ms: handleValuesTimeSeries: Uptime: 780 min; MQTT status: connected; Heap : 122804 / 112516 / 69620
+50403732 ms: handleValuesTimeSeries: Uptime: 840 min; MQTT status: connected; Heap : 117300 / 112516 / 69620
+54003730 ms: handleValuesTimeSeries: Uptime: 900 min; MQTT status: connected; Heap : 120588 / 112516 / 67572
+57603723 ms: handleValuesTimeSeries: Uptime: 960 min; MQTT status: connected; Heap : 122800 / 112516 / 69620
+61203722 ms: handleValuesTimeSeries: Uptime: 1020 min; MQTT status: connected; Heap : 122788 / 112516 / 69620
+64803729 ms: handleValuesTimeSeries: Uptime: 1080 min; MQTT status: connected; Heap : 120740 / 112516 / 65524
+68403723 ms: handleValuesTimeSeries: Uptime: 1140 min; MQTT status: connected; Heap : 122564 / 112240 / 69620
+72003728 ms: handleValuesTimeSeries: Uptime: 1200 min; MQTT status: connected; Heap : 120264 / 112240 / 64500
+75603722 ms: handleValuesTimeSeries: Uptime: 1260 min; MQTT status: connected; Heap : 122468 / 112240 / 67572
+79203723 ms: handleValuesTimeSeries: Uptime: 1320 min; MQTT status: connected; Heap : 122476 / 112240 / 67572
+82803728 ms: handleValuesTimeSeries: Uptime: 1380 min; MQTT status: connected; Heap : 120264 / 112240 / 64500
+2715 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+2719 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+7720 ms: ##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### 
+
+17737 ms: ##### Start connecting to Froeling P2/S3100 ##### 
+
+17744 ms: Opened serial port Serial2 with 9600 baud and SERIAL_8N1 for connection to radiator Froeling P2/S3100 -> wait for answer ...
+23242 ms: ##### CONNECTED to Froeling P2/S3100 #####
+3603036 ms: handleValuesTimeSeries: Uptime: 60 min; MQTT status: connected; Heap : 124180 / 114888 / 71668
+7203037 ms: handleValuesTimeSeries: Uptime: 120 min; MQTT status: connected; Heap : 123740 / 113904 / 71668
+10803043 ms: handleValuesTimeSeries: Uptime: 180 min; MQTT status: connected; Heap : 121660 / 113900 / 67572
+14091640 ms: Disconnected from MQTT: reason = TCP_DISCONNECTED
+14106781 ms: Connected to MQTT: Broker= broker.hivemq.com, Session present= 1, mqttClient.getClientId()=esp32-2043d2d108f0
+14403037 ms: handleValuesTimeSeries: Uptime: 240 min; MQTT status: connected; Heap : 123324 / 113468 / 71668
+18003036 ms: handleValuesTimeSeries: Uptime: 300 min; MQTT status: connected; Heap : 121096 / 113436 / 69620
+21603036 ms: handleValuesTimeSeries: Uptime: 360 min; MQTT status: connected; Heap : 123308 / 113436 / 69620
+25203043 ms: handleValuesTimeSeries: Uptime: 420 min; MQTT status: connected; Heap : 121260 / 112956 / 67572
+28803036 ms: handleValuesTimeSeries: Uptime: 480 min; MQTT status: connected; Heap : 123324 / 112956 / 69620
+32403037 ms: handleValuesTimeSeries: Uptime: 540 min; MQTT status: connected; Heap : 123856 / 112956 / 71668
+36003037 ms: handleValuesTimeSeries: Uptime: 600 min; MQTT status: connected; Heap : 123712 / 112956 / 71668
+39603037 ms: handleValuesTimeSeries: Uptime: 660 min; MQTT status: connected; Heap : 123328 / 112956 / 69620
+43203038 ms: handleValuesTimeSeries: Uptime: 720 min; MQTT status: connected; Heap : 123444 / 112956 / 69620
+44383858 ms: Disconnected from MQTT: reason = TCP_DISCONNECTED
+
+WiFi was DISCONNECTED from WLAN. System is trying to reconnect in a background task ... 
+(Info: Change WiFi or MQTT settings by pressing the big yellow button at startup of the ESP32)
+
+
+WiFi connected to... 
+	 WLAN / SSID: 	Gast13
+	 Signal: 	RSSI -55
+	 Hostname: 	Heizung_Froeling_P2
+	 IP address: 	0.0.0.0
+	 Gateway IP: 	0.0.0.0
+	 Network IP: 	0.0.0.0
+
+
+WiFi:	Got IP address:	192.168.179.3
+	Gateway IP: 	192.168.179.1
+	Network IP: 	192.168.179.0
+
+44389748 ms: Connected to MQTT: Broker= broker.hivemq.com, Session present= 1, mqttClient.getClientId()=esp32-2043d2d108f0
+46803036 ms: handleValuesTimeSeries: Uptime: 780 min; MQTT status: connected; Heap : 123304 / 110792 / 71668
+50403036 ms: handleValuesTimeSeries: Uptime: 840 min; MQTT status: connected; Heap : 123448 / 110792 / 71668
+54003043 ms: handleValuesTimeSeries: Uptime: 900 min; MQTT status: connected; Heap : 122884 / 110792 / 67572
+57603037 ms: handleValuesTimeSeries: Uptime: 960 min; MQTT status: connected; Heap : 123460 / 110792 / 69620
+61203044 ms: handleValuesTimeSeries: Uptime: 1020 min; MQTT status: connected; Heap : 122880 / 110792 / 67572
+64803037 ms: handleValuesTimeSeries: Uptime: 1080 min; MQTT status: connected; Heap : 125088 / 110792 / 71668
+66184364 ms: Disconnected from MQTT: reason = TCP_DISCONNECTED
+
+WiFi was DISCONNECTED from WLAN. System is trying to reconnect in a background task ... 
+(Info: Change WiFi or MQTT settings by pressing the big yellow button at startup of the ESP32)
+
+
+WiFi connected to... 
+	 WLAN / SSID: 	Gast13
+	 Signal: 	RSSI -60
+	 Hostname: 	Heizung_Froeling_P2
+	 IP address: 	0.0.0.0
+	 Gateway IP: 	0.0.0.0
+	 Network IP: 	0.0.0.0
+
+
+WiFi:	Got IP address:	192.168.179.3
+	Gateway IP: 	192.168.179.1
+	Network IP: 	192.168.179.0
+
+66190524 ms: Connected to MQTT: Broker= broker.hivemq.com, Session present= 1, mqttClient.getClientId()=esp32-2043d2d108f0
+68403037 ms: handleValuesTimeSeries: Uptime: 1140 min; MQTT status: connected; Heap : 121220 / 110792 / 67572
+72003036 ms: handleValuesTimeSeries: Uptime: 1200 min; MQTT status: connected; Heap : 123804 / 110792 / 71668
+75603036 ms: handleValuesTimeSeries: Uptime: 1260 min; MQTT status: connected; Heap : 121220 / 110792 / 67572
+79203042 ms: handleValuesTimeSeries: Uptime: 1320 min; MQTT status: connected; Heap : 121360 / 110792 / 67572
+82803038 ms: handleValuesTimeSeries: Uptime: 1380 min; MQTT status: connected; Heap : 123360 / 110792 / 69620
