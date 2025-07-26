@@ -226,7 +226,8 @@ namespace radiator
             }
 
             this->resetStringPool();
-            std::list<VALUE_DATA> values;
+            std::vector<VALUE_DATA> values;
+            values.reserve(parameterNames.size()); // Reserve space for the expected number of values to avoid heap fragmentation.
             for (int i = 0; i < command[2] / 2; ++i)
             {
                 int16_t value = (((uint16_t)command[3 + i * 2]) << 8) | command[3 + i * 2 + 1];
@@ -249,6 +250,15 @@ namespace radiator
                         valueData.value = getPooledString();
                         valueData.value = stringIter->second;
                         valueData.rawValue = value;
+
+                        // DEBUGGING: Vor dem push_back():
+                        if (values.capacity() == values.size())
+                        {
+                            // Vector ist voll und würde realloziieren
+                            Serial.printf("AAA Vector would reallocate. Free heap: %d, Largest block: %d\n",
+                                          ESP.getFreeHeap(),
+                                          heap_caps_get_largest_free_block(MALLOC_CAP_8BIT));
+                        }
 
                         values.push_back(valueData);
                     }
@@ -279,6 +289,15 @@ namespace radiator
                         valueData.value = getPooledString();
                         valueData.value = this->m_stringValueStream.str();
                         valueData.rawValue = value;
+
+                        // DEBUGGING: Vor dem push_back():
+                        if (values.capacity() == values.size())
+                        {
+                            // Vector ist voll und würde realloziieren
+                            Serial.printf("BBB Vector would reallocate. Free heap: %d, Largest block: %d\n",
+                                          ESP.getFreeHeap(),
+                                          heap_caps_get_largest_free_block(MALLOC_CAP_8BIT));
+                        }
 
                         values.push_back(valueData);
                     }

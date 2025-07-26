@@ -21,14 +21,14 @@ namespace radiator
                                 uint16_t year, uint8_t month, uint8_t day,
                                 uint8_t hour, uint8_t minute, uint8_t second);
 
-        virtual void handleMeasurement(Surveillance &surveillance, std::list<VALUE_DATA> values);
+        virtual void handleMeasurement(Surveillance &surveillance, std::vector<VALUE_DATA> &values);
 
         virtual void handleError(Surveillance &surveillance,
                                  uint16_t year, uint8_t month, uint8_t day,
                                  uint8_t hour, uint8_t minute, uint8_t second,
                                  std::string description);
 
-        typedef std::tuple<time_t, std::string, std::list<VALUE_DATA>> ValuesWithTime_t;
+        typedef std::tuple<time_t, std::string, std::vector<VALUE_DATA>> ValuesWithTime_t;
 
     protected:
         enum struct FilterMethod_t
@@ -48,7 +48,7 @@ namespace radiator
         uint16_t fileOutputIntervallSec = FILE_OUTPUT_INTERVALL_SEC;
 
     protected:
-        const std::list<VALUE_DATA> emptyValuesPlaceholder;
+        const std::vector<VALUE_DATA> emptyValuesPlaceholder;
         ValuesWithTime_t valuesAtTime = std::make_tuple(0, "0000-00-00, 00:00:00", emptyValuesPlaceholder);
         // std::deque<ValuesWithTime_t> valuesTimeSeries;  // needed for buffering and averaging measured values
 
@@ -56,14 +56,14 @@ namespace radiator
         std::ostringstream outStrStream; // for output functions instead to local vars to avoid heap fragmentation
         std::ofstream outFileStream;
 
-        std::string formatValueData(Surveillance &surveillance, const std::list<VALUE_DATA> &values);
-        std::string formatValueDataAsJSON(std::string_view timeStringForValues, const std::list<VALUE_DATA> &values);
+        std::string formatValueData(Surveillance &surveillance, const std::vector<VALUE_DATA> &values);
+        std::string formatValueDataAsJSON(std::string_view timeStringForValues, const std::vector<VALUE_DATA> &values);
 
         std::string formatValueDataHeaderForCSV(Surveillance &surveillance);
-        std::string formatValueDataForCSV(std::string_view time, const std::list<VALUE_DATA> &values);
+        std::string formatValueDataForCSV(std::string_view time, const std::vector<VALUE_DATA> &values);
 
         void handleValuesTimeSeries(std::string_view timeStr);
-        void handleValuesTimeSeries(const std::list<VALUE_DATA> &values);
+        void handleValuesTimeSeries(const std::vector<VALUE_DATA> &values);
         ValuesWithTime_t getLastValuesAtTime(const FilterMethod_t filterMethod = FilterMethod_t::DROP, const uint16_t intervallSec = 0);
 
         void outputToConsole(std::string_view output);
@@ -76,8 +76,8 @@ namespace radiator
         void handleValuesMQTTOutput();
         void outputToMQTT(std::string_view output, std::string_view subtopic = "");
 
-        bool checkForRadiatorIsBurning(const std::list<VALUE_DATA> &values);
-        bool checkForLimit(const std::list<VALUE_DATA> &values, std::string_view parameterName, const int limit, const bool greaterThan = true);
+        bool checkForRadiatorIsBurning(const std::vector<VALUE_DATA> &values);
+        bool checkForLimit(const std::vector<VALUE_DATA> &values, std::string_view parameterName, const int limit, const bool greaterThan = true);
 
     public:
         void setSystemTimeFromRadiatorData(uint16_t year, uint8_t month, uint8_t day, uint8_t hour, uint8_t minute, uint8_t second);

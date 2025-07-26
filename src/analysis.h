@@ -26,7 +26,7 @@ namespace radiator
         static radiator::OutputHandler::ValuesWithTime_t *ptrValuesAtTime;
         static time_t *ptrValueTimet;
         static std::string *ptrValueTimeStr;
-        static std::list<VALUE_DATA> *ptrValues;
+        static std::vector<VALUE_DATA> *ptrValues;
 
         static VALUE_DATA getElementWithParameterName(std::string_view parameterName);
         static VALUE_DATA getElementWithValue(std::string_view valueToFind);

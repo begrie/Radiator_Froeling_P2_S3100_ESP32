@@ -12,7 +12,7 @@ namespace radiator
     radiator::OutputHandler::ValuesWithTime_t *Analysis::ptrValuesAtTime = NULL;
     time_t *Analysis::ptrValueTimet = NULL;
     std::string *Analysis::ptrValueTimeStr;
-    std::list<VALUE_DATA> *Analysis::ptrValues;
+    std::vector<VALUE_DATA> *Analysis::ptrValues;
     std::string Analysis::actualDate;
     time_t Analysis::changeOfDayTimet = 0;
     std::string Analysis::lastRadiatorStatus = "";

@@ -57,9 +57,6 @@ void setup()
     bool outputToConsole = OUTPUT_TO_CONSOLE;
     bool outputToMQTT = OUTPUT_TO_MQTT && USE_WIFI; // is turned off without WiFi
 
-    if (USE_WIFI)
-        outputToMQTT = netHandler.init(outputToMQTT, START_WEBSERVER); // on init-failure -> turn off MQTT
-
     debug_level = D_DEBUG_LEVEL; // var debug_level is globally defined in debug.cpp
 
     std::string pathnameToDataDirectory =
@@ -83,6 +80,9 @@ void setup()
 
     if (!OUTPUT_TO_FILE)
         pathnameToDataDirectory = ""; // empty pathname indicates "no file output" for constuctor of OutputHandler
+
+    if (USE_WIFI)
+        outputToMQTT = netHandler.init(outputToMQTT, START_WEBSERVER); // on init-failure -> turn off MQTT
 
 #if USE_EXTERNAL_SENSORS
     radiator::ExternalSensors::initExternalSensors();

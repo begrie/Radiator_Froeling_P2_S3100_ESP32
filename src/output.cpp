@@ -110,7 +110,7 @@ namespace radiator
      * @param 	list with values from radiator
      * @return 	void
      *********************************************************************/
-    void OutputHandler::handleMeasurement(Surveillance &surveillance, std::list<VALUE_DATA> values)
+    void OutputHandler::handleMeasurement(Surveillance &surveillance, std::vector<VALUE_DATA> &values)
     {
         if (toConsole)
             outputToConsole(formatValueData(surveillance, values));
@@ -230,7 +230,7 @@ namespace radiator
      * @param 	list with values from radiator
      * @return 	void
      *********************************************************************/
-    void OutputHandler::handleValuesTimeSeries(const std::list<VALUE_DATA> &values)
+    void OutputHandler::handleValuesTimeSeries(const std::vector<VALUE_DATA> &values)
     {
         // Version 1 WITHOUT stored time series
         RADIATOR_LOG_DEBUG(getMillisAndTime() << "OutputHandler::handleValuesTimeSeries -> VALUES ..." << std::endl;)
@@ -355,7 +355,7 @@ namespace radiator
      *                   [Boardtemp.] = [21°] [N] (21)
      *                   [Die Kesseltemp. soll sein] = [75°] [N] (150)
      *********************************************************************/
-    std::string OutputHandler::formatValueData(Surveillance &surveillance, const std::list<VALUE_DATA> &values)
+    std::string OutputHandler::formatValueData(Surveillance &surveillance, const std::vector<VALUE_DATA> &values)
     {
         bufStr = "";
 
@@ -435,7 +435,7 @@ namespace radiator
      *                   "Stromstaerke": 0.318198"A"
      *                 }
      *********************************************************************/
-    std::string OutputHandler::formatValueDataAsJSON(std::string_view timeStringForValues, const std::list<VALUE_DATA> &values)
+    std::string OutputHandler::formatValueDataAsJSON(std::string_view timeStringForValues, const std::vector<VALUE_DATA> &values)
     {
         bufStr = "{";
 
@@ -524,7 +524,7 @@ namespace radiator
      * @return 	formatted string with received values
      *          e.g.  22-09-01; 12:21:35; Ausgeschaltet; Brenner Aus; 1; 0; 18°; 21°; 31°; 50%; 0%; 0%; 0%; 99.9%; 347°; 18°; 19°; 0%; 17°; 0°; 20°; 0°; 20°; 127°; 127°; 10461; 15878h; 21°; 75°;
      *********************************************************************/
-    std::string OutputHandler::formatValueDataForCSV(std::string_view time, const std::list<VALUE_DATA> &values)
+    std::string OutputHandler::formatValueDataForCSV(std::string_view time, const std::vector<VALUE_DATA> &values)
     {
         bufStr = static_cast<std::string>(time) + DELIMITER_FOR_CSV_FILE;
 
@@ -815,7 +815,7 @@ namespace radiator
      * @return 	true : radiator is burning
      *          false: radiator is NOT burning
      *********************************************************************/
-    bool OutputHandler::checkForRadiatorIsBurning(const std::list<VALUE_DATA> &values)
+    bool OutputHandler::checkForRadiatorIsBurning(const std::vector<VALUE_DATA> &values)
     {
         RADIATOR_LOG_DEBUG(getMillisAndTime() << "checkForRadiatorIsBurning= ";)
 
@@ -858,7 +858,7 @@ namespace radiator
      * @return 	false: limit NOT exceeded
      *          true : limit exceeded
      *********************************************************************/
-    bool OutputHandler::checkForLimit(const std::list<VALUE_DATA> &values, std::string_view parameterName, const int limit, const bool greaterThan)
+    bool OutputHandler::checkForLimit(const std::vector<VALUE_DATA> &values, std::string_view parameterName, const int limit, const bool greaterThan)
     {
         RADIATOR_LOG_DEBUG(getMillisAndTime() << "checkForLimit -> parameterName=" << parameterName << ", limit= " << limit << std::endl;)
 

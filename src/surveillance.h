@@ -92,7 +92,7 @@ namespace radiator
                                 uint8_t hour, uint8_t minute, uint8_t second) {}
 
         virtual void handleMeasurement(Surveillance &surveillance,
-                                       std::list<VALUE_DATA> values) {}
+                                       std::vector<VALUE_DATA> &values) {}
 
         virtual void handleError(Surveillance &surveillance,
                                  uint16_t year, uint8_t month, uint8_t day,
@@ -117,7 +117,7 @@ namespace radiator
         std::map<int, std::string> getOperationModes() { return this->operationModes; }
         std::map<int, PARAMETER_FORMAT> getParameterFormats() { return this->parameterFormats; }
 
-        std::list<ERROR_EVENT> getErrorsEvents() { return this->errorEvents; }
+        std::vector<ERROR_EVENT> getErrorsEvents() { return this->errorEvents; }
         std::map<int, std::string> getErrorMessages() { return this->errorMessages; }
 
     protected:
@@ -147,7 +147,7 @@ namespace radiator
         std::map<int, std::string> operationModes;
         std::map<int, PARAMETER_FORMAT> parameterFormats;
         std::map<int, std::string> errorMessages;
-        std::list<ERROR_EVENT> errorEvents;
+        std::vector<ERROR_EVENT> errorEvents;
 
     private:
         SurveillanceHandler &handler;
