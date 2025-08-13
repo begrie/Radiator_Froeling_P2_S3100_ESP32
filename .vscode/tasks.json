@@ -1,0 +1,45 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "ESP32 Core Dump aus Flash extrahieren",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "-m",
+                "esptool",
+                "--port",
+                "COM6",
+                "read-flash",
+                "0x3F0000",
+                "0x10000",
+                "${workspaceFolder}/corefile.bin"
+            ],
+            "presentation": {
+                "echo": true,
+                "reveal": "always"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "ESP32 Core Dump analysieren",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "-m",
+                "esp_coredump",
+                "info_corefile",
+                "--core",
+                "${workspaceFolder}/corefile.bin",
+                "${workspaceFolder}/.pio/build/esp32dev/firmware.elf",
+                "--gdb",
+                "C:/Users/Bernd/.platformio/packages/tool-xtensa-esp-elf-gdb/bin/xtensa-esp32-elf-gdb.exe"
+            ],
+            "presentation": {
+                "echo": true,
+                "reveal": "always"
+            },
+            "problemMatcher": []
+        }
+    ]
+}

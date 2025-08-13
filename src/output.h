@@ -21,23 +21,16 @@ namespace radiator
                                 uint16_t year, uint8_t month, uint8_t day,
                                 uint8_t hour, uint8_t minute, uint8_t second);
 
-        virtual void handleMeasurement(Surveillance &surveillance, std::vector<VALUE_DATA> &values);
+        virtual void handleMeasurement(Surveillance &surveillance, const std::vector<VALUE_DATA> &values);
 
         virtual void handleError(Surveillance &surveillance,
                                  uint16_t year, uint8_t month, uint8_t day,
                                  uint8_t hour, uint8_t minute, uint8_t second,
                                  std::string description);
 
-        typedef std::tuple<time_t, std::string, std::vector<VALUE_DATA>> ValuesWithTime_t;
+        // typedef std::tuple<time_t, std::string, std::vector<VALUE_DATA>> ValuesWithTime_t;
 
     protected:
-        enum struct FilterMethod_t
-        {
-            DROP,
-            AVERAGE,
-            ONCHANGE
-        };
-
         bool toConsole = true;
         bool toMQTT = false;
         bool toFile = false;
@@ -48,9 +41,7 @@ namespace radiator
         uint16_t fileOutputIntervallSec = FILE_OUTPUT_INTERVALL_SEC;
 
     protected:
-        const std::vector<VALUE_DATA> emptyValuesPlaceholder;
-        ValuesWithTime_t valuesAtTime = std::make_tuple(0, "0000-00-00, 00:00:00", emptyValuesPlaceholder);
-        // std::deque<ValuesWithTime_t> valuesTimeSeries;  // needed for buffering and averaging measured values
+        std::string lastRadiatorTimeString; // Zeit aus M2 speichern
 
         std::string bufStr;              // member var instead to local vars to avoid heap fragmentation
         std::ostringstream outStrStream; // for output functions instead to local vars to avoid heap fragmentation
@@ -62,18 +53,14 @@ namespace radiator
         std::string formatValueDataHeaderForCSV(Surveillance &surveillance);
         std::string formatValueDataForCSV(std::string_view time, const std::vector<VALUE_DATA> &values);
 
-        void handleValuesTimeSeries(std::string_view timeStr);
-        void handleValuesTimeSeries(const std::vector<VALUE_DATA> &values);
-        ValuesWithTime_t getLastValuesAtTime(const FilterMethod_t filterMethod = FilterMethod_t::DROP, const uint16_t intervallSec = 0);
-
         void outputToConsole(std::string_view output);
 
-        void handleValuesFileOutput(Surveillance &surveillance);
+        void handleValuesFileOutput(Surveillance &surveillance, const std::string &timeString, const std::vector<VALUE_DATA> &values);
         std::string deriveFilename(const std::string &stringWithDate);
         bool handleFiles(std::string_view filename);
         void outputToFile(std::string_view output, const ulong writeToFileIntervalSec = WRITE_TO_FILE_INTERVAL_SEC); // writeToFileIntervalSec controls how often the streambuffer is written to file and how many data can get lost ...
 
-        void handleValuesMQTTOutput();
+        void handleValuesMQTTOutput(const std::string &timeString, const std::vector<VALUE_DATA> &values);
         void outputToMQTT(std::string_view output, std::string_view subtopic = "");
 
         bool checkForRadiatorIsBurning(const std::vector<VALUE_DATA> &values);

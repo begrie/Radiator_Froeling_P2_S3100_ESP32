@@ -92,7 +92,7 @@ namespace radiator
                                 uint8_t hour, uint8_t minute, uint8_t second) {}
 
         virtual void handleMeasurement(Surveillance &surveillance,
-                                       std::vector<VALUE_DATA> &values) {}
+                                       const std::vector<VALUE_DATA> &values) {}
 
         virtual void handleError(Surveillance &surveillance,
                                  uint16_t year, uint8_t month, uint8_t day,

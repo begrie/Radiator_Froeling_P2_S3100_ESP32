@@ -18,10 +18,10 @@
  *      INCLUDES
  *********************/
 #include <Arduino.h>
-#include <LittleFS.h>
-#include <SPIFFS.h>
 #include <SD.h>
-// #include <chrono>
+// #include <LittleFS.h>
+// #include <SPIFFS.h>
+//  #include <chrono>
 
 namespace radiator
 {
@@ -116,6 +116,10 @@ namespace radiator
 #define MIN_FREE_HEAPSIZE_FOR_MQTT_BUFFERQUEUE_BYTES 30000 // MQTT messages are buffered for resending after conditional
                                                            // broker disconnection ->  if this free heap size value is undercut
                                                            // -> the oldest buffered values are dropped
+#define SD_CS_PIN 5                                        // Chip Select Pin for SD card -> GPIO 5 is standard for ESP32
+#define SD_SPI_SPEED 4000000                               // SPI speed for SD card (standard is 4 MHz)
+#define SD_MAX_FILES 3                                     // maximum number of files in data directory (standard is 5)
+#define SD_FORMAT_ON_STARTUP false                         // format SD card on startup if not formatted or not readable
 
 #define BUZZER_PIN 27
 #define QUIT_BUZZER_BUTTON_PIN 13
@@ -124,15 +128,18 @@ namespace radiator
 #define PREFERENCES_NAMESPACE "FroelingP2" // limited to 15 chars
 
 #define USE_EXTERNAL_SENSORS true // use or disable functionality from externalsensors.h/.cpp
+#define WITH_DHT_SENSOR false // use or disable DHT sensor functionality -> avoid include from DHT library
 #define GPIO_FOR_DHT11 21         // GPIO 21    or   0 to deactivate
 #define DHTTYPE DHT11             // use type definition from DHT lib
 
+#define WITH_VENTILATOR false                                        // use or disable ventilator functionality
 #define GPIO_FOR_VENTILATOR_RELAIS 22                                // GPIO 22  or 0 to deactivate
 #define MIN_TEMP_FOR_VENTILATOR_ON 26                                // °C
 #define MAX_TEMP_FOR_VENTILATOR_OFF (MIN_TEMP_FOR_VENTILATOR_ON - 2) // °C; hysterisis to avoid nervous switching
                                                                      // due to measurement fluctuations
 #define MAX_HUMIDITY_FOR_VENTILATOR_RUN 25                           // %
 
+#define WITH_AIR_INPUT_FLAP false                         // use or disable air input flap functionality -> avoid include from servo library
 #define GPIO_FOR_SERVO_FOR_AIR_INPUT_FLAP 25              // GPIO 25  or  0 to deactivate
 #define CLOSED_ANGLE_FOR_SERVO_FOR_AIR_INPUT_FLAP 45      // °   angle in degree
 #define OPENED_ANGLE_FOR_SERVO_FOR_AIR_INPUT_FLAP 135     // °   angle in degree
@@ -142,8 +149,6 @@ namespace radiator
 
 #define GPIO_FOR_AC_CURRENT_SENSOR 33                                // GPIO 33    or 0 to deactivate
 #define AC_CURRENT_SENSOR_SCALE_AMPERE_PER_MILLIVOLT (30.0 / 1000.0) // e.g. for 30 Ampere per 1000 Millivolt
-
-#define ACTIVATE_ANALYSIS false // activate or deactivate analysis of received data
 
 /*********************
  *      MACROS

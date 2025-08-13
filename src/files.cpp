@@ -27,7 +27,8 @@ radiator::FilesystemHandler::initFilesystem(std::string dataDirectory)
     if ((void *)&FILESYSTEM_TO_USE == (void *)&SD)
     {
         FILESYSTEM_TO_USE.end();
-        if (!FILESYSTEM_TO_USE.begin())
+        // initialize SPI for SD card with standardparams but only 2 max_files instead of 5 to save heap memory
+        if (!FILESYSTEM_TO_USE.begin(SD_CS_PIN, SPI, SD_SPI_SPEED, FILESYSTEM_BASE_PATH, SD_MAX_FILES, SD_FORMAT_ON_STARTUP))
         {
             // retry some more times due to possible problems with sd init
             bool ok = false;
@@ -36,7 +37,7 @@ radiator::FilesystemHandler::initFilesystem(std::string dataDirectory)
                 RADIATOR_LOG_INFO(millis() << " ms: initFilesystem(): retry SD.begin() #" << i << std::endl;)
                 delay(200);
                 FILESYSTEM_TO_USE.end();
-                if (FILESYSTEM_TO_USE.begin())
+                if (FILESYSTEM_TO_USE.begin(SD_CS_PIN, SPI, SD_SPI_SPEED, FILESYSTEM_BASE_PATH, SD_MAX_FILES, SD_FORMAT_ON_STARTUP))
                 {
                     RADIATOR_LOG_INFO(millis() << " ms: initFilesystem(): SUCCESS SD.begin() #" << i << std::endl;)
                     ok = true;

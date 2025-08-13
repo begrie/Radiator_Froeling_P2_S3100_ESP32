@@ -5,8 +5,14 @@
 #include "networking.h"
 
 #include <Ticker.h>
+
+#if WITH_DHT_SENSOR
 #include <DHT.h>
+#endif
+
+#if WITH_AIR_INPUT_FLAP
 #include "ESP32_Servo.h"
+#endif
 
 namespace radiator
 {
@@ -27,11 +33,13 @@ namespace radiator
         static void xTaskExternalSensors(void *parameter);
         // we need a mutex semaphore to handle concurrent access from different tasks - otherwise "funny" crashes from bufferQueue-handling
         static SemaphoreHandle_t semaphoreExternalSensors;
+        static SemaphoreHandle_t semaphoreAcCurrentSensor; // Definition für AC-Strom Semaphor
         static std::string messageBuf;
 
         static void autoControlVentilatorAndFlap();
         static bool radiatorIsBurning;
 
+#if WITH_DHT_SENSOR
         static bool initTempHumidityDHTSensor();
         static int16_t readTemp();
         static int16_t readHumidity();
@@ -39,8 +47,9 @@ namespace radiator
         // static int16_t getHumidity() { return lastRoomHumidity; };
         static int dhtGPIO;
         static DHT tempHumidityDHTSensor;
-        static int16_t lastRoomTemperature;
-        static int16_t lastRoomHumidity;
+#endif // WITH_DHT_SENSOR
+        static int16_t lastRoomTemperature; //zur Vereinfachung trotzdem definieren
+        static int16_t lastRoomHumidity;    // zur Vereinfachung trotzdem definieren
 
         static bool initVentilator();
         static void setVentilatorOn();
@@ -49,11 +58,13 @@ namespace radiator
         static bool ventilatorRelaisState;
 
         static bool initAirInputFlap();
+        static bool airInputFlapIsOpen; // immer deklarieren!
+#if WITH_AIR_INPUT_FLAP
         static void openAirInputFlap();
         static void closeAirInputFlap();
         static int servoForAirInputFlapGPIO;
         static ESP32_Servo servoForAirInputFlap;
-        static bool airInputFlapIsOpen;
+#endif
 
         static bool initLeakWaterSensor();
         static bool getLeakWaterSensorState() { return leakWaterDetected; };

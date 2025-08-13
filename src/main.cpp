@@ -50,6 +50,9 @@ radiator::OutputHandler *ptrOutHandler;
  *********************************************************************/
 void setup()
 {
+    // int *p = nullptr;
+    // *p = 42; // absichtlicher Crash
+
     Serial.begin(115200);
     delay(1000); // give serial monitor time to connect
     Serial.println("Start setup...");
@@ -59,6 +62,7 @@ void setup()
 
     debug_level = D_DEBUG_LEVEL; // var debug_level is globally defined in debug.cpp
 
+    // initialisation of the filesystem at first to minimize heap fragmentation
     std::string pathnameToDataDirectory =
         radiator::FilesystemHandler::initFilesystem(DATA_DIRECTORY); // DATA_DIRECTORY is completed with mountpoint of the filesystem
                                                                      // (/sd/dataDirectory or /littlefs/..., /spiffs/...)

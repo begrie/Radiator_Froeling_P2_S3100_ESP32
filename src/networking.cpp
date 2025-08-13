@@ -151,6 +151,7 @@ bool radiator::NetworkHandler::configureWiFiAndMQTT()
                   << "\t(Info: Change WiFi or MQTT settings by pressing the big yellow button at startup of the ESP32) \n"
                   << std::endl;
 
+        WiFi.setHostname(WIFI_HOSTNAME);
         auto result = WiFi.begin();
 
         if (result == WL_CONNECT_FAILED)
