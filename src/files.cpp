@@ -305,29 +305,41 @@ void radiator::FilesystemHandler::checkFilesystem()
               << " -> we try a re-init ..."
               << std::endl;
 
-    auto res = initFilesystem();
+    // Remount the SD card directly instead of calling initFilesystem(), because
+    // initFilesystem() would spawn an additional xTaskFilesWatchdog task on every
+    // failure, causing task proliferation and increasingly frequent beeping.
+    bool ok = false;
+    if ((void *)&FILESYSTEM_TO_USE == (void *)&SD)
+    {
+        for (int i = 0; i < 20; i++)
+        {
+            RADIATOR_LOG_INFO(millis() << " ms: checkFilesystem(): retry SD.begin() #" << i << std::endl;)
+            delay(200);
+            FILESYSTEM_TO_USE.end();
+            if (FILESYSTEM_TO_USE.begin(SD_CS_PIN, SPI, SD_SPI_SPEED, FILESYSTEM_BASE_PATH, SD_MAX_FILES, SD_FORMAT_ON_STARTUP))
+            {
+                RADIATOR_LOG_INFO(millis() << " ms: checkFilesystem(): SUCCESS SD.begin() #" << i << std::endl;)
+                ok = true;
+                break;
+            }
+        }
+    }
+    else
+    {
+        ok = FILESYSTEM_TO_USE.begin(false);
+    }
 
-    // std::string message;
     message = std::to_string(millis()) + " ms: .... FILESYSTEM RE-INIT: ";
-    // std::cout << millis() << " ms: .... FILESYSTEM RE-INIT: " << (res.empty() ? "FAILED" : "SUCCESS") << " ..." << std::endl;
 
     static uint8_t problemCounter = 0;
 
-    // make some noise to signal the problem
-    if (res.empty())
+    // No buzzer: SD card problems are not user-actionable; the ESP will restart
+    // after 3 consecutive failures. The buzzer was the cause of periodic beeping
+    // observed when the SD card has intermittent SPI issues.
+    if (!ok)
     {
         problemCounter++;
         message += "FAILED ...";
-
-        pinMode(BUZZER_PIN, OUTPUT);
-        bool OnOff = 1;
-        for (int i = 0; i < 100; i++)
-        {
-            digitalWrite(BUZZER_PIN, OnOff);
-            OnOff = !OnOff;
-            vTaskDelay(pdMS_TO_TICKS(50));
-        }
-        digitalWrite(BUZZER_PIN, LOW);
     }
     else
     {
