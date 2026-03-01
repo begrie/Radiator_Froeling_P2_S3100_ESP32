@@ -1,120 +1,167 @@
+/******************************************************************************
+ * Name:		main.cpp
+ * @brief   Überwachungstool für Fröling P2 / Lambdatronic S 3100
+ *          -> hier: für ESP32
+ *          -> Output auf console, flash-filesystem oder SD-card oder/und MQTT
+ *          -> rudimentärer Zugriff per WiFi Async Server
+ *          -> IDE: platformio
+ * Created:	01.09.2022 (ESP32-adaption)
+ * Author:	Original (for Raspberry Pi): Daniel Höpfl
+ *          -> https://github.com/dhoepfl/Radiator
+ *          Adaption to ESP32: Bernd Griesbach
+ *          -> https://github.com/begrie/Radiator_Froeling_S3100_Hoepfl/tree/ESP32
+ ******************************************************************************/
+
+/***********************
+ *      INCLUDES
+ ***********************/
+#include "config.h"
 #include "debug.h"
 #include "device.h"
 #include "surveillance.h"
 #include "output.h"
+#include "files.h"
+#include "externalsensors.h"
 
-#include <getopt.h>
-#include <unistd.h>
+/***********************
+ *      DEFINES
+ ***********************/
+// see config.h
 
-#include <cstdlib>
-#include <iostream>
-#include <iomanip>
+/***********************
+ *      MACROS
+ ***********************/
+// see config.h
 
-#if HAVE_CONFIG_H  
-#include "config.h"
-#endif 
+/***********************
+ * FORWARD DECLARATIONS
+ ***********************/
 
+/***********************
+ * GLOBAL DEFINITIONS
+ ***********************/
+radiator::NetworkHandler netHandler;
+radiator::OutputHandler *ptrOutHandler;
 
-void versionInfo(std::ostream &ostream)
+/*********************************************************************
+ * @brief 	Setup to start everything
+ * @param 	void
+ * @return 	void
+ *********************************************************************/
+void setup()
 {
-   ostream << PACKAGE_NAME << " V" << PACKAGE_VERSION << std::endl;
-   ostream << "Report bugs to " << PACKAGE_BUGREPORT << std::endl;
-   ostream << std::endl;
+    // int *p = nullptr;
+    // *p = 42; // absichtlicher Crash
+
+    Serial.begin(115200);
+    delay(1000); // give serial monitor time to connect
+    Serial.println("Start setup...");
+
+    bool outputToConsole = OUTPUT_TO_CONSOLE;
+    bool outputToMQTT = OUTPUT_TO_MQTT && USE_WIFI; // is turned off without WiFi
+
+    debug_level = D_DEBUG_LEVEL; // var debug_level is globally defined in debug.cpp
+
+    // initialisation of the filesystem at first to minimize heap fragmentation
+    std::string pathnameToDataDirectory =
+        radiator::FilesystemHandler::initFilesystem(DATA_DIRECTORY); // DATA_DIRECTORY is completed with mountpoint of the filesystem
+                                                                     // (/sd/dataDirectory or /littlefs/..., /spiffs/...)
+
+    if (pathnameToDataDirectory.empty())
+    {
+        std::cout << getMillisAndTime() << "ERROR MOUNTING FILESYSTEM !!! -> Instead: data output to console (std::cout)" << std::endl;
+        outputToConsole = true;
+    }
+    else // filesystem successfull mounted
+    {
+        // FS_Filehelper::listDir("/", 255, false, FILESYSTEM_TO_USE);
+
+#if REDIRECT_STD_ERR_TO_SYSLOG_FILE
+        if (!pathnameToDataDirectory.empty())
+            radiator::FilesystemHandler::initRedirectStdErrToSyslogFile();
+#endif
+    }
+
+    if (!OUTPUT_TO_FILE)
+        pathnameToDataDirectory = ""; // empty pathname indicates "no file output" for constuctor of OutputHandler
+
+    if (USE_WIFI)
+        outputToMQTT = netHandler.init(outputToMQTT, START_WEBSERVER); // on init-failure -> turn off MQTT
+
+#if USE_EXTERNAL_SENSORS
+    radiator::ExternalSensors::initExternalSensors();
+#endif
+
+    ptrOutHandler = new radiator::OutputHandler(pathnameToDataDirectory, // with empty pathnameToDataDirectory -> no output to file
+                                                outputToConsole,
+                                                outputToMQTT);
+
+    // ptrOutHandler->setSystemTimeFromRadiatorData(2024, 9, 8, 7, 55, 44);
+
+    RADIATOR_LOG_INFO("\n" << getMillisAndTime()
+                           << "***************************************** END STARTUP OF ESP32 *****************************************" << std::endl;)
 }
 
-void usage(std::ostream &ostream, std::string argv0)
+/*********************************************************************
+ * @brief 	Loop function
+ * @param 	void
+ * @return 	void
+ *********************************************************************/
+void loop()
 {
-   ostream << "Usage: " << argv0 << " [-V] [-h] [-D[level]] [-T <timeout in s>] [-o <output>] <serial port name>" << std::endl;
-   ostream << std::endl;
-   ostream << "   -V                 Print version info and exit." << std::endl;
-   ostream << "   -h                 Print this usage info and exit." << std::endl;
-   ostream << std::endl;
-   ostream << "   -D[level]          Increase log level or set to the given level." << std::endl;
-   ostream << std::endl;
-   ostream << "                      Available levels:" << std::endl;
-   ostream << std::endl;
-   ostream << "                        0  - No logging" << std::endl;
-   ostream << "                        1  - Errors" << std::endl;
-   ostream << "                        2  - Warnings" << std::endl;
-   ostream << "                        3  - Infos" << std::endl;
-   ostream << "                        4  - Debug" << std::endl;
-   ostream << "                        5  - Trace" << std::endl;
-   ostream << std::endl;
-   ostream << "   -T <timeout in s>  Maximum time allowed between transfers until" << std::endl;
-   ostream << "                      connection is considered stale." << std::endl;
-   ostream << std::endl;
-   ostream << "   -o <output>        Where to write the received values to." << std::endl;
-   ostream << "                      \"-\" writes to stdout." << std::endl;
-   ostream << std::endl;
-   ostream << "   <serial port>      Filename of the serial device." << std::endl;
-   ostream << std::endl;
+    std::string message;
+    message.reserve(800); // an attempt to avoid heap fragmentation
+    Ticker tickerConnectToRadiatorInfo;
 
-   versionInfo(ostream);
-}
+    try
+    {
+        message = getMillisAndTime() + "##### Start connecting to Froeling P2/S3100 ##### \n";
+        netHandler.publishToMQTT(message, MQTT_SUBTOPIC_SYSLOG);
+        RADIATOR_LOG_WARN(message << std::endl;)
+        if (REDIRECT_STD_ERR_TO_SYSLOG_FILE) // for better user info also to console
+            std::cout << message;
 
-int main(int argc, char *argv[])
-{
-   debug_level = 1;
+        tickerConnectToRadiatorInfo.once_ms(
+            T_TIMEOUT_BETWEEN_TRANSFERS_MS + 500,
+            []()
+            {
+                char msg[80];
+                snprintf(msg, sizeof(msg), "%s ##### CONNECTED to Froeling P2/S3100 #####", getMillisAndTime().c_str());
+                // std::string msg;
+                // msg = std::to_string(millis()) + " ms: ##### CONNECTED to Froeling P2/S3100 #####";
+                netHandler.publishToMQTT(msg, MQTT_SUBTOPIC_SYSLOG);
+                RADIATOR_LOG_WARN(msg << std::endl;)
+                if (REDIRECT_STD_ERR_TO_SYSLOG_FILE) // for better user info also to console
+                    std::cout << msg << std::endl;
+            });
 
-   int timeout = 1500;
+        radiator::Surveillance surveillance(S_SERIAL_TO_RADIATOR, T_TIMEOUT_BETWEEN_TRANSFERS_MS, *ptrOutHandler);
+        surveillance.main_loop();
 
-   std::string output = "";
-   for (int c = 0; (c = ::getopt(argc, argv, "+D::T:o:hV")) != -1;) {
-      switch (c) {
-         case 'D':
-            if (optarg) {
-               debug_level = ::atoi(optarg);
-            } else {
-               debug_level++;
-            }
-            break;
-         case 'T':
-            timeout = atoi(optarg)*1000;
-            if (timeout < 1000) {
-               LOG_info << "Min timeout is 1s, adjusted" << std::endl;
-               timeout = 1000;
-            }
+        tickerConnectToRadiatorInfo.detach();
 
-            break;
-         case 'o':
-            output = optarg;
-            break;
-         case '?':
-            if (optopt == 'T' || optopt == 'o')
-               LOG_error << "Option -" << optopt << " requires an argument." << std::endl;
-            else if (::isprint(optopt))
-               LOG_error << "Unknown option `-" << (char) optopt << "'." << std::endl;
-            else
-               LOG_error << "Unknown option character `\\x" << std::hex << (unsigned int) optopt << std::dec << "'." << std::endl;
-            ::exit(1);
-         case 'h':
-            usage(std::cerr, argv[0]);
-            ::exit(1);
-         case 'V':
-            versionInfo(std::cerr);
-            ::exit(1);
-      }
-   }
+        message = getMillisAndTime() + "##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### \n";
+        netHandler.publishToMQTT(message, MQTT_SUBTOPIC_SYSLOG);
+        RADIATOR_LOG_WARN(message << std::endl;)
+        if (REDIRECT_STD_ERR_TO_SYSLOG_FILE) // for better user info also to console
+            std::cout << message;
 
-   if (argc - optind != 1) {
-      usage(LOG_error, argv[0]);
-      ::exit(1);
-   }
+        // DEBUG_STACK_HIGH_WATERMARK;
 
-   char *devicename = argv[optind];
+        sleep(10);
+    }
+    catch (const char *&error)
+    {
+        message = getMillisAndTime() +
+                  " ms: !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n"
+                  "!!!!! *&error= " +
+                  *&error + ", error= " + error +
+                  "!!!!! Failed to open serial device or filesystem -> restarting ESP32 in 10s !!!!!\n"
+                  "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+        netHandler.publishToMQTT(message, MQTT_SUBTOPIC_SYSLOG);
+        LOG_fatal << message << std::endl;
 
-   try {
-      for(;;) {
-         LOG_trace << "Starting main loop" << std::endl;
-
-         radiator::OutputHandler handler(output);
-         radiator::Surveillance surveillance(devicename, timeout, handler);
-         surveillance.main_loop();
-
-         LOG_info << "Main loop ended, restarting in 10s" << std::endl;
-         sleep(10);
-      }
-   } catch(const char *&error) {
-      LOG_fatal << "Failed to open serial device, quitting" << std::endl;
-   }
+        sleep(10);
+        esp_restart();
+    }
 }

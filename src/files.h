@@ -1,0 +1,38 @@
+#ifndef __DH_FILES_H__
+#define __DH_FILES_H__
+
+#include <fstream>
+
+#include <LittleFS.h>
+#include <SD.h>
+
+#include "config.h"
+#include "networking.h"
+#include "FS_Filehelper.h" //only for testing
+
+namespace radiator
+{
+    class FilesystemHandler
+    {
+    public:
+        static std::string initFilesystem(std::string dataDirectory = DATA_DIRECTORY);
+        static bool initRedirectStdErrToSyslogFile(std::string_view _syslogPathName = SYSLOG_PATHNAME);
+
+    protected:
+        static void xTaskFilesWatchdog(void *parameter);
+
+        static bool writeSyslogfile();
+
+        static bool redirectStdErrToSyslogFile;
+        static std::string syslogPathName;
+        static std::stringstream syslogStringStream;
+        static std::ofstream syslogFileStream;
+
+        static void checkFilesystem();
+        static void checkFreeSpaceOnFilesystem();
+        static void createTestData();
+
+        static std::string message; // as class member to avoid heap fragmentation
+    };
+} // namespace radiator
+#endif // #ifndef __DH_FILES_H__
