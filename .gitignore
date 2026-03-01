@@ -3,3 +3,9 @@
 .vscode/c_cpp_properties.json
 .vscode/launch.json
 .vscode/ipch
+Makefile
+src/Makefile
+src/.deps/
+config.log
+config.status
+_codeql_detected_source_root
