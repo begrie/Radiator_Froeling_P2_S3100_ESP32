@@ -9,7 +9,7 @@
  * Author:	Original (for Raspberry Pi): Daniel Höpfl
  *          -> https://github.com/dhoepfl/Radiator
  *          Adaption to ESP32: Bernd Griesbach
- *          -> https://github.com/begrie/Radiator_Froeling_S3100_Hoepfl/tree/ESP32
+ *          -> https://github.com/begrie/Radiator_Froeling_P2_S3100_ESP32
  ******************************************************************************/
 #ifndef __DH_CONFIG_H__
 #define __DH_CONFIG_H__
