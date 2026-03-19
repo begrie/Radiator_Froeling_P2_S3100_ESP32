@@ -12,29 +12,28 @@ Als ESP32 Nutzer habe ich mangels RasPi Erfahrungen und fehlender Erläuterungen
 
 Die ESP32 Lösung besteht nur noch aus dem C++ Sourcecode, bei dem ich im wesentlichen folgendes geändert bzw. ergänzt habe:
 
-* main.cpp neu für ESP32 mit Platformio (bei mir in VSCode) -> Platform Espressif32 und Arduino framework 3.x
+- main.cpp neu für ESP32 mit Platformio (bei mir in VSCode) -> Platform Espressif32 und Arduino framework 3.x
 
-* Serieller Input (in serial.cpp) über Serial2 realisiert (hardwareseitig wie beim RasPi über RS232-Schnittstellenumsetzer → bei mir SparkFun Transceiver Breakout - MAX3232 https://www.sparkfun.com/products/11189)
+- Serieller Input (in serial.cpp) über Serial2 realisiert (hardwareseitig wie beim RasPi über RS232-Schnittstellenumsetzer → bei mir SparkFun Transceiver Breakout - MAX3232 https://www.sparkfun.com/products/11189)
 
-* Output fast komplett neu (output.h/.cpp, network.h/.cpp, files.h/.cpp) → nun "autark" (ohne externe Skripte o.ä) auf
-    * Console/Serial,
-    * Flash/LittleFS (wg. geringem Speicherplatz nur zum Testen sinnvoll),
-    * SD Card (hardwareseitig jeder 3,3V SD Reader an den ESP32 anschliessbar). Aktuell muss die SD Card entnommen und am PC eingelesen werden.
-    * Buzzer (aktiv) und Quit-Button zur akustischen Fehlermeldung im Keller
-    * WiFi ...
-          * ... inkl. Konfiguration über console/Serial per USB-Anschluss → beim Booten den Quit-Button drücken
-          * ... zum Versand von MQTT-Nachrichten (Konfiguration wie bei WiFi)
-          * ... mit Webserver zum Datenabgriff von der SD-Card
+- Output fast komplett neu (output.h/.cpp, network.h/.cpp, files.h/.cpp) → nun "autark" (ohne externe Skripte o.ä) auf
+  - Console/Serial,
+  - Flash/LittleFS (wg. geringem Speicherplatz nur zum Testen sinnvoll),
+  - SD Card (hardwareseitig jeder 3,3V SD Reader an den ESP32 anschliessbar). Aktuell muss die SD Card entnommen und am PC eingelesen werden.
+  - Buzzer (aktiv) und Quit-Button zur akustischen Fehlermeldung im Keller
+  - WiFi ...
+    _ ... inkl. Konfiguration über console/Serial per USB-Anschluss → beim Booten den Quit-Button drücken
+    _ ... zum Versand von MQTT-Nachrichten (Konfiguration wie bei WiFi) \* ... mit Webserver zum Datenabgriff von der SD-Card
 
-* Die Konfiguration bzgl. Filesystem, Output und weiterem Verhalten erfolgt ausschließlich über die #defines in config.h, was bei Änderungen natürlich eine Neucompilierung erfordert (ich weiss: nicht schön - aber der kürzeste Weg). Dies sollte aber durch die Nutzung von Platformio über die hier enthaltene platformio.ini problemlos möglich sein ...
+- Die Konfiguration bzgl. Filesystem, Output und weiterem Verhalten erfolgt ausschließlich über die #defines in config.h, was bei Änderungen natürlich eine Neucompilierung erfordert (ich weiss: nicht schön - aber der kürzeste Weg). Dies sollte aber durch die Nutzung von Platformio über die hier enthaltene platformio.ini problemlos möglich sein ...
 
-* Schaltplan zur Konfiguration im Sourcecode:
-    ![Schaltplan](Schaltplan.png)
+- Schaltplan zur Konfiguration im Sourcecode:
+  ![Schaltplan](Schaltplan.png)
 
-* Fotos zur Umsetzung:
-    ![Foto Platine oben](Platine_Oben.jpg)
-    ![Foto Platine unten](Platine_Unten.jpg)
-    ![Foto Heizung](Heizung1.jpg)
+- Fotos zur Umsetzung:
+  ![Foto Platine oben](Platine_Oben.jpg)
+  ![Foto Platine unten](Platine_Unten.jpg)
+  ![Foto Heizung](Heizung1.jpg)
 
 Falls jemand die ESP32 Anpassung nutzt, bin ich für Rückmeldungen, Verbesserungen, Pull requests etc. offen ...
 
@@ -42,7 +41,7 @@ Falls jemand die ESP32 Anpassung nutzt, bin ich für Rückmeldungen, Verbesserun
 
 ## Hintergrund: Originaltext von Daniel Höpfl ([dhoepfl/Radiator](https://github.com/dhoepfl/Radiator))
 
-*Der folgende Abschnitt stammt aus dem ursprünglichen Raspberry-Pi-Projekt, auf dem diese ESP32-Adaptation basiert. Er enthält die detaillierte Protokollanalyse der Fröling P2 / Lambdatronic S 3100 Schnittstelle.*
+_Der folgende Abschnitt stammt aus dem ursprünglichen Raspberry-Pi-Projekt, auf dem diese ESP32-Adaptation basiert. Er enthält die detaillierte Protokollanalyse der Fröling P2 / Lambdatronic S 3100 Schnittstelle._
 
 ## Vorgeschichte
 
@@ -64,43 +63,43 @@ Nach meinen Analysen sieht das Protokoll wie folgt aus:
 
 Das Protokoll basiert auf Datenpaketen mit folgender Struktur:
 
-| Bytes  | Beschreibung |
-| ------ | ------------ |
-| 2      | Befehl       |
-| 1      | Länge (n)    |
-| n      | Daten        |
-| 2      | Prüfsumme    |
+| Bytes | Beschreibung |
+| ----- | ------------ |
+| 2     | Befehl       |
+| 1     | Länge (n)    |
+| n     | Daten        |
+| 2     | Prüfsumme    |
 
 Dabei gilt:
 
- * Für eine Liste der bekannten Befehle siehe unten. Soweit ich sehen konnte, beginnen Befehle, die von der Heizung gesendet werden, mit „M“, Befehle, die vom Endgerät ausgehen, beginnen mit „R“. (Achtung: Das gilt nicht für Bestätigungen)
- * Die Länge zählt nur die Datenbytes, Header und Prüfsumme bleiben unberücksichtigt.
- * Die Prüfsumme ist eine einfache, vorzeichenlos berechnete, 16 Bit breite Summe über Befehl, Länge und Daten.
+- Für eine Liste der bekannten Befehle siehe unten. Soweit ich sehen konnte, beginnen Befehle, die von der Heizung gesendet werden, mit „M“, Befehle, die vom Endgerät ausgehen, beginnen mit „R“. (Achtung: Das gilt nicht für Bestätigungen)
+- Die Länge zählt nur die Datenbytes, Header und Prüfsumme bleiben unberücksichtigt.
+- Die Prüfsumme ist eine einfache, vorzeichenlos berechnete, 16 Bit breite Summe über Befehl, Länge und Daten.
 
 ## Ablauf
 
 Hier widerspreche ich den oben verlinkten Quellen: Meiner Meinung nach sieht das Protokoll vor, dass jedes Datenpaket mit einer Bestätigung quittiert wird. Dabei folgt das Bestätigungspaket folgendem Schema:
 
-| Bytes  | Beschreibung                                       |
-| ------ | -------------------------------------------------- |
-| 2      | Befehl, der quittiert wird                         |
-| 1      | Länge (immer 1)                                    |
-| 1      | 0x01 für Bestätigung (ACK), 0x00 für Fehler (NACK) |
-| 2      | Prüfsumme                                          |
+| Bytes | Beschreibung                                       |
+| ----- | -------------------------------------------------- |
+| 2     | Befehl, der quittiert wird                         |
+| 1     | Länge (immer 1)                                    |
+| 1     | 0x01 für Bestätigung (ACK), 0x00 für Fehler (NACK) |
+| 2     | Prüfsumme                                          |
 
 Der Ablauf im Programm kann also wie folgt aussehen:
 
- 1. Benutze einen Puffer für mindestens 260 Bytes (2 Bytes Befehl, 1 Byte Länge, max. 255 Bytes Daten, 2 Bytes Prüfsumme).
- 2. 5 Bytes von der seriellen Schnittstelle lesen (2 Byte Befehl, 1 Byte Länge, 2 Bytes Prüfsumme)
- 3. Wenn Länge > 0: Entsprechend weitere Bytes lesen.
- 4. Die Prüfsumme prüfen.
-    * Ist sie ungültig: NACK senden, weiter bei 1.
-    * Ist sie gültig: ACK senden, weiter bei 5.
- 5. Bestätigungen behandeln:
-    * Wurde der entsprechende Befehl gesendet und ist die Länge 1 und ist der Wert 0x01? Dann ist der Befehl quittiert, weiter bei 1.
-    * Wurde der entspechende Befehl gesendet und ist die Länge 1 und ist der Wert 0x00? Dann Befehl erneut senden, weiter bei 1.
-    * Wurde der entsprechende Befehl nicht gesendet oder ist die Länge nicht 1, dann weiter bei 6.
- 6. Befehl behandeln.
+1.  Benutze einen Puffer für mindestens 260 Bytes (2 Bytes Befehl, 1 Byte Länge, max. 255 Bytes Daten, 2 Bytes Prüfsumme).
+2.  5 Bytes von der seriellen Schnittstelle lesen (2 Byte Befehl, 1 Byte Länge, 2 Bytes Prüfsumme)
+3.  Wenn Länge > 0: Entsprechend weitere Bytes lesen.
+4.  Die Prüfsumme prüfen.
+    - Ist sie ungültig: NACK senden, weiter bei 1.
+    - Ist sie gültig: ACK senden, weiter bei 5.
+5.  Bestätigungen behandeln:
+    - Wurde der entsprechende Befehl gesendet und ist die Länge 1 und ist der Wert 0x01? Dann ist der Befehl quittiert, weiter bei 1.
+    - Wurde der entspechende Befehl gesendet und ist die Länge 1 und ist der Wert 0x00? Dann Befehl erneut senden, weiter bei 1.
+    - Wurde der entsprechende Befehl nicht gesendet oder ist die Länge nicht 1, dann weiter bei 6.
+6.  Befehl behandeln.
 
 ## Bekannte Befehle
 
@@ -110,24 +109,24 @@ Alle Texte, die übertragen werden, sind übrigens in „Codepage 850“ kodiert
 
 ### Login („Ra“)
 
-| Bytes  | Wert      | Beschreibung                                                        |
-| ------ | --------- | ------------------------------------------------------------------- |
-| 2      | 0x52 0x61 | Login-Befehl                                                        |
-| 1      | 0x03      | Länge 3                                                             |
-| 1      | 0x00      | unbekannt                                                           |
-| 2      | 0x.. 0x.. | Benutzer-Kennung (-7: 0xff 0xf9 für Service, 1/0x00 0x01 für Kunde) |
-| 2      | 0x.. 0x.. | Prüfsumme                                                           |
+| Bytes | Wert      | Beschreibung                                                        |
+| ----- | --------- | ------------------------------------------------------------------- |
+| 2     | 0x52 0x61 | Login-Befehl                                                        |
+| 1     | 0x03      | Länge 3                                                             |
+| 1     | 0x00      | unbekannt                                                           |
+| 2     | 0x.. 0x.. | Benutzer-Kennung (-7: 0xff 0xf9 für Service, 1/0x00 0x01 für Kunde) |
+| 2     | 0x.. 0x.. | Prüfsumme                                                           |
 
 Die Heizung antwortet darauf mit einem ACK (siehe Ablauf) und sendet daraufhin die Befehlsblöcke MA, MB, MC, MD, ME, MF, MG, MK, ML, MM, MW, MS, MT und MU, jeweils beendet durch entsprechende MZ Befehle. Anschließend beginnt die Heizung regelmäßig M2 zu senden.
 
 ### Status („Rb“)
 
-| Bytes  | Wert           | Beschreibung                                                        |
-| ------ | -------------- | ------------------------------------------------------------------- |
-| 2      | 0x52 0x62      | Status-Befehl                                                       |
-| 1      | 0x03           | Länge 3                                                             |
-| 3      | 0x00 0x00 0x00 | unbekannt                                                           |
-| 2      | 0x.. 0x..      | Prüfsumme                                                           |
+| Bytes | Wert           | Beschreibung  |
+| ----- | -------------- | ------------- |
+| 2     | 0x52 0x62      | Status-Befehl |
+| 1     | 0x03           | Länge 3       |
+| 3     | 0x00 0x00 0x00 | unbekannt     |
+| 2     | 0x.. 0x..      | Prüfsumme     |
 
 Die Heizung antwortet darauf mit einem ACK (siehe Ablauf) und sendet ab sofort regelmäßig die Messwerte (M1).
 
@@ -135,13 +134,13 @@ Die Heizung antwortet darauf mit einem ACK (siehe Ablauf) und sendet ab sofort r
 
 Ändert einen der Werte der Heizung. Die verfügbaren Werte werden in „ME“ beschrieben.
 
-| Bytes  | Wert           | Beschreibung                                                        |
-| ------ | -------------- | ------------------------------------------------------------------- |
-| 2      | 0x52 0x49      | Befehl                                                              |
-| 1      | 0x04           | Länge                                                               |
-| 2      | 0x.. 0x..      | Parameter-ID                                                        |
-| 2      | 0x.. 0x..      | Neuer Wert                                                          |
-| 2      | 0x.. 0x..      | Prüfsumme                                                           |
+| Bytes | Wert      | Beschreibung |
+| ----- | --------- | ------------ |
+| 2     | 0x52 0x49 | Befehl       |
+| 1     | 0x04      | Länge        |
+| 2     | 0x.. 0x.. | Parameter-ID |
+| 2     | 0x.. 0x.. | Neuer Wert   |
+| 2     | 0x.. 0x.. | Prüfsumme    |
 
 Die Heizung antwortet darauf mit einem ACK/NACK (siehe Ablauf), anschließend kommt der neue Wert über „MI“.
 
@@ -149,56 +148,56 @@ Die Heizung antwortet darauf mit einem ACK/NACK (siehe Ablauf), anschließend ko
 
 Auch hier muss ich den Angaben aus den Foren widersprechen: Der Inhalt von M1 ist nicht fest vorgegeben, es hängt davon ab, was wie die Heizung installiert wurde. Welche Werte geliefert werden und wie diese zu interpretieren sind, kann man aus der „MA“- bzw. „MC“ Antworten ableiten, die man beim Login bekommt. Für meine Heizung sind das die folgenden Werte, für andere Heizungen können es andere Werte (oder Reihenfolgen) sein.
 
-| Bytes  | Wert           | Beschreibung                        | Faktor | Einheit                |
-| ------ | -------------- | ----------------------------------- |:------:|:----------------------:|
-| 2      | 0x4D 0x31      | Status-Befehl                       |        |                        |
-| 1      | 0x..           | Länge                               |        |                        |
-| 2      | 0x.. 0x..      | 1. Displayzeile                     |        |                        |
-| 2      | 0x.. 0x..      | 2. Displayzeile                     |        |                        |
-| 2      | 0x.. 0x..      | Zustand                             |   1    | -/-                    |
-| 2      | 0x.. 0x..      | Rost                                |   1    | -/-                    |
-| 2      | 0x.. 0x..      | Kessel-Temperatur                   |   2    | °C                     |
-| 2      | 0x.. 0x..      | Abgas-Temperatur                    |   1    | °C                     |
-| 2      | 0x.. 0x..      | Abgas Schwellwert                   |   1    | °C                     |
-| 2      | 0x.. 0x..      | KesselStellGr                       |   1    | %                      |
-| 2      | 0x.. 0x..      | Saugzug                             |   1    | %                      |
-| 2      | 0x.. 0x..      | Zuluft-Gebläse                      |   1    | %                      |
-| 2      | 0x.. 0x..      | Einschub                            |   1    | %                      |
-| 2      | 0x.. 0x..      | Rest-O2                             |  100   | %                      |
-| 2      | 0x.. 0x..      | O2-Regler                           |  100   | %                      |
-| 2      | 0x.. 0x..      | Füllstand                           |  207   | %                      |
-| 2      | 0x.. 0x..      | Feuerraum-Temperatur                |   2    | °C                     |
-| 2      | 0x.. 0x..      | Puffer oben                         |   2    | °C                     |
-| 2      | 0x.. 0x..      | Puffer unten                        |   2    | °C                     |
-| 2      | 0x.. 0x..      | Puffer Pu                           |   1    | %                      |
-| 2      | 0x.. 0x..      | Boiler                              |   2    | °C                     |
-| 2      | 0x.. 0x..      | Außentemperatur                     |   2    | °C                     |
-| 2      | 0x.. 0x..      | Vorlauf 1 Schwellwert               |   2    | °C                     |
-| 2      | 0x.. 0x..      | Vorlauf 1                           |   2    | °C                     |
-| 2      | 0x.. 0x..      | Vorlauf 2 Schwellwert               |   2    | °C                     |
-| 2      | 0x.. 0x..      | Vorlauf 2                           |   2    | °C                     |
-| 2      | 0x.. 0x..      | KTY6_H2                             |   2    | °C                     |
-| 2      | 0x.. 0x..      | KTY7_H2                             |   2    | °C                     |
-| 2      | 0x.. 0x..      | Brennerstarts                       |   1    | -/-                    |
-| 2      | 0x.. 0x..      | Betriebsstunden                     |   1    | h                      |
-| 2      | 0x.. 0x..      | Board-Temperatur                    |   1    | °C                     |
-| 2      | 0x.. 0x..      | Kessel Soll-Temperatur              |   2    | °C                     |
-| 2      | 0x.. 0x..      | Prüfsumme                           |        |                        |
+| Bytes | Wert      | Beschreibung           | Faktor | Einheit |
+| ----- | --------- | ---------------------- | :----: | :-----: |
+| 2     | 0x4D 0x31 | Status-Befehl          |        |         |
+| 1     | 0x..      | Länge                  |        |         |
+| 2     | 0x.. 0x.. | 1. Displayzeile        |        |         |
+| 2     | 0x.. 0x.. | 2. Displayzeile        |        |         |
+| 2     | 0x.. 0x.. | Zustand                |   1    |   -/-   |
+| 2     | 0x.. 0x.. | Rost                   |   1    |   -/-   |
+| 2     | 0x.. 0x.. | Kessel-Temperatur      |   2    |   °C    |
+| 2     | 0x.. 0x.. | Abgas-Temperatur       |   1    |   °C    |
+| 2     | 0x.. 0x.. | Abgas Schwellwert      |   1    |   °C    |
+| 2     | 0x.. 0x.. | KesselStellGr          |   1    |    %    |
+| 2     | 0x.. 0x.. | Saugzug                |   1    |    %    |
+| 2     | 0x.. 0x.. | Zuluft-Gebläse         |   1    |    %    |
+| 2     | 0x.. 0x.. | Einschub               |   1    |    %    |
+| 2     | 0x.. 0x.. | Rest-O2                |  100   |    %    |
+| 2     | 0x.. 0x.. | O2-Regler              |  100   |    %    |
+| 2     | 0x.. 0x.. | Füllstand              |  207   |    %    |
+| 2     | 0x.. 0x.. | Feuerraum-Temperatur   |   2    |   °C    |
+| 2     | 0x.. 0x.. | Puffer oben            |   2    |   °C    |
+| 2     | 0x.. 0x.. | Puffer unten           |   2    |   °C    |
+| 2     | 0x.. 0x.. | Puffer Pu              |   1    |    %    |
+| 2     | 0x.. 0x.. | Boiler                 |   2    |   °C    |
+| 2     | 0x.. 0x.. | Außentemperatur        |   2    |   °C    |
+| 2     | 0x.. 0x.. | Vorlauf 1 Schwellwert  |   2    |   °C    |
+| 2     | 0x.. 0x.. | Vorlauf 1              |   2    |   °C    |
+| 2     | 0x.. 0x.. | Vorlauf 2 Schwellwert  |   2    |   °C    |
+| 2     | 0x.. 0x.. | Vorlauf 2              |   2    |   °C    |
+| 2     | 0x.. 0x.. | KTY6_H2                |   2    |   °C    |
+| 2     | 0x.. 0x.. | KTY7_H2                |   2    |   °C    |
+| 2     | 0x.. 0x.. | Brennerstarts          |   1    |   -/-   |
+| 2     | 0x.. 0x.. | Betriebsstunden        |   1    |    h    |
+| 2     | 0x.. 0x.. | Board-Temperatur       |   1    |   °C    |
+| 2     | 0x.. 0x.. | Kessel Soll-Temperatur |   2    |   °C    |
+| 2     | 0x.. 0x.. | Prüfsumme              |        |         |
 
 ### Zeit („M2“)
 
-| Bytes  | Wert           | Beschreibung                                                        |
-| ------ | -------------- | ------------------------------------------------------------------- |
-| 2      | 0x4D 0x32      | Befehl                                                              |
-| 1      | 0x07           | Länge                                                               |
-| 1      | 0x..           | Sekunden                                                            |
-| 1      | 0x..           | Minuten                                                             |
-| 1      | 0x..           | Stunden                                                             |
-| 1      | 0x..           | Tag                                                                 |
-| 1      | 0x..           | Monat                                                               |
-| 1      | 0x..           | Wochentag (1: Montag, ..., 7: Sonntag)                              |
-| 1      | 0x..           | Jahr                                                                |
-| 2      | 0x.. 0x..      | Prüfsumme                                                           |
+| Bytes | Wert      | Beschreibung                           |
+| ----- | --------- | -------------------------------------- |
+| 2     | 0x4D 0x32 | Befehl                                 |
+| 1     | 0x07      | Länge                                  |
+| 1     | 0x..      | Sekunden                               |
+| 1     | 0x..      | Minuten                                |
+| 1     | 0x..      | Stunden                                |
+| 1     | 0x..      | Tag                                    |
+| 1     | 0x..      | Monat                                  |
+| 1     | 0x..      | Wochentag (1: Montag, ..., 7: Sonntag) |
+| 1     | 0x..      | Jahr                                   |
+| 2     | 0x.. 0x.. | Prüfsumme                              |
 
 Alle Werte sind BCD, d.h. die oberen 4 Bit beschreiben die Zehner-Stelle, die unteren 4 Bit die Einer-Stelle.
 
@@ -206,21 +205,21 @@ Alle Werte sind BCD, d.h. die oberen 4 Bit beschreiben die Zehner-Stelle, die un
 
 Wird gesendet, wenn ein Fehler auftritt. Vermutlich die interessanteste Meldung überhaupt, jedenfalls für meinen Anwendungszweck!
 
-| Bytes  | Wert           | Beschreibung                                                        |
-| ------ | -------------- | ------------------------------------------------------------------- |
-| 2      | 0x4D 0x33      | Befehl                                                              |
-| 1      | 0x0a           | Länge                                                               |
-| 1      | 0x..           | Fehlertext-ID                                                       |
-| 1      | 0x..           | Unbekannt                                                           |
-| 1      | 0x..           | Unbekannt                                                           |
-| 1      | 0x..           | Sekunden                                                            |
-| 1      | 0x..           | Minuten                                                             |
-| 1      | 0x..           | Stunden                                                             |
-| 1      | 0x..           | Tag                                                                 |
-| 1      | 0x..           | Monat                                                               |
-| 1      | 0x..           | Wochentag (1: Montag, ..., 7: Sonntag)                              |
-| 1      | 0x..           | Jahr                                                                |
-| 2      | 0x.. 0x..      | Prüfsumme                                                           |
+| Bytes | Wert      | Beschreibung                           |
+| ----- | --------- | -------------------------------------- |
+| 2     | 0x4D 0x33 | Befehl                                 |
+| 1     | 0x0a      | Länge                                  |
+| 1     | 0x..      | Fehlertext-ID                          |
+| 1     | 0x..      | Unbekannt                              |
+| 1     | 0x..      | Unbekannt                              |
+| 1     | 0x..      | Sekunden                               |
+| 1     | 0x..      | Minuten                                |
+| 1     | 0x..      | Stunden                                |
+| 1     | 0x..      | Tag                                    |
+| 1     | 0x..      | Monat                                  |
+| 1     | 0x..      | Wochentag (1: Montag, ..., 7: Sonntag) |
+| 1     | 0x..      | Jahr                                   |
+| 2     | 0x.. 0x.. | Prüfsumme                              |
 
 Der Inhalt entspricht dem von „MU“, die Fehlertext-ID ist analog denen in „MT“.
 
@@ -228,194 +227,194 @@ Der Inhalt entspricht dem von „MU“, die Fehlertext-ID ist analog denen in �
 
 Diese Nachrichten müssen ausgewertet werden, um den Inhalt von „M1“ auswerten zu können. Die Werte in „M1“ sind jeweils 2 Byte lang und werden in genau der Reihenfolge gesendet, in der auch die „MA“ Nachrichten gesendet wurden.
 
-| Bytes  | Wert           | Beschreibung                                                        |
-| ------ | -------------- | ------------------------------------------------------------------- |
-| 2      | 0x4D 0x41      | Befehl                                                              |
-| 1      | 0x..           | Länge                                                               |
-| 1      | 0x..           | 'S': String, 'I': Messwerte                                         |
-| 2      | 0x.. 0x..      | 'S': Typ in „MB“, 'I': Index in „MC“                                |
-| 2      | 0x.. 0x..      | Unbekannt                                                           |
-| n      | ...            | Parameterbezeichnung                                                |
-| 2      | 0x.. 0x..      | Prüfsumme                                                           |
+| Bytes | Wert      | Beschreibung                         |
+| ----- | --------- | ------------------------------------ |
+| 2     | 0x4D 0x41 | Befehl                               |
+| 1     | 0x..      | Länge                                |
+| 1     | 0x..      | 'S': String, 'I': Messwerte          |
+| 2     | 0x.. 0x.. | 'S': Typ in „MB“, 'I': Index in „MC“ |
+| 2     | 0x.. 0x.. | Unbekannt                            |
+| n     | ...       | Parameterbezeichnung                 |
+| 2     | 0x.. 0x.. | Prüfsumme                            |
 
 ### Displaytexte („MB“)
 
 Enthält die Texte, die in „MA“ referenziert werden. Bisher bekannt sind die beiden Typen 0 und 1, welche in der ersten bzw. zweiten Displayzeile angezeigt werden.
 
-| Bytes  | Wert           | Beschreibung                                                        |
-| ------ | -------------- | ------------------------------------------------------------------- |
-| 2      | 0x4D 0x42      | Befehl                                                              |
-| 1      | 0x..           | Länge                                                               |
-| 2      | 0x.. 0x..      | Typ (0: obere Displayzeile, 1: untere Displayzeile)                 |
-| 2      | 0x.. 0x..      | Index der Nachricht                                                 |
-| n      | Text           | Nachrichtentext                                                     |
-| 2      | 0x.. 0x..      | Prüfsumme                                                           |
+| Bytes | Wert      | Beschreibung                                        |
+| ----- | --------- | --------------------------------------------------- |
+| 2     | 0x4D 0x42 | Befehl                                              |
+| 1     | 0x..      | Länge                                               |
+| 2     | 0x.. 0x.. | Typ (0: obere Displayzeile, 1: untere Displayzeile) |
+| 2     | 0x.. 0x.. | Index der Nachricht                                 |
+| n     | Text      | Nachrichtentext                                     |
+| 2     | 0x.. 0x.. | Prüfsumme                                           |
 
 ### Datenformat der Werte in „M1“ („MC“)
 
 Beschreibt, wie die Daten in „M1“ formatiert werden müssen. Da es bei mir deutlich mehr „MC“-Datensätze, als für „MA“ gibt, gehe ich davon aus, dass die übrigen Einträge anderweitig referenziert werden. Wo habe ich noch nicht herausgefunden.
 
-| Bytes  | Wert           | Beschreibung                                                        |
-| ------ | -------------- | ------------------------------------------------------------------- |
-| 2      | 0x4D 0x43      | Befehl                                                              |
-| 1      | 0x08           | Länge                                                               |
-| 2      | 0x.. 0x..      | Index                                                               |
-| 1      | 0x..           | Einheit (Codepage 850 beachten!)                                    |
-| 1      | 0x..           | Anzahl der Nachkommastellen                                         |
-| 2      | 0x.. 0x..      | Anzuwendender Teiler                                                |
-| 2      | 0x.. 0x..      | Unbekannt (Häufig gleich Teiler, aber nicht immer)                  |
-| 2      | 0x.. 0x..      | Prüfsumme                                                           |
+| Bytes | Wert      | Beschreibung                                       |
+| ----- | --------- | -------------------------------------------------- |
+| 2     | 0x4D 0x43 | Befehl                                             |
+| 1     | 0x08      | Länge                                              |
+| 2     | 0x.. 0x.. | Index                                              |
+| 1     | 0x..      | Einheit (Codepage 850 beachten!)                   |
+| 1     | 0x..      | Anzahl der Nachkommastellen                        |
+| 2     | 0x.. 0x.. | Anzuwendender Teiler                               |
+| 2     | 0x.. 0x.. | Unbekannt (Häufig gleich Teiler, aber nicht immer) |
+| 2     | 0x.. 0x.. | Prüfsumme                                          |
 
 ### Einstellungsmenü („MD“)
 
 Aus den Foren übernommen, Zweck unbekannt.
 
-| Bytes  | Wert           | Beschreibung                                                        |
-| ------ | -------------- | ------------------------------------------------------------------- |
-| 2      | 0x4D 0x44      | Befehl                                                              |
-| 1      | 0x..           | Länge                                                               |
-| 1      | 0x..           | Unbekannt                                                           |
-| 2      | 0x.. 0x..      | Unbekannt                                                           |
-| 2      | 0x.. 0x..      | Unbekannt                                                           |
-| 2      | 0x.. 0x..      | Unbekannt                                                           |
-| n      |                | Text                                                                |
-| 2      | 0x.. 0x..      | Prüfsumme                                                           |
+| Bytes | Wert      | Beschreibung |
+| ----- | --------- | ------------ |
+| 2     | 0x4D 0x44 | Befehl       |
+| 1     | 0x..      | Länge        |
+| 1     | 0x..      | Unbekannt    |
+| 2     | 0x.. 0x.. | Unbekannt    |
+| 2     | 0x.. 0x.. | Unbekannt    |
+| 2     | 0x.. 0x.. | Unbekannt    |
+| n     |           | Text         |
+| 2     | 0x.. 0x.. | Prüfsumme    |
 
 ### Parameterbeschreibung („ME“)
 
 Aus den Foren übernommen, Zweck unbekannt. Hängt vermutlich mit „MD“ zusammen.
 
-| Bytes  | Wert           | Beschreibung                                                        |
-| ------ | -------------- | ------------------------------------------------------------------- |
-| 2      | 0x4D 0x45      | Befehl                                                              |
-| 1      | 0x..           | Länge                                                               |
-| 2      | 0x.. 0x..      | Parameter-ID                                                        |
-| 1      | 0x..           | Einheit                                                             |
-| 1      | 0x..           | Nachkommastellen                                                    |
-| 2      | 0x.. 0x..      | Faktor                                                              |
-| 2      | 0x.. 0x..      | Minimalwert                                                         |
-| 2      | 0x.. 0x..      | Maximalwert                                                         |
-| 2      | 0x.. 0x..      | Standardwert                                                        |
-| 5      | ...            | Unbekannt                                                           |
-| 2      | 0x.. 0x..      | Prüfsumme                                                           |
+| Bytes | Wert      | Beschreibung     |
+| ----- | --------- | ---------------- |
+| 2     | 0x4D 0x45 | Befehl           |
+| 1     | 0x..      | Länge            |
+| 2     | 0x.. 0x.. | Parameter-ID     |
+| 1     | 0x..      | Einheit          |
+| 1     | 0x..      | Nachkommastellen |
+| 2     | 0x.. 0x.. | Faktor           |
+| 2     | 0x.. 0x.. | Minimalwert      |
+| 2     | 0x.. 0x.. | Maximalwert      |
+| 2     | 0x.. 0x.. | Standardwert     |
+| 5     | ...       | Unbekannt        |
+| 2     | 0x.. 0x.. | Prüfsumme        |
 
 ### Texte Betriebsmodus („MF“)
 
 Enthält je einen Eintrag für die Betriebsmodi („Sommerbetrieb“, „Winterbetrieb“, …). Wo die Einträge referenziert werden ist nicht mir noch nicht klar.
 
-| Bytes  | Wert           | Beschreibung                                                        |
-| ------ | -------------- | ------------------------------------------------------------------- |
-| 2      | 0x4D 0x46      | Befehl                                                              |
-| 1      | 0x..           | Länge                                                               |
-| 2      | 0x.. 0x..      | Text-ID                                                             |
-| n      | ...            | Text                                                                |
-| 2      | 0x.. 0x..      | Prüfsumme                                                           |
+| Bytes | Wert      | Beschreibung |
+| ----- | --------- | ------------ |
+| 2     | 0x4D 0x46 | Befehl       |
+| 1     | 0x..      | Länge        |
+| 2     | 0x.. 0x.. | Text-ID      |
+| n     | ...       | Text         |
+| 2     | 0x.. 0x.. | Prüfsumme    |
 
 ### Wochenprogramm Heizkreise („MG“)
 
 Noch nicht weiter analysiert.
 
-| Bytes  | Wert           | Beschreibung                                                        |
-| ------ | -------------- | ------------------------------------------------------------------- |
-| 2      | 0x4D 0x47      | Befehl                                                              |
-| 1      | 0x12           | Länge                                                               |
-| 2      | 0x.. 0x..      | Heizkreis-Nummer                                                    |
-| 1      | 0x..           | Unbekannt                                                           |
-| 7      | ...            | Programmnummer für jeden Tag (Sonntag - Samstag), siehe MK          |
-| 1      | 0x..           | Unbekannt                                                           |
-| 7      | ...            | Programmnummer für jeden Tag (Sonntag - Samstag), siehe MK          |
-| 2      | 0x.. 0x..      | Prüfsumme                                                           |
+| Bytes | Wert      | Beschreibung                                               |
+| ----- | --------- | ---------------------------------------------------------- |
+| 2     | 0x4D 0x47 | Befehl                                                     |
+| 1     | 0x12      | Länge                                                      |
+| 2     | 0x.. 0x.. | Heizkreis-Nummer                                           |
+| 1     | 0x..      | Unbekannt                                                  |
+| 7     | ...       | Programmnummer für jeden Tag (Sonntag - Samstag), siehe MK |
+| 1     | 0x..      | Unbekannt                                                  |
+| 7     | ...       | Programmnummer für jeden Tag (Sonntag - Samstag), siehe MK |
+| 2     | 0x.. 0x.. | Prüfsumme                                                  |
 
 ### Parameteränderung („MI“)
 
 Wird gesendet, wenn einer der Heizungsparameter geändert wurde (z.B. durch Befehl „RI“).
 
-| Bytes  | Wert           | Beschreibung                                                        |
-| ------ | -------------- | ------------------------------------------------------------------- |
-| 2      | 0x4D 0x49      | Befehl                                                              |
-| 1      | 0x04           | Länge                                                               |
-| 2      | 0x.. 0x..      | Parameter-ID                                                        |
-| 2      | 0x.. 0x..      | Neuer Wert                                                          |
-| 2      | 0x.. 0x..      | Prüfsumme                                                           |
+| Bytes | Wert      | Beschreibung |
+| ----- | --------- | ------------ |
+| 2     | 0x4D 0x49 | Befehl       |
+| 1     | 0x04      | Länge        |
+| 2     | 0x.. 0x.. | Parameter-ID |
+| 2     | 0x.. 0x.. | Neuer Wert   |
+| 2     | 0x.. 0x.. | Prüfsumme    |
 
 ### Tagesprogramm („MK“)
 
 Noch nicht weiter analysiert.
 
-| Bytes  | Wert           | Beschreibung                                                        |
-| ------ | -------------- | ------------------------------------------------------------------- |
-| 2      | 0x4D 0x4B      | Befehl                                                              |
-| 1      | 0x06           | Länge                                                               |
-| 2      | 0x.. 0x..      | Programmnummer                                                      |
-| 2      | 0x.. 0x..      | Unbekannt                                                           |
-| 2      | 0x.. 0x..      | Unbekannt                                                           |
-| 2      | 0x.. 0x..      | Prüfsumme                                                           |
+| Bytes | Wert      | Beschreibung   |
+| ----- | --------- | -------------- |
+| 2     | 0x4D 0x4B | Befehl         |
+| 1     | 0x06      | Länge          |
+| 2     | 0x.. 0x.. | Programmnummer |
+| 2     | 0x.. 0x.. | Unbekannt      |
+| 2     | 0x.. 0x.. | Unbekannt      |
+| 2     | 0x.. 0x.. | Prüfsumme      |
 
 ### Produktnamen („ML“)
 
 Enthält diverse Namen von Heizungen. Wo diese Texte referenziert werden ist mir noch nicht klar.
 
-| Bytes  | Wert           | Beschreibung                                                        |
-| ------ | -------------- | ------------------------------------------------------------------- |
-| 2      | 0x4D 0x4C      | Befehl                                                              |
-| 1      | 0x..           | Länge                                                               |
-| 10     | ...            | Unbekannt                                                           |
-| n      | ...            | Name                                                                |
-| 2      | 0x.. 0x..      | Prüfsumme                                                           |
+| Bytes | Wert      | Beschreibung |
+| ----- | --------- | ------------ |
+| 2     | 0x4D 0x4C | Befehl       |
+| 1     | 0x..      | Länge        |
+| 10    | ...       | Unbekannt    |
+| n     | ...       | Name         |
+| 2     | 0x.. 0x.. | Prüfsumme    |
 
 ### Features („MM“)
 
 Enthält diverse Meldungen, welche Optionen eingebaut sind. Wo diese Texte referenziert werden ist mir noch nicht klar.
 
-| Bytes  | Wert           | Beschreibung                                                        |
-| ------ | -------------- | ------------------------------------------------------------------- |
-| 2      | 0x4D 0x4C      | Befehl                                                              |
-| 1      | 0x..           | Länge                                                               |
-| 4      | ...            | Unbekannt                                                           |
-| n      | ...            | Meldung                                                             |
-| 2      | 0x.. 0x..      | Prüfsumme                                                           |
+| Bytes | Wert      | Beschreibung |
+| ----- | --------- | ------------ |
+| 2     | 0x4D 0x4C | Befehl       |
+| 1     | 0x..      | Länge        |
+| 4     | ...       | Unbekannt    |
+| n     | ...       | Meldung      |
+| 2     | 0x.. 0x.. | Prüfsumme    |
 
 ### Weitere texte („MW“)
 
 Wo diese Texte referenziert werden ist mir noch nicht klar.
 
-| Bytes  | Wert           | Beschreibung                                                        |
-| ------ | -------------- | ------------------------------------------------------------------- |
-| 2      | 0x4D 0x4C      | Befehl                                                              |
-| 1      | 0x..           | Länge                                                               |
-| 2      | ...            | Unbekannt                                                           |
-| n      | ...            | Text                                                                |
-| 2      | 0x.. 0x..      | Prüfsumme                                                           |
+| Bytes | Wert      | Beschreibung |
+| ----- | --------- | ------------ |
+| 2     | 0x4D 0x4C | Befehl       |
+| 1     | 0x..      | Länge        |
+| 2     | ...       | Unbekannt    |
+| n     | ...       | Text         |
+| 2     | 0x.. 0x.. | Prüfsumme    |
 
 ### Fehlerprotokoll-Texte („MT“)
 
 Enthält Beschreibungen für mögliche Fehler im Fehlerprotokoll „MU“.
 
-| Bytes  | Wert           | Beschreibung                                                        |
-| ------ | -------------- | ------------------------------------------------------------------- |
-| 2      | 0x4D 0x54      | Befehl                                                              |
-| 1      | 0x..           | Länge                                                               |
-| 1      | 0x..           | Text-ID                                                             |
-| n      | ...            | Text                                                                |
-| 2      | 0x.. 0x..      | Prüfsumme                                                           |
+| Bytes | Wert      | Beschreibung |
+| ----- | --------- | ------------ |
+| 2     | 0x4D 0x54 | Befehl       |
+| 1     | 0x..      | Länge        |
+| 1     | 0x..      | Text-ID      |
+| n     | ...       | Text         |
+| 2     | 0x.. 0x.. | Prüfsumme    |
 
 ### Fehlerprotokoll („MU“)
 
-| Bytes  | Wert           | Beschreibung                                                        |
-| ------ | -------------- | ------------------------------------------------------------------- |
-| 2      | 0x4D 0x55      | Befehl                                                              |
-| 1      | 0x..           | Länge                                                               |
-| 1      | 0x..           | Fehlertext-ID                                                       |
-| 1      | 0x..           | Unbekannt                                                           |
-| 1      | 0x..           | Unbekannt                                                           |
-| 1      | 0x..           | Sekunden                                                            |
-| 1      | 0x..           | Minuten                                                             |
-| 1      | 0x..           | Stunden                                                             |
-| 1      | 0x..           | Tag                                                                 |
-| 1      | 0x..           | Monat                                                               |
-| 1      | 0x..           | Unbekannt                                                           |
-| 1      | 0x..           | Jahr                                                                |
-| 2      | 0x.. 0x..      | Prüfsumme                                                           |
+| Bytes | Wert      | Beschreibung  |
+| ----- | --------- | ------------- |
+| 2     | 0x4D 0x55 | Befehl        |
+| 1     | 0x..      | Länge         |
+| 1     | 0x..      | Fehlertext-ID |
+| 1     | 0x..      | Unbekannt     |
+| 1     | 0x..      | Unbekannt     |
+| 1     | 0x..      | Sekunden      |
+| 1     | 0x..      | Minuten       |
+| 1     | 0x..      | Stunden       |
+| 1     | 0x..      | Tag           |
+| 1     | 0x..      | Monat         |
+| 1     | 0x..      | Unbekannt     |
+| 1     | 0x..      | Jahr          |
+| 2     | 0x.. 0x.. | Prüfsumme     |
 
 ### Fehlerprotokoll („MV“)
 
@@ -425,11 +424,9 @@ Dass es „MV“ gibt weiß ich, weil ich ein entsprechendes „MZ“ gesehen ha
 
 Beendet die Übertragung eines der obigen Daten-Blöcke.
 
-| Bytes  | Wert           | Beschreibung                                                        |
-| ------ | -------------- | ------------------------------------------------------------------- |
-| 2      | 0x4D 0x55      | Befehl                                                              |
-| 1      | 0x01           | Länge                                                               |
-| 1      | 0x..           | Beendeter Block                                                     |
-| 2      | 0x.. 0x..      | Prüfsumme                                                           |
-
-
+| Bytes | Wert      | Beschreibung    |
+| ----- | --------- | --------------- |
+| 2     | 0x4D 0x55 | Befehl          |
+| 1     | 0x01      | Länge           |
+| 1     | 0x..      | Beendeter Block |
+| 2     | 0x.. 0x.. | Prüfsumme       |

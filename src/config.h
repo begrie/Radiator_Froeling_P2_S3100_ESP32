@@ -128,7 +128,7 @@ namespace radiator
 #define PREFERENCES_NAMESPACE "FroelingP2" // limited to 15 chars
 
 #define USE_EXTERNAL_SENSORS true // use or disable functionality from externalsensors.h/.cpp
-#define WITH_DHT_SENSOR false // use or disable DHT sensor functionality -> avoid include from DHT library
+#define WITH_DHT_SENSOR false     // use or disable DHT sensor functionality -> avoid include from DHT library
 #define GPIO_FOR_DHT11 21         // GPIO 21    or   0 to deactivate
 #define DHTTYPE DHT11             // use type definition from DHT lib
 
