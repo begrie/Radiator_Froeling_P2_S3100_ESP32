@@ -4,11 +4,11 @@
 
 ## Anpassung für ESP32 (BeGrie, Sept./Okt. 2022)
 
-Im Zuge der Energiekrise 2022 und einem Pelletspreisanstieg von 200 auf 800 Euro je Tonne habe ich mein seit langem geplantes und immer wieder beiseite geschobenes Projekt (Heizung seit 2006 im Betrieb - hüstel) der Heizungsüberwachung wieder aktiviert um Optimierungspotentiale zu erschließen.
+Im Zuge der Energiekrise 2022 und einem Pelletspreisanstieg von 200 auf 800 Euro je Tonne habe ich mein seit langem geplantes und immer wieder beiseite geschobenes Projekt (Heizung seit 2006 im Betrieb) der Heizungsüberwachung wieder aktiviert um Optimierungspotentiale zu erschließen.
 
-Bei der Recherche nach Lösungen bin ich unter anderem auf dieses Projekt von Daniel Höpfl gestoßen und war von Analyse des P2/S3100-Kommunikationsprotokolls und der professionellen Umsetzung in Sourcecode begeistert. Hiermit huldige ich dem grossen Meister, von dem ich aus seinem Projekt einiges lernen durfte! Vielen Dank dafür!
+Bei der Recherche nach Lösungen bin ich unter anderem auf dieses Projekt von Daniel Höpfl gestoßen und war von Analyse des P2/S3100-Kommunikationsprotokolls und der professionellen Umsetzung in Sourcecode begeistert. Hiermit huldige ich dem Meister, von dem ich aus seinem Projekt einiges lernen durfte! Vielen Dank dafür!
 
-Als ESP32 Nutzer habe ich mangels RasPi Erfahrungen und fehlender Erläuterungen im Projekt (sorry) doch etwas gebraucht, um den gesamten Ablauf auf dem RasPi mittels C++, Autoconf/Automake, Python und Shellskripten in Kombination mit mysql, rrd, Vu, mailserver etc. zu verstehen. Nun ist alles klar, aber ich brauche so viele Features davon nicht und bleibe doch lieber in den mir bekannten ESP32-Gefilden - die auch einen geringeren Energiebedarf mit sich bringen (<1 Watt) ...
+Als ESP32 Nutzer habe ich mangels RasPi Erfahrungen und fehlender Erläuterungen im Projekt (sorry) doch etwas gebraucht, um den gesamten Ablauf auf dem RasPi mittels C++, Autoconf/Automake, Python und Shellskripten in Kombination mit mysql, rrd, Vu, mailserver etc. zu verstehen. Nun ist alles klar, aber ich brauche so viele Features davon nicht und bleibe doch lieber in den mir bekannten ESP32-Gefilden ...
 
 Die ESP32 Lösung besteht nur noch aus dem C++ Sourcecode, bei dem ich im wesentlichen folgendes geändert bzw. ergänzt habe:
 

@@ -699,7 +699,9 @@ namespace radiator
                     static ulong nextInfoOutputMs = 0;
                     static const int infoOutputIntervallSec = 60; // info output all 60 sec -> consider needed space when output is redirected to syslog file
 
-                    outputErrorToBuzzer(0, infoOutputIntervallSec - 1);
+                    outputErrorToBuzzer(BEEP_INTERVALL_RADIATOR_ERROR_MS,
+                                        infoOutputIntervallSec - 1,
+                                        BuzzerPattern::LIMIT_STUTTER);
 
                     if (millis() >= nextInfoOutputMs)
                     {
@@ -767,16 +769,18 @@ namespace radiator
      *          0 (standard): NO timeout
      * @return 	void
      *********************************************************************/
-    void OutputHandler::outputErrorToBuzzer(const uint16_t _beepIntervallMs, const int _timeoutSec)
+    void OutputHandler::outputErrorToBuzzer(const uint16_t _beepIntervallMs, const int _timeoutSec, const BuzzerPattern _pattern)
     {
         static TaskHandle_t Handle_xTaskBuzzer;
         static volatile bool quitButtonWasPressed;
         static uint16_t beepIntervallMs;
         static int timeoutSec;
+        static BuzzerPattern pattern;
 
         quitButtonWasPressed = false;
         beepIntervallMs = _beepIntervallMs;
         timeoutSec = _timeoutSec;
+        pattern = _pattern;
 
         if (!Handle_xTaskBuzzer)
         {
@@ -809,15 +813,36 @@ namespace radiator
 
                 while (!quitButtonWasPressed && endOfTimeout >= millis())
                 {
-                    if (beepIntervallMs)
+                    if (pattern == BuzzerPattern::LIMIT_STUTTER)
+                    {
+                        // Distinct warning pattern for limit exceed: 4 short pulses + pause.
+                        for (int i = 0; i < 4 && !quitButtonWasPressed && endOfTimeout >= millis(); i++)
+                        {
+                            digitalWrite(BUZZER_PIN, HIGH);
+                            vTaskDelay(pdMS_TO_TICKS(120));
+
+                            if (quitButtonWasPressed || endOfTimeout < millis())
+                                break;
+
+                            digitalWrite(BUZZER_PIN, LOW);
+                            vTaskDelay(pdMS_TO_TICKS(120));
+                        }
+
+                        if (!quitButtonWasPressed && endOfTimeout >= millis())
+                        {
+                            digitalWrite(BUZZER_PIN, LOW);
+                            vTaskDelay(pdMS_TO_TICKS(1000));
+                        }
+                    }
+                    else if (pattern == BuzzerPattern::CONTINUOUS || !beepIntervallMs)
+                    {
+                        vTaskDelay(pdMS_TO_TICKS(100)); // give some time for other tasks
+                    }
+                    else if (beepIntervallMs)
                     {
                         digitalWrite(BUZZER_PIN, OnOff);
                         OnOff = !OnOff;
                         vTaskDelay(pdMS_TO_TICKS(beepIntervallMs));
-                    }
-                    else // continous beep
-                    {
-                        vTaskDelay(pdMS_TO_TICKS(100)); // give some time for other tasks
                     }
                 }
 
