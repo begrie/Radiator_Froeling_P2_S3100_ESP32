@@ -11,6 +11,13 @@
 // nur temporär für debugging -> kann dann wieder wech ...
 #define DEBUG_STACK_HIGH_WATERMARK RADIATOR_LOG_WARN(millis() << " ms: " << uxTaskGetStackHighWaterMark(NULL) << " -> uxTaskGetStackHighWaterMark (" << pcTaskGetTaskName(NULL) << ")" << std::endl;);
 
+// ⚠️  WARNING: The following log macros use a shared static ostringstream.
+// This is NOT thread-safe. With ESP32 FreeRTOS, concurrent log calls from different tasks
+// will corrupt string buffer content. Mitigations:
+// 1. Use xSemaphore guards around LOG_* calls in concurrent contexts
+// 2. Consider per-task logging buffers for performance-critical paths
+// 3. Serial logging is generally safer; file/MQTT logging via this buffer is risky
+
 // Statischer Stringstream für alle LOG_ Makros zur Heap-Fragmentierungsvermeidung
 static std::ostream &null_stream()
 {

@@ -18,8 +18,9 @@ std::string radiator::NetworkHandler::mqttTopic = MQTT_TOPIC;
 std::string radiator::NetworkHandler::mqttBroker = MQTT_BROKER;
 std::string radiator::NetworkHandler::mqttUser = MQTT_USER;
 std::string radiator::NetworkHandler::mqttPassword = MQTT_PASSWORD;
-std::string radiator::NetworkHandler::bufStr;              // as class member to avoid heap fragmentation
-std::ostringstream radiator::NetworkHandler::bufStrStream; // as class member to avoid heap fragmentation
+std::string radiator::NetworkHandler::bufStr;                       // as class member to avoid heap fragmentation
+std::ostringstream radiator::NetworkHandler::bufStrStream;          // as class member to avoid heap fragmentation
+SemaphoreHandle_t radiator::NetworkHandler::semaphoreBufStr = NULL; // protects bufStr and bufStrStream
 
 /*********************************************************************
  * @brief 	Init NetworkHandler
@@ -33,6 +34,9 @@ bool radiator::NetworkHandler::init(const bool _outputToMQTT, const bool startWe
 {
     outputToMQTT = _outputToMQTT;
     bufStr.reserve(2000); // an attempt to prevent heap fragmentation
+
+    if (!semaphoreBufStr)
+        semaphoreBufStr = xSemaphoreCreateMutex(); // protect concurrent access to bufStr from WiFi/MQTT callbacks
 
     installWiFiCallbacks();
 
@@ -124,9 +128,10 @@ bool radiator::NetworkHandler::configureWiFiAndMQTT()
         if (intInput != -1)
         {
             std::cout << "Please input password for WLAN with SSID  " << WiFi.SSID(intInput - 1).c_str() << ":" << std::endl;
-            // password = Serial.readStringUntil('\r').c_str();
-            strncpy(password, Serial.readStringUntil('\r').c_str(), sizeof(password));
-            Serial.readStringUntil('\n').c_str(); // remove line end
+            std::string pwdStr = Serial.readStringUntil('\r').c_str();
+            strncpy(password, pwdStr.c_str(), sizeof(password) - 1);
+            password[sizeof(password) - 1] = '\0'; // ensure null termination
+            Serial.readStringUntil('\n').c_str();  // remove line end
 
             std::cout << "SSID and password are stored persistent for automatic WiFi connection at startup" << std::endl;
             WiFi.persistent(true);
@@ -237,15 +242,24 @@ void radiator::NetworkHandler::installWiFiCallbacks()
     WiFi.onEvent(
         [](WiFiEvent_t _WiFi_Event, WiFiEventInfo_t _WiFi_Event_Info)
         {
-            bufStr = "\n" + getMillisAndTime() +
-                     "WiFi connected to... \n" +
-                     (std::string) "\t WLAN / SSID: \t" + WiFi.SSID().c_str() + "\n" +
-                     "\t Signal: \tRSSI " + std::to_string(WiFi.RSSI()) + "\n" +
-                     "\t Hostname: \t" + WiFi.getHostname() + "\n";
-            RADIATOR_LOG_WARN(bufStr << std::endl;)
+            if (xSemaphoreTake(semaphoreBufStr, pdMS_TO_TICKS(50)) == pdTRUE)
+            {
+                bufStr = "\n" + getMillisAndTime() +
+                         "WiFi connected to... \n" +
+                         (std::string) "\t WLAN / SSID: \t" + WiFi.SSID().c_str() + "\n" +
+                         "\t Signal: \tRSSI " + std::to_string(WiFi.RSSI()) + "\n" +
+                         "\t Hostname: \t" + WiFi.getHostname() + "\n";
+                RADIATOR_LOG_WARN(bufStr << std::endl;)
 
-            if (REDIRECT_STD_ERR_TO_SYSLOG_FILE)
-                std::cout << bufStr << std::endl; // for better user info also to console
+                if (REDIRECT_STD_ERR_TO_SYSLOG_FILE)
+                    std::cout << bufStr << std::endl; // for better user info also to console
+
+                xSemaphoreGive(semaphoreBufStr);
+            }
+            else
+            {
+                RADIATOR_LOG_WARN(getMillisAndTime() << "WiFi connected callback: timeout waiting for semaphoreBufStr" << std::endl;)
+            }
 
             // make some noise to signal connection ;-) ...
             pinMode(BUZZER_PIN, OUTPUT);
@@ -265,16 +279,27 @@ void radiator::NetworkHandler::installWiFiCallbacks()
         [](WiFiEvent_t _WiFi_Event, WiFiEventInfo_t _WiFi_Event_Info)
         {
             static ulong timeConnectionLostMs = 0;
+            bool wroteStatusMessage = false;
 
             if (WiFi.status() == WL_CONNECTION_LOST)
             {
                 timeConnectionLostMs = millis();
-                bufStr = "\n" + getMillisAndTime() + "WiFi was DISCONNECTED from WLAN. System is trying to reconnect in a background task ... \n"
-                                                     "(Info: Change WiFi or MQTT settings by pressing the big yellow button at startup of the ESP32)\n";
-                RADIATOR_LOG_WARN(bufStr << std::endl;)
+                if (xSemaphoreTake(semaphoreBufStr, pdMS_TO_TICKS(50)) == pdTRUE)
+                {
+                    bufStr = "\n" + getMillisAndTime() + "WiFi was DISCONNECTED from WLAN. System is trying to reconnect in a background task ... \n"
+                                                         "(Info: Change WiFi or MQTT settings by pressing the big yellow button at startup of the ESP32)\n";
+                    RADIATOR_LOG_WARN(bufStr << std::endl;)
 
-                if (REDIRECT_STD_ERR_TO_SYSLOG_FILE)
-                    std::cout << bufStr << std::endl; // for better user info also to console
+                    if (REDIRECT_STD_ERR_TO_SYSLOG_FILE)
+                        std::cout << bufStr << std::endl; // for better user info also to console
+
+                    xSemaphoreGive(semaphoreBufStr);
+                    wroteStatusMessage = true;
+                }
+                else
+                {
+                    RADIATOR_LOG_WARN(getMillisAndTime() << "WiFi disconnect callback: timeout waiting for semaphoreBufStr" << std::endl;)
+                }
             }
 
             static ulong nextInfoOutputMs = 0;
@@ -282,17 +307,26 @@ void radiator::NetworkHandler::installWiFiCallbacks()
 
             if (WiFi.status() == WL_NO_SSID_AVAIL && millis() >= nextInfoOutputMs)
             {
-                bufStr = "\n" + getMillisAndTime() + "WiFi is NOT CONNECTED to WLAN -> SSID not available. The system keeps trying to reconnect in a background task ... \n"
-                                                     "\t(Connection was lost " +
-                         std::to_string((millis() - timeConnectionLostMs) / (1000 * 60)) +
-                         " minutes ago.)\n"
-                         "\t(Info: Change WiFi or MQTT settings by pressing the big yellow button at startup of the ESP32)\n";
-                RADIATOR_LOG_INFO(bufStr << std::endl;)
+                if (xSemaphoreTake(semaphoreBufStr, pdMS_TO_TICKS(50)) == pdTRUE)
+                {
+                    bufStr = "\n" + getMillisAndTime() + "WiFi is NOT CONNECTED to WLAN -> SSID not available. The system keeps trying to reconnect in a background task ... \n"
+                                                         "\t(Connection was lost " +
+                             std::to_string((millis() - timeConnectionLostMs) / (1000 * 60)) +
+                             " minutes ago.)\n"
+                             "\t(Info: Change WiFi or MQTT settings by pressing the big yellow button at startup of the ESP32)\n";
+                    RADIATOR_LOG_INFO(bufStr << std::endl;)
 
-                if (REDIRECT_STD_ERR_TO_SYSLOG_FILE)
-                    std::cout << bufStr << std::endl; // for better user info also to console
+                    if (REDIRECT_STD_ERR_TO_SYSLOG_FILE)
+                        std::cout << bufStr << std::endl; // for better user info also to console
 
-                nextInfoOutputMs = millis() + infoOutputIntervallSec * 1000;
+                    xSemaphoreGive(semaphoreBufStr);
+                    nextInfoOutputMs = millis() + infoOutputIntervallSec * 1000;
+                    wroteStatusMessage = true;
+                }
+                else
+                {
+                    RADIATOR_LOG_WARN(getMillisAndTime() << "WiFi no-SSID callback: timeout waiting for semaphoreBufStr" << std::endl;)
+                }
 
                 // make some noise
                 pinMode(BUZZER_PIN, OUTPUT);
@@ -305,6 +339,8 @@ void radiator::NetworkHandler::installWiFiCallbacks()
                 }
                 digitalWrite(BUZZER_PIN, LOW);
             }
+
+            (void)wroteStatusMessage;
         },
         WiFiEvent_t::ARDUINO_EVENT_WIFI_STA_DISCONNECTED);
 
@@ -312,15 +348,24 @@ void radiator::NetworkHandler::installWiFiCallbacks()
     WiFi.onEvent(
         [](WiFiEvent_t _WiFi_Event, WiFiEventInfo_t _WiFi_Event_Info)
         {
-            bufStr = "\n" + getMillisAndTime() + "WiFi:\n" +
-                     "\tGot IP address:\t" + (std::string)WiFi.localIP().toString().c_str() + "\n" +
-                     "\tGateway IP: \t" + WiFi.gatewayIP().toString().c_str() + "\n" +
-                     "\tNetwork IP: \t" + WiFi.networkID().toString().c_str() + "\n";
+            if (xSemaphoreTake(semaphoreBufStr, pdMS_TO_TICKS(50)) == pdTRUE)
+            {
+                bufStr = "\n" + getMillisAndTime() + "WiFi:\n" +
+                         "\tGot IP address:\t" + (std::string)WiFi.localIP().toString().c_str() + "\n" +
+                         "\tGateway IP: \t" + WiFi.gatewayIP().toString().c_str() + "\n" +
+                         "\tNetwork IP: \t" + WiFi.networkID().toString().c_str() + "\n";
 
-            RADIATOR_LOG_WARN(bufStr << std::endl;)
+                RADIATOR_LOG_WARN(bufStr << std::endl;)
 
-            if (REDIRECT_STD_ERR_TO_SYSLOG_FILE)
-                std::cout << bufStr << std::endl; // for better user info also to console
+                if (REDIRECT_STD_ERR_TO_SYSLOG_FILE)
+                    std::cout << bufStr << std::endl; // for better user info also to console
+
+                xSemaphoreGive(semaphoreBufStr);
+            }
+            else
+            {
+                RADIATOR_LOG_WARN(getMillisAndTime() << "WiFi got-IP callback: timeout waiting for semaphoreBufStr" << std::endl;)
+            }
 
             if (outputToMQTT)
                 connectToMqtt();

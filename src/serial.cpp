@@ -115,9 +115,9 @@ namespace radiator
             return -1;
 
         auto _start = millis();
-        auto _end = _start + timeout_msec;
+        auto _timeout_ms = (uint32_t)timeout_msec;
 
-        while (millis() < _end)
+        while ((uint32_t)(millis() - _start) < _timeout_ms) // safe wrap-around arithmetic for uint32_t
         {
             if (Serial_to_Radiator->available())
             {

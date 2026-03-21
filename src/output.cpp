@@ -89,9 +89,15 @@ namespace radiator
 
         if (toConsole)
         {
-            outputToConsole((std::string) "[TIME] " +
-                            (std::string)(dowString[dow - 1]) +
-                            ", " + outStrStream.str());
+            std::string dayStr;
+            if (dow >= 1 && dow <= 7)
+                dayStr = dowString[dow - 1];
+            else
+            {
+                RADIATOR_LOG_ERROR(getMillisAndTime() << "handleTime: Invalid day-of-week value= " << (int)dow << std::endl;)
+                dayStr = "INVALID";
+            }
+            outputToConsole((std::string) "[TIME] " + dayStr + ", " + outStrStream.str());
         }
 
         static ulong nextSystemTimeSet = 0;

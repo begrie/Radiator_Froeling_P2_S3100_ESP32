@@ -57,8 +57,9 @@ namespace radiator
         static std::string handleSysLogfilesForWebserver(const char *dirname, fs::FS &fs = FILESYSTEM_TO_USE);
         static std::string handleLogfilesForWebserver(const char *dirname, fs::FS &fs = FILESYSTEM_TO_USE);
 #endif
-        static std::string bufStr;              // as class member to avoid heap fragmentation
-        static std::ostringstream bufStrStream; // as class member to avoid heap fragmentation
+        static std::string bufStr;                // as class member to avoid heap fragmentation
+        static std::ostringstream bufStrStream;   // as class member to avoid heap fragmentation
+        static SemaphoreHandle_t semaphoreBufStr; // protects bufStr and bufStrStream from concurrent access
     };
 }
 #endif // #ifndef __DH_NETWORK_H__

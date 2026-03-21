@@ -392,14 +392,22 @@ void radiator::FilesystemHandler::checkFreeSpaceOnFilesystem()
                 RADIATOR_LOG_INFO(el << "\n";)
             RADIATOR_LOG_INFO(std::endl;)
 
-            if (FILESYSTEM_TO_USE.remove(filesList.front().c_str()))
-                RADIATOR_LOG_INFO("File   " << filesList.front() << " deleted" << std::endl;)
+            if (!filesList.empty())
+            {
+                if (FILESYSTEM_TO_USE.remove(filesList.front().c_str()))
+                    RADIATOR_LOG_INFO("File   " << filesList.front() << " deleted" << std::endl;)
+                else
+                {
+                    // std::string message;
+                    message = std::to_string(millis()) + " ms: ERROR: xTask_Watchdog_and_Maintenance at Check for free space on filesystem -> FILE  " + filesList.front() + "   CANNOT BE DELETED -> NO SPACE FREED ON FILESYSTEM (" + std::to_string(freekBytes) + " kB available)";
+                    NetworkHandler::publishToMQTT(message, MQTT_SUBTOPIC_SYSLOG);
+                    RADIATOR_LOG_ERROR(message << std::endl;)
+                }
+            }
             else
             {
-                // std::string message;
-                message = std::to_string(millis()) + " ms: ERROR: xTask_Watchdog_and_Maintenance at Check for free space on filesystem -> FILE  " + filesList.front() + "   CANNOT BE DELETED -> NO SPACE FREED ON FILESYSTEM (" + std::to_string(freekBytes) + " kB available)";
-                NetworkHandler::publishToMQTT(message, MQTT_SUBTOPIC_SYSLOG);
-                RADIATOR_LOG_ERROR(message << std::endl;)
+                message = std::to_string(millis()) + " ms: WARNING: No older log files found to delete -> low free space (" + std::to_string(freekBytes) + " kB) cannot be freed";
+                RADIATOR_LOG_WARN(message << std::endl;)
             }
         }
     }
