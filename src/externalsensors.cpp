@@ -1,4 +1,5 @@
 #include "externalsensors.h"
+#include "alarm.h"
 #include "debug.h"
 
 #define VENTILATOR_OFF false
@@ -282,23 +283,21 @@ void radiator::ExternalSensors::xTaskExternalSensors(void *parameter)
         {
             if (leakWaterDetected) // leakWaterDetected is changed by ISR
             {
-                // make continous noise
-                pinMode(BUZZER_PIN, OUTPUT);
-                digitalWrite(BUZZER_PIN, HIGH);
-                buzzerIsRunning = true;
-
-                messageBuf = getMillisAndTime() + "!!!!!!!! LEAK WATER DETECTED  !!!!!!!!";
-                std::cout << messageBuf << std::endl;
-                LOG_fatal << messageBuf << std::endl;
-                radiator::NetworkHandler::publishToMQTT(messageBuf);
+                if (!buzzerIsRunning)
+                {
+                    buzzerIsRunning = true;
+                    messageBuf = getMillisAndTime() + "!!!!!!!! LECKWASSER ERKANNT !! SOFORT PRUEFEN !!!!!!!!";
+                    std::cout << messageBuf << std::endl;
+                    LOG_fatal << messageBuf << std::endl;
+                    radiator::AlarmManager::raise(radiator::AlarmManager::Level::LEAK_WATER,
+                                                  messageBuf.c_str());
+                }
             }
             else if (buzzerIsRunning)
             {
-                pinMode(BUZZER_PIN, OUTPUT);
-                digitalWrite(BUZZER_PIN, LOW);
                 buzzerIsRunning = false;
-
-                messageBuf = getMillisAndTime() + "#### END leak water detected ####";
+                radiator::AlarmManager::clear(radiator::AlarmManager::Level::LEAK_WATER);
+                messageBuf = getMillisAndTime() + "#### Leckwasser ENTWARNUNG ####";
                 std::cout << messageBuf << std::endl;
                 LOG_fatal << messageBuf << std::endl;
                 radiator::NetworkHandler::publishToMQTT(messageBuf);

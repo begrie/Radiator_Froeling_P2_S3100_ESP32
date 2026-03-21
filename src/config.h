@@ -123,7 +123,7 @@ namespace radiator
 
 #define BUZZER_PIN 27
 #define QUIT_BUZZER_BUTTON_PIN 13
-#define BEEP_INTERVALL_RADIATOR_ERROR_MS 700
+#define BOILER_SILENT_TIMEOUT_S 600 // 10 min without boiler data -> raise BOILER_SILENT alarm
 
 #define PREFERENCES_NAMESPACE "FroelingP2" // limited to 15 chars
 

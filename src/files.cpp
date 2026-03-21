@@ -1,4 +1,5 @@
 #include "files.h"
+#include "alarm.h"
 #include "debug.h"
 
 #include <list>
@@ -313,26 +314,18 @@ void radiator::FilesystemHandler::checkFilesystem()
 
     static uint8_t problemCounter = 0;
 
-    // make some noise to signal the problem
     if (res.empty())
     {
         problemCounter++;
         message += "FAILED ...";
-
-        pinMode(BUZZER_PIN, OUTPUT);
-        bool OnOff = 1;
-        for (int i = 0; i < 100; i++)
-        {
-            digitalWrite(BUZZER_PIN, OnOff);
-            OnOff = !OnOff;
-            vTaskDelay(pdMS_TO_TICKS(50));
-        }
-        digitalWrite(BUZZER_PIN, LOW);
+        radiator::AlarmManager::raise(radiator::AlarmManager::Level::ESP_FS_ERROR,
+                                      "Dateisystem-Problem: SD/Filesystem konnte nicht neu initialisiert werden");
     }
     else
     {
         problemCounter = 0;
         message += "SUCCESS ...";
+        radiator::AlarmManager::clear(radiator::AlarmManager::Level::ESP_FS_ERROR);
     }
 
     NetworkHandler::publishToMQTT(message, MQTT_SUBTOPIC_SYSLOG);

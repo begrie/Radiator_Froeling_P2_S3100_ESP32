@@ -1,4 +1,5 @@
 #include "networking.h"
+#include "alarm.h"
 #include "debug.h"
 
 #include <list>
@@ -261,16 +262,23 @@ void radiator::NetworkHandler::installWiFiCallbacks()
                 RADIATOR_LOG_WARN(getMillisAndTime() << "WiFi connected callback: timeout waiting for semaphoreBufStr" << std::endl;)
             }
 
-            // make some noise to signal connection ;-) ...
-            pinMode(BUZZER_PIN, OUTPUT);
-            bool OnOff = 1;
-            for (int i = 0; i < 5; i++)
+            // WiFi reconnected: clear WiFi alarm first, then play 5 status beeps
+            // if no other alarm is active (avoid interfering with heating alarms).
+            radiator::AlarmManager::clear(radiator::AlarmManager::Level::ESP_WIFI_LOST);
+            vTaskDelay(pdMS_TO_TICKS(radiator::alarmcfg::WIFI_CONNECTED_STATUS_PRE_DELAY_MS)); // give buzzer task time to react
+
+            if (radiator::AlarmManager::activeLevel() == radiator::AlarmManager::Level::NONE)
             {
-                digitalWrite(BUZZER_PIN, OnOff);
-                OnOff = !OnOff;
-                vTaskDelay(pdMS_TO_TICKS(100));
+                // 5 kurze Beeps = WiFi verbunden (Statusinfo)
+                pinMode(BUZZER_PIN, OUTPUT);
+                for (int i = 0; i < radiator::alarmcfg::WIFI_CONNECTED_STATUS_BEEP_COUNT; i++)
+                {
+                    digitalWrite(BUZZER_PIN, HIGH);
+                    vTaskDelay(pdMS_TO_TICKS(radiator::alarmcfg::WIFI_CONNECTED_STATUS_ON_MS));
+                    digitalWrite(BUZZER_PIN, LOW);
+                    vTaskDelay(pdMS_TO_TICKS(radiator::alarmcfg::WIFI_CONNECTED_STATUS_OFF_MS));
+                }
             }
-            digitalWrite(BUZZER_PIN, LOW);
         },
         ARDUINO_EVENT_WIFI_STA_CONNECTED);
 
@@ -280,6 +288,10 @@ void radiator::NetworkHandler::installWiFiCallbacks()
         {
             static ulong timeConnectionLostMs = 0;
             bool wroteStatusMessage = false;
+
+            // Raise WiFi alarm immediately on any disconnect
+            radiator::AlarmManager::raise(radiator::AlarmManager::Level::ESP_WIFI_LOST,
+                                          "WiFi Verbindung unterbrochen - kein MQTT moeglich");
 
             if (WiFi.status() == WL_CONNECTION_LOST)
             {
@@ -328,16 +340,7 @@ void radiator::NetworkHandler::installWiFiCallbacks()
                     RADIATOR_LOG_WARN(getMillisAndTime() << "WiFi no-SSID callback: timeout waiting for semaphoreBufStr" << std::endl;)
                 }
 
-                // make some noise
-                pinMode(BUZZER_PIN, OUTPUT);
-                bool OnOff = 1;
-                for (int i = 0; i < 3; i++)
-                {
-                    digitalWrite(BUZZER_PIN, OnOff);
-                    OnOff = !OnOff;
-                    vTaskDelay(pdMS_TO_TICKS(750));
-                }
-                digitalWrite(BUZZER_PIN, LOW);
+                // WiFi-Ausfall: Alarm laeuft via AlarmManager::ESP_WIFI_LOST
             }
 
             (void)wroteStatusMessage;
@@ -983,6 +986,9 @@ void radiator::NetworkHandler::configureWebserver()
         </html>
       )rawliteral";
 
+    static constexpr int WEB_RESTART_RESPONSE_DELAY_MS = 1000;
+    static constexpr int WEB_WAIT_WIFI_INIT_DELAY_MS = 500;
+
     // Route for root / web page
     server.on(
         "/", HTTP_GET,
@@ -1015,7 +1021,7 @@ void radiator::NetworkHandler::configureWebserver()
         [](AsyncWebServerRequest *request)
         {
             request->send(200, "text/plain", "Microcontroller ESP32 is restarted NOW ...");
-            vTaskDelay(pdMS_TO_TICKS(1000)); // wait to deliver the webpage
+            vTaskDelay(pdMS_TO_TICKS(WEB_RESTART_RESPONSE_DELAY_MS)); // wait to deliver the webpage
             std::cout << millis() << " ms: ESP will be NOW restarted due to USER REQUEST from web interface";
             FILESYSTEM_TO_USE.end();
             ESP.restart();
@@ -1031,7 +1037,7 @@ void radiator::NetworkHandler::configureWebserver()
     while (WiFi.status() == WL_NO_SHIELD)
     {
         RADIATOR_LOG_DEBUG(millis() << " ms: Wait for WiFi to finished initialisation (WiFi.status() !=255 (WL_NO_SHIELD) ...) -> now WiFi.status()=" << WiFi.status() << std::endl;)
-        vTaskDelay(500);
+        vTaskDelay(pdMS_TO_TICKS(WEB_WAIT_WIFI_INIT_DELAY_MS));
     }
     RADIATOR_LOG_DEBUG(millis() << " ms: Proceed with WiFi.status()=" << WiFi.status() << " -> start webserver" << std::endl;)
 

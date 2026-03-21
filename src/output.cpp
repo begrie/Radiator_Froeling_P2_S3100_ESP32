@@ -1,4 +1,5 @@
 #include "output.h"
+#include "alarm.h"
 #include "debug.h"
 #include "externalsensors.h"
 // #include "analysis.h"
@@ -131,7 +132,12 @@ namespace radiator
         if (toMQTT)
             handleValuesMQTTOutput(lastRadiatorTimeString, values);
 
-        checkForLimit(values, "Kesseltemp", 90); // check against overheating if more than 90°
+        checkForLimit(values, "Kesseltemp", 90); // check against overheating: raises BOILER_OVERHEAT alarm
+
+        // Receiving valid measurement data means the boiler has no active fault.
+        // Clear BOILER_FAULT so the alarm does not persist after the user has
+        // acknowledged the fault at the boiler display.
+        AlarmManager::clear(AlarmManager::Level::BOILER_FAULT);
 
 #if USE_EXTERNAL_SENSORS
         if (checkForRadiatorIsBurning(values))
@@ -168,9 +174,12 @@ namespace radiator
         if (toConsole)
             outputToConsole(outStrStream.str());
 
-        // signal errors with buzzer sound
-        if (description.find("Last errors") == std::string::npos) // NO sound signal for "Last errors" from connection begin
-            outputErrorToBuzzer();
+        // Heizungsfehler akustisch signalisieren (nicht fuer die historische "Last errors"-Liste beim Start)
+        if (description.find("Last errors") == std::string::npos)
+        {
+            const std::string alarmMsg = outStrStream.str();
+            AlarmManager::raise(AlarmManager::Level::BOILER_FAULT, alarmMsg.c_str());
+        }
 
         if (toMQTT)
             outputToMQTT(outStrStream.str(), MQTT_SUBTOPIC_ERRORLOG);
@@ -692,37 +701,42 @@ namespace radiator
 
         for (auto el : values)
         {
-            if (el.name.compare(0, parameterName.size(), parameterName) == 0) // compare from first pos until length of comparing string
+            if (el.name.compare(0, parameterName.size(), parameterName) == 0)
             {
                 RADIATOR_LOG_DEBUG(getMillisAndTime() << "parameterName=" << parameterName << ", el.name = " << el.name << std::endl;)
 
-                // int valueAsInt = std::stoi(el.value);  //stoi can throw an expection -> so better to use atoi
-                int valueAsInt = atoi(el.value.c_str());
+                char *endPtr = nullptr;
+                long valueAsLong = strtol(el.value.c_str(), &endPtr, 10);
+                if (endPtr == el.value.c_str())
+                {
+                    RADIATOR_LOG_ERROR(getMillisAndTime() << "checkForLimit(): Cannot parse value of '" << el.name << "': [" << el.value << "]" << std::endl;)
+                    return false;
+                }
+                int valueAsInt = static_cast<int>(valueAsLong);
                 RADIATOR_LOG_DEBUG(getMillisAndTime() << "valueAsInt= " << valueAsInt << std::endl;)
 
                 if ((greaterThan && valueAsInt > limit) || (!greaterThan && valueAsInt < limit))
                 {
                     static ulong nextInfoOutputMs = 0;
-                    static const int infoOutputIntervallSec = 60; // info output all 60 sec -> consider needed space when output is redirected to syslog file
+                    static const int infoOutputIntervallSec = 60;
 
-                    outputErrorToBuzzer(BEEP_INTERVALL_RADIATOR_ERROR_MS,
-                                        infoOutputIntervallSec - 1,
-                                        BuzzerPattern::LIMIT_STUTTER);
+                    // Raise persistent alarm via central AlarmManager
+                    AlarmManager::raise(AlarmManager::Level::BOILER_OVERHEAT);
 
                     if (millis() >= nextInfoOutputMs)
                     {
-                        bufStr = getMillisAndTime() + "!!!!! ALERT: LIMIT EXCEEDED !!!!! parameterName= " + static_cast<std::string>(parameterName) + ", limit=" + std::to_string(limit) + ", actual value= " + std::to_string(valueAsInt);
-
+                        bufStr = getMillisAndTime() + "!!!!! ALERT HEIZUNG: GRENZWERT UEBERSCHRITTEN !!!!! Parameter= " + static_cast<std::string>(parameterName) + ", Grenzwert=" + std::to_string(limit) + ", aktueller Wert= " + std::to_string(valueAsInt);
                         std::cout << bufStr << std::endl;
                         RADIATOR_LOG_ERROR(bufStr << std::endl;)
                         NetworkHandler::publishToMQTT(bufStr);
-
                         nextInfoOutputMs = millis() + infoOutputIntervallSec * 1000;
                     }
                     return true;
                 }
-                else // parameter found, limit not exceeded
+                else
                 {
+                    // Limit no longer exceeded: clear the overheat alarm
+                    AlarmManager::clear(AlarmManager::Level::BOILER_OVERHEAT);
                     RADIATOR_LOG_DEBUG(getMillisAndTime() << "Limit NOT exceeded " << std::endl;)
                     return false;
                 }
@@ -730,7 +744,6 @@ namespace radiator
         }
 
         RADIATOR_LOG_ERROR(getMillisAndTime() << "checkForLimit(): NO PARAMETER    " << parameterName << "     FOUND to check limit    " << limit << std::endl;)
-
         return false;
     }
 
@@ -767,114 +780,13 @@ namespace radiator
     }
 
     /*********************************************************************
-     * @brief 	output acoustic error message to connected buzzer
-     *          -> with quit by button
-     * @param 	time of beep and pause in milliseconds
-     *          0: continous beep
-     * @param 	timeout for beeping in seconds
-     *          0 (standard): NO timeout
-     * @return 	void
+     * @brief   output error to buzzer via AlarmManager
+     *          Kept for backward compatibility; internally delegates to AlarmManager.
+     *          BOILER_FAULT alarm is raised.
      *********************************************************************/
-    void OutputHandler::outputErrorToBuzzer(const uint16_t _beepIntervallMs, const int _timeoutSec, const BuzzerPattern _pattern)
+    void OutputHandler::outputErrorToBuzzer()
     {
-        static TaskHandle_t Handle_xTaskBuzzer;
-        static volatile bool quitButtonWasPressed;
-        static uint16_t beepIntervallMs;
-        static int timeoutSec;
-        static BuzzerPattern pattern;
-
-        quitButtonWasPressed = false;
-        beepIntervallMs = _beepIntervallMs;
-        timeoutSec = _timeoutSec;
-        pattern = _pattern;
-
-        if (!Handle_xTaskBuzzer)
-        {
-            auto xTaskBuzzer = [](void *parameter)
-            {
-                pinMode(BUZZER_PIN, OUTPUT);
-                // auto beepIntervallMs = BEEP_INTERVALL_RADIATOR_ERROR_MS;
-
-                const auto quitButtonPin = QUIT_BUZZER_BUTTON_PIN;
-                pinMode(quitButtonPin, INPUT_PULLUP);
-                quitButtonWasPressed = false;
-
-                detachInterrupt(quitButtonPin); // button is used twice: also for starting WiFi config
-                                                // -> detach ISR for WiFi config start
-                attachInterrupt(
-                    quitButtonPin,
-                    []() IRAM_ATTR
-                    {
-                        quitButtonWasPressed = true;
-                        detachInterrupt(quitButtonPin);
-                    },
-                    CHANGE);
-
-                ulong endOfTimeout = ULONG_MAX;
-                if (timeoutSec)
-                    endOfTimeout = millis() + timeoutSec;
-
-                bool OnOff = HIGH;
-                digitalWrite(BUZZER_PIN, OnOff);
-
-                while (!quitButtonWasPressed && endOfTimeout >= millis())
-                {
-                    if (pattern == BuzzerPattern::LIMIT_STUTTER)
-                    {
-                        // Distinct warning pattern for limit exceed: 4 short pulses + pause.
-                        for (int i = 0; i < 4 && !quitButtonWasPressed && endOfTimeout >= millis(); i++)
-                        {
-                            digitalWrite(BUZZER_PIN, HIGH);
-                            vTaskDelay(pdMS_TO_TICKS(120));
-
-                            if (quitButtonWasPressed || endOfTimeout < millis())
-                                break;
-
-                            digitalWrite(BUZZER_PIN, LOW);
-                            vTaskDelay(pdMS_TO_TICKS(120));
-                        }
-
-                        if (!quitButtonWasPressed && endOfTimeout >= millis())
-                        {
-                            digitalWrite(BUZZER_PIN, LOW);
-                            vTaskDelay(pdMS_TO_TICKS(1000));
-                        }
-                    }
-                    else if (pattern == BuzzerPattern::CONTINUOUS || !beepIntervallMs)
-                    {
-                        vTaskDelay(pdMS_TO_TICKS(100)); // give some time for other tasks
-                    }
-                    else if (beepIntervallMs)
-                    {
-                        digitalWrite(BUZZER_PIN, OnOff);
-                        OnOff = !OnOff;
-                        vTaskDelay(pdMS_TO_TICKS(beepIntervallMs));
-                    }
-                }
-
-                digitalWrite(BUZZER_PIN, LOW);
-                Handle_xTaskBuzzer = NULL;
-                vTaskDelete(NULL);
-            };
-
-            // Create RTOS task
-            BaseType_t _Result = xTaskCreatePinnedToCore(
-                xTaskBuzzer,             // Task function
-                "xTaskBuzzer",           // String with name of task
-                3072,                    // Stack size in bytes
-                NULL,                    // Parameter passed as input of the task
-                uxTaskPriorityGet(NULL), // Priority of the task: higher values -> higher priority
-                                         // with uxTaskPriorityGet(NULL)-> same priority as current task
-                &Handle_xTaskBuzzer,     // Task handle (Typ: TaskHandle_t)
-                1);                      // Core 0 or 1 (Arduino code by default on Core 1)
-
-            if (_Result != pdPASS)
-            {
-                bufStr = std::to_string(millis()) + " ms: outputErrorToBuzzer: Error creating xTask";
-                NetworkHandler::publishToMQTT(bufStr, MQTT_SUBTOPIC_SYSLOG);
-                RADIATOR_LOG_ERROR(bufStr << std::endl;)
-            }
-        }
+        AlarmManager::raise(AlarmManager::Level::BOILER_FAULT, nullptr);
     }
 
     /*********************************************************************

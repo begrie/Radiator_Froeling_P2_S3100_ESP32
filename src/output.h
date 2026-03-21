@@ -13,13 +13,6 @@ namespace radiator
     class OutputHandler : public radiator::SurveillanceHandler
     {
     public:
-        enum class BuzzerPattern
-        {
-            INTERVALL,
-            CONTINUOUS,
-            LIMIT_STUTTER
-        };
-
         OutputHandler(std::string_view pathnameOnly, const bool _toConsole, const bool _toMQTT);
         virtual ~OutputHandler();
 
@@ -80,9 +73,7 @@ namespace radiator
         std::string heatingStartTime;
         std::string heatingEndTime;
 
-        void outputErrorToBuzzer(const uint16_t _beepIntervallMs = BEEP_INTERVALL_RADIATOR_ERROR_MS,
-                                 const int _timeoutSec = 0,
-                                 const BuzzerPattern _pattern = BuzzerPattern::INTERVALL);
+        void outputErrorToBuzzer(); ///< Delegates to AlarmManager::raise(BOILER_FAULT)
     };
 }
 
