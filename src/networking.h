@@ -8,7 +8,7 @@
 #include <ESPAsyncWebServer.h>
 #endif
 
-#include <AsyncMqttClient.h>
+#include <espMqttClient.h>
 #include <Ticker.h>
 // #include <chrono>
 
@@ -31,16 +31,16 @@ namespace radiator
         static void configureMQTT();
         static std::string printMQTTConfig();
         static void onMqttConnect(bool sessionPresent);
-        static void onMqttDisconnect(AsyncMqttClientDisconnectReason reason);
-        static void onMqttSubscribe(uint16_t packetId, uint8_t qos);
+        static void onMqttDisconnect(espMqttClientTypes::DisconnectReason reason);
+        static void onMqttSubscribe(uint16_t packetId, const espMqttClientTypes::SubscribeReturncode *codes, size_t len);
         static void onMqttUnsubscribe(uint16_t packetId);
-        static void onMqttMessage(char *topic, char *payload, AsyncMqttClientMessageProperties properties, size_t len, size_t index, size_t total);
+        static void onMqttMessage(const espMqttClientTypes::MessageProperties &properties, const char *topic, const uint8_t *payload, size_t len, size_t index, size_t total);
         static void onMqttPublish(uint16_t packetId);
 
         static void connectToMqtt();
         static void disconnectMqtt();
 
-        static AsyncMqttClient mqttClient;
+        static espMqttClient mqttClient;
         static bool outputToMQTT;
         static Ticker tickerReconnectMQTT;
         static Ticker tickerSendSysinfoToMQTT;

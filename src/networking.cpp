@@ -10,7 +10,7 @@
 /*********************
  * STATIC DEFINITIONS
  *********************/
-AsyncMqttClient radiator::NetworkHandler::mqttClient;
+espMqttClient radiator::NetworkHandler::mqttClient;
 bool radiator::NetworkHandler::outputToMQTT = OUTPUT_TO_MQTT;
 Ticker radiator::NetworkHandler::tickerReconnectMQTT;
 Ticker radiator::NetworkHandler::tickerSendSysinfoToMQTT;
@@ -390,7 +390,7 @@ void radiator::NetworkHandler::loadMQTTConfigFromPreferences()
 }
 
 /*********************************************************************
- * @brief 	configure MQTT AsyncMqttClient
+ * @brief 	configure MQTT espMqttClient
  * @param 	void
  * @return 	void
  *********************************************************************/
@@ -416,7 +416,7 @@ void radiator::NetworkHandler::configureMQTT()
 
     static std::string lastWillTopic = mqttTopic + MQTT_SUBTOPIC_ONLINESTATUS;
     static std::string lastWill = (std::string)mqttClient.getClientId() + ": offline";
-    mqttClient.setWill(lastWillTopic.c_str(), 1, true, lastWill.c_str()); // topic and payload for lastWill must be defined static!!
+    mqttClient.setWill(lastWillTopic.c_str(), 1, true, reinterpret_cast<const uint8_t *>(lastWill.c_str()), lastWill.size()); // topic and payload for lastWill must be defined static!!
 
     std::cout << printMQTTConfig() << std::endl;
 
@@ -488,7 +488,7 @@ void radiator::NetworkHandler::onMqttConnect(bool sessionPresent)
  * @param 	reason for disconnection
  * @return 	void
  *********************************************************************/
-void radiator::NetworkHandler::onMqttDisconnect(AsyncMqttClientDisconnectReason reason)
+void radiator::NetworkHandler::onMqttDisconnect(espMqttClientTypes::DisconnectReason reason)
 {
     tickerSendSysinfoToMQTT.detach();
 
@@ -496,28 +496,28 @@ void radiator::NetworkHandler::onMqttDisconnect(AsyncMqttClientDisconnectReason 
 
     switch (reason)
     {
-    case AsyncMqttClientDisconnectReason::TCP_DISCONNECTED:
+    case espMqttClientTypes::DisconnectReason::USER_OK:
+        bufStr += "USER_OK";
+        break;
+    case espMqttClientTypes::DisconnectReason::TCP_DISCONNECTED:
         bufStr += "TCP_DISCONNECTED";
         break;
-    case AsyncMqttClientDisconnectReason::MQTT_UNACCEPTABLE_PROTOCOL_VERSION:
+    case espMqttClientTypes::DisconnectReason::MQTT_UNACCEPTABLE_PROTOCOL_VERSION:
         bufStr += "MQTT_UNACCEPTABLE_PROTOCOL_VERSION";
         break;
-    case AsyncMqttClientDisconnectReason::MQTT_IDENTIFIER_REJECTED:
+    case espMqttClientTypes::DisconnectReason::MQTT_IDENTIFIER_REJECTED:
         bufStr += "MQTT_IDENTIFIER_REJECTED";
         break;
-    case AsyncMqttClientDisconnectReason::MQTT_SERVER_UNAVAILABLE:
+    case espMqttClientTypes::DisconnectReason::MQTT_SERVER_UNAVAILABLE:
         bufStr += "MQTT_SERVER_UNAVAILABLE";
         break;
-    case AsyncMqttClientDisconnectReason::MQTT_MALFORMED_CREDENTIALS:
+    case espMqttClientTypes::DisconnectReason::MQTT_MALFORMED_CREDENTIALS:
         bufStr += "MQTT_MALFORMED_CREDENTIALS";
         break;
-    case AsyncMqttClientDisconnectReason::MQTT_NOT_AUTHORIZED:
+    case espMqttClientTypes::DisconnectReason::MQTT_NOT_AUTHORIZED:
         bufStr += "MQTT_NOT_AUTHORIZED";
         break;
-    case AsyncMqttClientDisconnectReason::ESP8266_NOT_ENOUGH_SPACE:
-        bufStr += "ESP8266_NOT_ENOUGH_SPACE";
-        break;
-    case AsyncMqttClientDisconnectReason::TLS_BAD_FINGERPRINT:
+    case espMqttClientTypes::DisconnectReason::TLS_BAD_FINGERPRINT:
         bufStr += "TLS_BAD_FINGERPRINT";
         break;
     default:
@@ -530,7 +530,8 @@ void radiator::NetworkHandler::onMqttDisconnect(AsyncMqttClientDisconnectReason 
     if (REDIRECT_STD_ERR_TO_SYSLOG_FILE)
         std::cout << bufStr << std::endl; // for better user info also to console
 
-    if (WiFi.isConnected() && outputToMQTT)
+    // USER_OK means the disconnect was intentional (e.g. via disconnectMqtt()), do not auto-reconnect.
+    if (WiFi.isConnected() && outputToMQTT && reason != espMqttClientTypes::DisconnectReason::USER_OK)
     {
         bufStr = getMillisAndTime() + "Start ticker for reconnect to MQTT broker in " + std::to_string(MQTT_RECONNECTION_TIMEOUT_SEC) + " sec.";
         RADIATOR_LOG_INFO(bufStr << std::endl;)
@@ -548,9 +549,14 @@ void radiator::NetworkHandler::onMqttDisconnect(AsyncMqttClientDisconnectReason 
  * @param   Quality of Service (0, 1 or 2)
  * @return 	void
  *********************************************************************/
-void radiator::NetworkHandler::onMqttSubscribe(uint16_t packetId, uint8_t qos)
+void radiator::NetworkHandler::onMqttSubscribe(uint16_t packetId, const espMqttClientTypes::SubscribeReturncode *codes, size_t len)
 {
-    RADIATOR_LOG_INFO(getMillisAndTime() << "Subscribe acknowledged: packetId= " << packetId << ", qos= " << (int)qos << std::endl;)
+    bufStr = getMillisAndTime() + "Subscribe acknowledged: packetId= " + std::to_string(packetId);
+
+    for (size_t index = 0; index < len; ++index)
+        bufStr += ", qos= " + std::to_string(static_cast<uint8_t>(codes[index]));
+
+    RADIATOR_LOG_INFO(bufStr << std::endl;)
 }
 
 /*********************************************************************
@@ -574,12 +580,14 @@ void radiator::NetworkHandler::onMqttUnsubscribe(uint16_t packetId)
  * @param 	total message size
  * @return  void
  *********************************************************************/
-void radiator::NetworkHandler::onMqttMessage(char *topic, char *payload, AsyncMqttClientMessageProperties properties, size_t len, size_t index, size_t total)
+void radiator::NetworkHandler::onMqttMessage(const espMqttClientTypes::MessageProperties &properties, const char *topic, const uint8_t *payload, size_t len, size_t index, size_t total)
 {
+    std::string payloadStr(reinterpret_cast<const char *>(payload), len);
+
     RADIATOR_LOG_INFO(getMillisAndTime()
                           << "Published message received: \n"
                           << "\t topic= " << topic << "\n"
-                          << "\t payload= " << payload << "\n"
+                          << "\t payload= " << payloadStr << "\n"
                           << "\t qos= " << (int)properties.qos << "\n"
                           << "\t dup= " << properties.dup << "\n"
                           << "\t retain= " << properties.retain << "\n"
@@ -621,7 +629,11 @@ void radiator::NetworkHandler::connectToMqtt()
     // mqttClient.clearQueue();
 
     RADIATOR_LOG_INFO(getMillisAndTime() << "Connecting to MQTT broker    " << mqttBroker << std::endl;)
-    mqttClient.connect();
+    if (!mqttClient.connect())
+    {
+        RADIATOR_LOG_WARN(getMillisAndTime() << "MQTT connect() failed immediately (client may still be connecting), retry in " << MQTT_RECONNECTION_TIMEOUT_SEC << " sec" << std::endl;)
+        tickerReconnectMQTT.once(MQTT_RECONNECTION_TIMEOUT_SEC, connectToMqtt);
+    }
 }
 
 /*********************************************************************
@@ -722,12 +734,23 @@ bool radiator::NetworkHandler::publishToMQTT(const std::string &payload, const s
                                       bufferQueue.front().retain,
                                       bufferQueue.front().payload.c_str());
 
-        RADIATOR_LOG_INFO(getMillisAndTime() << "publishToMQTT: broker = " << mqttBroker
-                                             << ", topic = " << (mqttTopic + bufferQueue.front().subtopic)
-                                             << ", Quality of service = " << (int)bufferQueue.front().qos
-                                             << ", retain = " << bufferQueue.front().retain << ", packetId = " << packetId
-                                             << ", \n\tpayload=\n\t" << bufferQueue.front().payload << std::endl;)
+        if (packetId == 0)
+        {
+            RADIATOR_LOG_WARN(getMillisAndTime() << "publishToMQTT: publish() returned 0 (failed), message dropped: topic="
+                                                 << (mqttTopic + bufferQueue.front().subtopic) << std::endl;)
+        }
+        else
+        {
+            RADIATOR_LOG_INFO(getMillisAndTime() << "publishToMQTT: broker = " << mqttBroker
+                                                 << ", topic = " << (mqttTopic + bufferQueue.front().subtopic)
+                                                 << ", Quality of service = " << (int)bufferQueue.front().qos
+                                                 << ", retain = " << bufferQueue.front().retain << ", packetId = " << packetId
+                                                 << ", \n\tpayload=\n\t" << bufferQueue.front().payload << std::endl;)
+        }
 
+        // Note: messages are removed from the local queue immediately after publish() (fire-and-forget at queue level).
+        // QoS 1/2 at the MQTT protocol level still guarantees broker-side acknowledgment.
+        // The local queue serves as a reconnect-buffer only, not as a delivery-confirmation mechanism.
         bufferQueue.pop_front(); // remove sent message from buffer queue
     }
 
