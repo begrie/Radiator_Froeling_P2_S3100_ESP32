@@ -2,6 +2,28 @@
 
 ## Beep-Signale
 
+## Prioritaetsreihenfolge (hoechste zuerst)
+
+| Prio | Signal             | Bedeutung                    |
+| ---- | ------------------ | ---------------------------- |
+| 6    | Dauerton           | Leckwasser                   |
+| 5    | Stotter-Alarm      | Grenzwert ueberschritten     |
+| 4    | Intervall-Piepen   | Heizungs-Fehlermeldung       |
+| 3    | Morse-S (···)      | Heizung nicht verbunden      |
+| 2    | Rattern (zyklisch) | SD/Dateisystem-Problem (ESP) |
+| 1    | 2 langsame Beeps   | WiFi unterbrochen (ESP)      |
+
+---
+
+## Quit-Taste (gelbe Taste an ESP-Box)
+
+- Stoppt den aktiven Buzzer sofort.
+- Bei **Heizungsalarmen (Prio 3-6):** Buzzer pausiert fuer **1 Minute**. Danach kommt der Alarm erneut, solange die Ursache noch besteht.
+- Alarme der Heizungssteuerung (Prio 4) muessen zudem **ZUERST an der Heizung selbst** quittiert werden.
+- WLAN-Ausfall hat einen eigenen zyklischen Buzzer (Prio 1) (Quit-Taste ohne Wirkung)
+
+---
+
 > **Unterscheidung:** Die Signale sind in zwei Kategorien eingeteilt:
 >
 > - **HEIZUNG KRITISCH** (Prioritaet 3-6): Direkte Heizungsanlage betroffen -> sofort handeln
@@ -76,25 +98,3 @@ _(Hinweis: Die Beeps entfallen, wenn gleichzeitig ein Heizungsalarm aktiv ist.)_
 
 **Bedeutung:** ESP32 wird neu gestartet (Exception/Systemfehler)
 **Aktion:** MQTT-Syslog pruefen. Wenn Neustarts sich wiederholen -> Geraet physisch inspizieren.
-
----
-
-## Quit-Taste (gelbe Taste an ESP-Box)
-
-- Stoppt den aktiven Buzzer sofort.
-- Bei **Heizungsalarmen (Prio 3-6):** Buzzer pausiert fuer **1 Minute**. Danach kommt der Alarm erneut, solange die Ursache noch besteht.
-- Alarme der Heizungssteuerung (Prio 4) muessen zudem **ZUERST an der Heizung selbst** quittiert werden.
-- WLAN-Ausfall hat einen eigenen zyklischen Buzzer (Prio 1) (Quit-Taste ohne Wirkung)
-
----
-
-## Prioritaetsreihenfolge (hoechste zuerst)
-
-| Prio | Signal             | Bedeutung                    |
-| ---- | ------------------ | ---------------------------- |
-| 6    | Dauerton           | Leckwasser                   |
-| 5    | Stotter-Alarm      | Grenzwert ueberschritten     |
-| 4    | Intervall-Piepen   | Heizungs-Fehlermeldung       |
-| 3    | Morse-S (···)      | Heizung still (kein Signal)  |
-| 2    | Rattern (zyklisch) | SD/Dateisystem-Problem (ESP) |
-| 1    | 2 langsame Beeps   | WiFi unterbrochen (ESP)      |
