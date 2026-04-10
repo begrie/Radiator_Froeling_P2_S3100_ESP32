@@ -114,18 +114,18 @@ void loop()
 {
     std::string message;
     message.reserve(800); // an attempt to avoid heap fragmentation
-    Ticker tickerConnectToRadiatorInfo;
+    const char *loopStage = "init";
 
     // Track how long the boiler has been unreachable.
     // BOILER_SILENT_TIMEOUT_S is defined in config.h.
     static ulong boilerLostSinceMs = 0;
     static bool boilerWasConnected = false;
-    static volatile bool boilerConnectEvent = false;
-    static portMUX_TYPE boilerStateMux = portMUX_INITIALIZER_UNLOCKED;
 
     try
     {
+        loopStage = "build-start-message";
         message = getMillisAndTime() + "##### Start connecting to Froeling P2/S3100 ##### \n";
+        loopStage = "publish-start-message";
         netHandler.publishToMQTT(message, MQTT_SUBTOPIC_SYSLOG);
         RADIATOR_LOG_WARN(message << std::endl;)
         if (REDIRECT_STD_ERR_TO_SYSLOG_FILE) // for better user info also to console
@@ -136,39 +136,22 @@ void loop()
         if (!boilerWasConnected && boilerLostSinceMs == 0)
             boilerLostSinceMs = millis();
 
-        tickerConnectToRadiatorInfo.once_ms(
-            T_TIMEOUT_BETWEEN_TRANSFERS_MS + 500,
-            []()
-            {
-                // Connection established: clear BOILER_SILENT alarm and signal event.
-                radiator::AlarmManager::clear(radiator::AlarmManager::Level::BOILER_SILENT);
-
-                portENTER_CRITICAL(&boilerStateMux);
-                boilerConnectEvent = true;
-                portEXIT_CRITICAL(&boilerStateMux);
-
-                char msg[80];
-                snprintf(msg, sizeof(msg), "%s ##### CONNECTED to Froeling P2/S3100 #####", getMillisAndTime().c_str());
-                netHandler.publishToMQTT(msg, MQTT_SUBTOPIC_SYSLOG);
-                RADIATOR_LOG_WARN(msg << std::endl;)
-                if (REDIRECT_STD_ERR_TO_SYSLOG_FILE)
-                    std::cout << msg << std::endl;
-            });
-
+        loopStage = "surveillance-main-loop";
         radiator::Surveillance surveillance(S_SERIAL_TO_RADIATOR, T_TIMEOUT_BETWEEN_TRANSFERS_MS, *ptrOutHandler);
         surveillance.main_loop();
 
-        tickerConnectToRadiatorInfo.detach();
-
-        // Apply connection state transition only in loop context (race-free).
-        bool gotConnectEvent = false;
-        portENTER_CRITICAL(&boilerStateMux);
-        gotConnectEvent = boilerConnectEvent;
-        boilerConnectEvent = false;
-        portEXIT_CRITICAL(&boilerStateMux);
-
-        if (gotConnectEvent)
+        // Only treat boiler as connected if at least one valid packet was received.
+        if (surveillance.hadValidPacket())
         {
+            loopStage = "connected-message";
+            radiator::AlarmManager::clear(radiator::AlarmManager::Level::BOILER_SILENT);
+
+            const std::string connectedMsg = getMillisAndTime() + " ##### CONNECTED to Froeling P2/S3100 #####";
+            netHandler.publishToMQTT(connectedMsg, MQTT_SUBTOPIC_SYSLOG);
+            RADIATOR_LOG_WARN(connectedMsg << std::endl;)
+            if (REDIRECT_STD_ERR_TO_SYSLOG_FILE)
+                std::cout << connectedMsg << std::endl;
+
             boilerWasConnected = true;
             boilerLostSinceMs = 0;
         }
@@ -184,7 +167,9 @@ void loop()
             boilerLostSinceMs = millis();
         }
 
+        loopStage = "build-retry-message";
         message = getMillisAndTime() + "##### Cannot establish connection to Froeling P2/S3100 -> retry in 10s ##### \n";
+        loopStage = "publish-retry-message";
         netHandler.publishToMQTT(message, MQTT_SUBTOPIC_SYSLOG);
         RADIATOR_LOG_WARN(message << std::endl;)
         if (REDIRECT_STD_ERR_TO_SYSLOG_FILE) // for better user info also to console
@@ -198,7 +183,27 @@ void loop()
                                           "Heizung sendet keine Daten - bitte pruefen");
         }
 
-        sleep(10);
+        loopStage = "delay-before-next-loop";
+        delay(10000);
+    }
+    catch (const std::bad_alloc &)
+    {
+        // Keep this path allocation-free as far as possible.
+        Serial.print("FATAL: std::bad_alloc in loop stage '");
+        Serial.print(loopStage);
+        Serial.println("' -> restarting ESP32 in 10s");
+
+        pinMode(BUZZER_PIN, OUTPUT);
+        for (int i = 0; i < radiator::alarmcfg::RESTART_STATUS_BEEP_COUNT; i++)
+        {
+            digitalWrite(BUZZER_PIN, HIGH);
+            delay(radiator::alarmcfg::RESTART_STATUS_ON_MS);
+            digitalWrite(BUZZER_PIN, LOW);
+            delay(radiator::alarmcfg::RESTART_STATUS_OFF_MS);
+        }
+
+        delay(10000);
+        esp_restart();
     }
     catch (const char *error)
     {
@@ -211,6 +216,7 @@ void loop()
                   "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
         netHandler.publishToMQTT(message, MQTT_SUBTOPIC_SYSLOG);
         LOG_fatal << message << std::endl;
+        Serial.println(message.c_str());
 
         // 3 langsame Beeps = ESP-Neustart (direkt auf GPIO; vor Restart sicher nutzbar)
         pinMode(BUZZER_PIN, OUTPUT);
@@ -222,7 +228,7 @@ void loop()
             delay(radiator::alarmcfg::RESTART_STATUS_OFF_MS);
         }
 
-        sleep(10);
+        delay(10000);
         esp_restart();
     }
     catch (const std::exception &e)
@@ -231,6 +237,7 @@ void loop()
                   " -> restarting ESP32 in 10s";
         netHandler.publishToMQTT(message, MQTT_SUBTOPIC_SYSLOG);
         LOG_fatal << message << std::endl;
+        Serial.println(message.c_str());
 
         // 3 langsame Beeps = ESP-Neustart
         pinMode(BUZZER_PIN, OUTPUT);
@@ -242,7 +249,7 @@ void loop()
             delay(radiator::alarmcfg::RESTART_STATUS_OFF_MS);
         }
 
-        sleep(10);
+        delay(10000);
         esp_restart();
     }
     catch (...)
@@ -250,6 +257,7 @@ void loop()
         message = getMillisAndTime() + " ms: UNKNOWN EXCEPTION in loop() -> restarting ESP32 in 10s";
         netHandler.publishToMQTT(message, MQTT_SUBTOPIC_SYSLOG);
         LOG_fatal << message << std::endl;
+        Serial.println(message.c_str());
 
         // 3 langsame Beeps = ESP-Neustart
         pinMode(BUZZER_PIN, OUTPUT);
@@ -261,7 +269,7 @@ void loop()
             delay(radiator::alarmcfg::RESTART_STATUS_OFF_MS);
         }
 
-        sleep(10);
+        delay(10000);
         esp_restart();
     }
 }

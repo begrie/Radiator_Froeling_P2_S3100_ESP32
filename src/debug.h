@@ -11,14 +11,7 @@
 // nur temporär für debugging -> kann dann wieder wech ...
 #define DEBUG_STACK_HIGH_WATERMARK RADIATOR_LOG_WARN(millis() << " ms: " << uxTaskGetStackHighWaterMark(NULL) << " -> uxTaskGetStackHighWaterMark (" << pcTaskGetTaskName(NULL) << ")" << std::endl;);
 
-// ⚠️  WARNING: The following log macros use a shared static ostringstream.
-// This is NOT thread-safe. With ESP32 FreeRTOS, concurrent log calls from different tasks
-// will corrupt string buffer content. Mitigations:
-// 1. Use xSemaphore guards around LOG_* calls in concurrent contexts
-// 2. Consider per-task logging buffers for performance-critical paths
-// 3. Serial logging is generally safer; file/MQTT logging via this buffer is risky
-
-// Statischer Stringstream für alle LOG_ Makros zur Heap-Fragmentierungsvermeidung
+// Null stream used when logging for a given level is disabled.
 static std::ostream &null_stream()
 {
     static std::ostringstream m_null;
@@ -27,21 +20,14 @@ static std::ostream &null_stream()
     return m_null;
 }
 
-// Statische Stringstreams für Logging
-static std::ostringstream &log_stream()
-{
-    static std::ostringstream s_log_stream;
-    s_log_stream.str("");
-    s_log_stream.clear();
-    return s_log_stream;
-}
-
-#define LOG_trace (debug_level >= 5 ? log_stream() : null_stream())
-#define LOG_debug (debug_level >= 4 ? log_stream() : null_stream())
-#define LOG_info (debug_level >= 3 ? log_stream() : null_stream())
-#define LOG_warn (debug_level >= 2 ? log_stream() : null_stream())
-#define LOG_error (debug_level >= 1 ? log_stream() : null_stream())
-#define LOG_fatal (log_stream())
+// Use stderr directly for enabled logs to avoid shared mutable stream state
+// across FreeRTOS tasks (which caused sporadic memory corruption/bad_alloc).
+#define LOG_trace (debug_level >= 5 ? std::cerr : null_stream())
+#define LOG_debug (debug_level >= 4 ? std::cerr : null_stream())
+#define LOG_info (debug_level >= 3 ? std::cerr : null_stream())
+#define LOG_warn (debug_level >= 2 ? std::cerr : null_stream())
+#define LOG_error (debug_level >= 1 ? std::cerr : null_stream())
+#define LOG_fatal (std::cerr)
 
 extern uint8_t debug_level;
 

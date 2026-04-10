@@ -262,6 +262,50 @@ namespace radiator
         }
     }
 
+    // ---- playStatusBeep ------------------------------------------------------
+    /*********************************************************************
+     * @brief 	Spawns a short-lived FreeRTOS task that plays a non-alarm status
+     *          beep pattern. Returns immediately, safe to call from event handlers.
+     * @param 	count   Number of pulses
+     * @param 	onMs    ON duration per pulse in ms
+     * @param 	offMs   OFF duration per pulse in ms
+     * @return 	void
+     *********************************************************************/
+    void AlarmManager::playStatusBeep(int count, int onMs, int offMs)
+    {
+        struct Params
+        {
+            int count;
+            int onMs;
+            int offMs;
+        };
+        auto *p = new Params{count, onMs, offMs};
+
+        xTaskCreate(
+            [](void *arg)
+            {
+                auto *p = static_cast<Params *>(arg);
+                pinMode(BUZZER_PIN, OUTPUT);
+                for (int i = 0; i < p->count; i++)
+                {
+                    // Only beep if no alarm is active at this moment
+                    if (AlarmManager::activeLevel() != AlarmManager::Level::NONE)
+                        break;
+                    digitalWrite(BUZZER_PIN, HIGH);
+                    vTaskDelay(pdMS_TO_TICKS(p->onMs));
+                    digitalWrite(BUZZER_PIN, LOW);
+                    vTaskDelay(pdMS_TO_TICKS(p->offMs));
+                }
+                delete p;
+                vTaskDelete(nullptr);
+            },
+            "xStatusBeep",
+            1536,
+            p,
+            uxTaskPriorityGet(nullptr),
+            nullptr);
+    }
+
     // ---- buzzerTask ----------------------------------------------------------
     /*********************************************************************
      * @brief 	FreeRTOS task: endless loop that plays the highest active alarm

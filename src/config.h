@@ -109,6 +109,7 @@ namespace radiator
 #define MQTT_SUBTOPIC_ERRORLOG "/errorlog"
 #define MQTT_SUBTOPIC_SYSLOG "/syslog"
 #define MQTT_SUBTOPIC_ANAYLYSIS "/analysis"
+#define MQTT_MIRROR_TX_TO_SERIAL 1                         // test helper: mirror every successful MQTT publish to Serial
 #define MQTT_INTERVALL_FOR_SYSINFO_SEC (1 * 60 * 60)       //(1 * 60 * 60)       // execute all 1 hours to send systeminfo to mqtt broker
 #define MQTT_KEEP_ALIVE (MQTT_OUTPUTINTERVALL_SEC * 2.5)   // must be valid together with MQTT_OUTPUTINTERVALL_SEC
 #define MQTT_RECONNECTION_TIMEOUT_SEC 15                   // timeout after disconnection from MQTT broker

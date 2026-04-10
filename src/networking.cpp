@@ -262,23 +262,15 @@ void radiator::NetworkHandler::installWiFiCallbacks()
                 RADIATOR_LOG_WARN(getMillisAndTime() << "WiFi connected callback: timeout waiting for semaphoreBufStr" << std::endl;)
             }
 
-            // WiFi reconnected: clear WiFi alarm first, then play 5 status beeps
-            // if no other alarm is active (avoid interfering with heating alarms).
+            // WiFi reconnected: clear WiFi alarm, then play status beeps via a
+            // separate task – MUST NOT block or do GPIO directly here because
+            // WiFi event handlers run in the ESP-IDF sys_evt task and any
+            // vTaskDelay/GPIO call here causes a Task WDT panic.
             radiator::AlarmManager::clear(radiator::AlarmManager::Level::ESP_WIFI_LOST);
-            vTaskDelay(pdMS_TO_TICKS(radiator::alarmcfg::WIFI_CONNECTED_STATUS_PRE_DELAY_MS)); // give buzzer task time to react
-
-            if (radiator::AlarmManager::activeLevel() == radiator::AlarmManager::Level::NONE)
-            {
-                // 5 kurze Beeps = WiFi verbunden (Statusinfo)
-                pinMode(BUZZER_PIN, OUTPUT);
-                for (int i = 0; i < radiator::alarmcfg::WIFI_CONNECTED_STATUS_BEEP_COUNT; i++)
-                {
-                    digitalWrite(BUZZER_PIN, HIGH);
-                    vTaskDelay(pdMS_TO_TICKS(radiator::alarmcfg::WIFI_CONNECTED_STATUS_ON_MS));
-                    digitalWrite(BUZZER_PIN, LOW);
-                    vTaskDelay(pdMS_TO_TICKS(radiator::alarmcfg::WIFI_CONNECTED_STATUS_OFF_MS));
-                }
-            }
+            radiator::AlarmManager::playStatusBeep(
+                radiator::alarmcfg::WIFI_CONNECTED_STATUS_BEEP_COUNT,
+                radiator::alarmcfg::WIFI_CONNECTED_STATUS_ON_MS,
+                radiator::alarmcfg::WIFI_CONNECTED_STATUS_OFF_MS);
         },
         ARDUINO_EVENT_WIFI_STA_CONNECTED);
 
@@ -684,10 +676,34 @@ bool radiator::NetworkHandler::publishToMQTT(const std::string &payload, const s
         bool retain;
     };
     static std::deque<BuffStruct> bufferQueue;
+    static size_t bufferedBytes = 0;
+    static ulong nextQueueWarnMs = 0;
+    static constexpr size_t MAX_SINGLE_PAYLOAD_BYTES = 6 * 1024;
 
     // we need a mutex semaphore to handle concurrent access from different tasks - otherwise "funny" crashes from bufferQueue-handling
     static SemaphoreHandle_t semaphoreMqttPublish = xSemaphoreCreateMutex();
     xSemaphoreTake(semaphoreMqttPublish, portMAX_DELAY);
+
+    auto itemBytes = [](const BuffStruct &item) -> size_t
+    {
+        return item.payload.size() + item.subtopic.size() + sizeof(BuffStruct);
+    };
+
+    const bool mqttConnected = mqttClient.connected();
+
+    // Protect heap from very large single payloads while broker is offline.
+    if (!mqttConnected && payload.size() > MAX_SINGLE_PAYLOAD_BYTES)
+    {
+        if ((long)(millis() - nextQueueWarnMs) >= 0)
+        {
+            std::string warnMsg = getMillisAndTime() + "publishToMQTT: drop oversized payload while MQTT offline (" + std::to_string(payload.size()) + " bytes)";
+            RADIATOR_LOG_WARN(warnMsg << std::endl;)
+            Serial.println(warnMsg.c_str());
+            nextQueueWarnMs = millis() + 30000;
+        }
+        xSemaphoreGive(semaphoreMqttPublish);
+        return false;
+    }
 
     // ensure a size limit for buffered data by conditional deleting of buffer items
     while (ESP.getMaxAllocHeap() < MIN_FREE_HEAPSIZE_FOR_MQTT_BUFFERQUEUE_BYTES) // ESP.getFreeHeap() or ESP.getMinFreeHeap() or ESP.getMaxAllocHeap()
@@ -700,13 +716,44 @@ bool radiator::NetworkHandler::publishToMQTT(const std::string &payload, const s
         if (bufferQueue.empty()) // avoid endless loop when deleting buffer elements here did not release enough heap space ...
             break;
 
+        bufferedBytes -= itemBytes(bufferQueue.front());
         bufferQueue.pop_front();
     }
+
+    const size_t incomingBytes = payload.size() + subtopic.size() + sizeof(BuffStruct);
 
     // ALL messages are pushed to the buffer queue
     RADIATOR_LOG_DEBUG(getMillisAndTime() << "publishToMQTT: 1 before push_back-> bufferQueue.size=" << bufferQueue.size() << " ESP.getFreeHeap()=" << ESP.getFreeHeap() << " / " << ESP.getMinFreeHeap() << " / " << ESP.getMaxAllocHeap() << " bytes" << std::endl;)
 
-    bufferQueue.push_back({payload, subtopic, qos, retain});
+    try
+    {
+        bufferQueue.push_back({payload, subtopic, qos, retain});
+        bufferedBytes += incomingBytes;
+    }
+    catch (const std::bad_alloc &)
+    {
+        // Emergency fallback: free one old entry and retry once, else drop this message.
+        if (!bufferQueue.empty())
+        {
+            bufferedBytes -= itemBytes(bufferQueue.front());
+            bufferQueue.pop_front();
+            try
+            {
+                bufferQueue.push_back({payload, subtopic, qos, retain});
+                bufferedBytes += incomingBytes;
+            }
+            catch (...)
+            {
+                xSemaphoreGive(semaphoreMqttPublish);
+                return false;
+            }
+        }
+        else
+        {
+            xSemaphoreGive(semaphoreMqttPublish);
+            return false;
+        }
+    }
 
     RADIATOR_LOG_DEBUG(getMillisAndTime() << "publishToMQTT: 2 after push_back-> bufferQueue.size=" << bufferQueue.size() << " ESP.getFreeHeap()=" << (ESP.getFreeHeap()) << " / " << ESP.getMinFreeHeap() << " / " << ESP.getMaxAllocHeap() << " bytes" << std::endl;)
 
@@ -714,8 +761,14 @@ bool radiator::NetworkHandler::publishToMQTT(const std::string &payload, const s
 
     if (!mqttClient.connected())
     {
-        RADIATOR_LOG_INFO(getMillisAndTime() << "Cannot publish to MQTT broker (" << mqttBroker << ") -> mqttClient is not connected (WiFi.isConnected()="
-                                             << WiFi.isConnected() << ")" << std::endl;)
+        if ((long)(millis() - nextQueueWarnMs) >= 0)
+        {
+            std::string statusMsg = getMillisAndTime() + "MQTT offline: queue=" + std::to_string(bufferQueue.size()) +
+                                    " msgs, bytes=" + std::to_string(bufferedBytes) +
+                                    ", WiFi.isConnected()=" + std::to_string((int)WiFi.isConnected());
+            RADIATOR_LOG_WARN(statusMsg << std::endl;)
+            nextQueueWarnMs = millis() + 30000;
+        }
         RADIATOR_LOG_DEBUG("\t -> message is buffered (queue size=" << bufferQueue.size()
                                                                     << ", ESP.getFreeHeap()=" << (ESP.getFreeHeap()) << " / " << ESP.getMinFreeHeap() << " / " << ESP.getMaxAllocHeap()
                                                                     << ") and send at reconnection \n"
@@ -732,29 +785,39 @@ bool radiator::NetworkHandler::publishToMQTT(const std::string &payload, const s
     // send ALL buffered messages
     while (!bufferQueue.empty())
     {
-        packetId = mqttClient.publish((mqttTopic + bufferQueue.front().subtopic).c_str(),
+        const std::string fullTopic = mqttTopic + bufferQueue.front().subtopic;
+
+        packetId = mqttClient.publish(fullTopic.c_str(),
                                       bufferQueue.front().qos,
                                       bufferQueue.front().retain,
                                       bufferQueue.front().payload.c_str());
 
         if (packetId == 0)
         {
-            RADIATOR_LOG_WARN(getMillisAndTime() << "publishToMQTT: publish() returned 0 (failed), message dropped: topic="
+            RADIATOR_LOG_WARN(getMillisAndTime() << "publishToMQTT: publish() returned 0 (transient failure), message kept in queue for retry: topic="
                                                  << (mqttTopic + bufferQueue.front().subtopic) << std::endl;)
+            break; // leave message at front of queue, retry on next cycle
         }
-        else
-        {
-            RADIATOR_LOG_INFO(getMillisAndTime() << "publishToMQTT: broker = " << mqttBroker
-                                                 << ", topic = " << (mqttTopic + bufferQueue.front().subtopic)
-                                                 << ", Quality of service = " << (int)bufferQueue.front().qos
-                                                 << ", retain = " << bufferQueue.front().retain << ", packetId = " << packetId
-                                                 << ", \n\tpayload=\n\t" << bufferQueue.front().payload << std::endl;)
-        }
+
+        RADIATOR_LOG_INFO(getMillisAndTime() << "publishToMQTT: broker = " << mqttBroker
+                                             << ", topic = " << fullTopic
+                                             << ", Quality of service = " << (int)bufferQueue.front().qos
+                                             << ", retain = " << bufferQueue.front().retain << ", packetId = " << packetId
+                                             << ", \n\tpayload=\n\t" << bufferQueue.front().payload << std::endl;)
+
+#if MQTT_MIRROR_TX_TO_SERIAL
+        Serial.print(getMillisAndTime().c_str());
+        Serial.print("MQTT TX topic=");
+        Serial.print(fullTopic.c_str());
+        Serial.print(", payload=");
+        Serial.println(bufferQueue.front().payload.c_str());
+#endif
 
         // Note: messages are removed from the local queue immediately after publish() (fire-and-forget at queue level).
         // QoS 1/2 at the MQTT protocol level still guarantees broker-side acknowledgment.
         // The local queue serves as a reconnect-buffer only, not as a delivery-confirmation mechanism.
-        bufferQueue.pop_front(); // remove sent message from buffer queue
+        bufferedBytes -= itemBytes(bufferQueue.front());
+        bufferQueue.pop_front(); // remove successfully sent message from buffer queue
     }
 
     xSemaphoreGive(semaphoreMqttPublish);

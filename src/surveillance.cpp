@@ -38,6 +38,9 @@ namespace radiator
      */
     void Surveillance::main_loop()
     {
+        this->m_hadValidPacket = false;
+        ulong nextStillAliveLogMs = millis() + 60000;
+
         std::cout << "\n"
                   << millis() << " ms: Still alive ... " << std::endl;
 
@@ -75,6 +78,12 @@ namespace radiator
             {
                 if (this->fd.checksum_verify(buffer))
                 {
+                    if (!this->m_hadValidPacket)
+                    {
+                        std::cout << getMillisAndTime() << "##### CONNECTED to Froeling P2/S3100 #####" << std::endl;
+                    }
+                    this->m_hadValidPacket = true;
+
                     if (debug_level)
                     {
                         LOG_info
@@ -111,6 +120,12 @@ namespace radiator
                     this->state = ST_ERROR;
                 }
             }
+            }
+
+            if ((long)(millis() - nextStillAliveLogMs) >= 0)
+            {
+                std::cout << millis() << " ms: Still alive ... " << std::endl;
+                nextStillAliveLogMs = millis() + 60000;
             }
             // static ulong nextLog = 0;
             // if (millis() >= nextLog)

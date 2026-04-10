@@ -107,6 +107,7 @@ namespace radiator
         virtual ~Surveillance();
 
         void main_loop(void);
+        bool hadValidPacket() const { return this->m_hadValidPacket; }
 
         STATE getState() { return this->state; }
 
@@ -153,6 +154,7 @@ namespace radiator
         SurveillanceHandler &handler;
         Device fd;
         int timeout;
+        bool m_hadValidPacket = false;
 
         void handle_command(const uint8_t *command);
 

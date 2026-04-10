@@ -121,6 +121,15 @@ namespace radiator
          */
         static void init();
 
+        /**
+         * @brief Plays a short non-alarm status beep sequence in a temporary FreeRTOS task.
+         *        Safe to call from any context including WiFi event handlers.
+         * @param count     Number of beep pulses
+         * @param onMs      ON duration per pulse in ms
+         * @param offMs     OFF duration per pulse in ms
+         */
+        static void playStatusBeep(int count, int onMs, int offMs);
+
     private:
         static volatile uint8_t activeLevelsMask; // bitmask of currently raised levels
         static TaskHandle_t buzzerTaskHandle;

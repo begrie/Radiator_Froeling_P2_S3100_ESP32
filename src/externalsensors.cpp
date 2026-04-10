@@ -287,7 +287,6 @@ void radiator::ExternalSensors::xTaskExternalSensors(void *parameter)
                 {
                     buzzerIsRunning = true;
                     messageBuf = getMillisAndTime() + "!!!!!!!! LECKWASSER ERKANNT !! SOFORT PRUEFEN !!!!!!!!";
-                    std::cout << messageBuf << std::endl;
                     LOG_fatal << messageBuf << std::endl;
                     radiator::AlarmManager::raise(radiator::AlarmManager::Level::LEAK_WATER,
                                                   messageBuf.c_str());
@@ -298,7 +297,6 @@ void radiator::ExternalSensors::xTaskExternalSensors(void *parameter)
                 buzzerIsRunning = false;
                 radiator::AlarmManager::clear(radiator::AlarmManager::Level::LEAK_WATER);
                 messageBuf = getMillisAndTime() + "#### Leckwasser ENTWARNUNG ####";
-                std::cout << messageBuf << std::endl;
                 LOG_fatal << messageBuf << std::endl;
                 radiator::NetworkHandler::publishToMQTT(messageBuf);
             }
