@@ -195,13 +195,21 @@ namespace radiator
             break;
 
         // --------------------------------------------------------
-        // LEVEL 4: BOILER_FAULT – 700ms EIN / 700ms AUS
+        // LEVEL 4: BOILER_FAULT – 700ms EIN / 700ms AUS, wiederholt alle 2s
+        //   Heizungsfehler: kritischer als BOILER_SILENT, aber nicht sofort
+        //   lebensbedrohlich wie LEAK/OVERHEAT. Signal wird wiederholt, bis
+        //   Quit-Taste gedrückt oder Fehler behoben.
         // --------------------------------------------------------
         case Level::BOILER_FAULT:
-            digitalWrite(BUZZER_PIN, HIGH);
-            vTaskDelay(pdMS_TO_TICKS(alarmcfg::BOILER_FAULT_ON_MS));
-            digitalWrite(BUZZER_PIN, LOW);
-            vTaskDelay(pdMS_TO_TICKS(alarmcfg::BOILER_FAULT_OFF_MS));
+            for (int i = 0; i < alarmcfg::BOILER_FAULT_PULSE_COUNT && !quitPressed && isActive(level); i++)
+            {
+                digitalWrite(BUZZER_PIN, HIGH);
+                vTaskDelay(pdMS_TO_TICKS(alarmcfg::BOILER_FAULT_PULSE_ON_MS));
+                digitalWrite(BUZZER_PIN, LOW);
+                vTaskDelay(pdMS_TO_TICKS(alarmcfg::BOILER_FAULT_PULSE_OFF_MS));
+            }
+            if (!quitPressed && isActive(level))
+                vTaskDelay(pdMS_TO_TICKS(alarmcfg::BOILER_FAULT_BLOCK_PAUSE_MS));
             break;
 
         // --------------------------------------------------------

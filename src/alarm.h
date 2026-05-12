@@ -44,6 +44,11 @@ namespace radiator
         static constexpr int BOILER_OVERHEAT_BLOCK_PAUSE_MS = 1000;
 
         // LEVEL 4: BOILER_FAULT
+        static constexpr int BOILER_FAULT_PULSE_COUNT = 1;
+        static constexpr int BOILER_FAULT_PULSE_ON_MS = 700;
+        static constexpr int BOILER_FAULT_PULSE_OFF_MS = 700;
+        static constexpr int BOILER_FAULT_BLOCK_PAUSE_MS = 1400;
+        // Legacy aliases for backward compatibility
         static constexpr int BOILER_FAULT_ON_MS = 700;
         static constexpr int BOILER_FAULT_OFF_MS = 700;
 
